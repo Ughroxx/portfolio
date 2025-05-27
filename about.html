@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About – UGHROXX</title>
+
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Bebas Neue for bold street font -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #0f0f0f url('images/back.jpg') center center no-repeat;
+      background-size: cover;
+      color: #fff;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    #logo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 300px;
+      z-index: 10;
+    }
+
+    #centerContent {
+      position: fixed;
+      top: 85%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 5;
+      max-width: 90vw;
+      width: 400px;
+    }
+
+    #shopBtn {
+      padding: 14px 38px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border: 2px solid #fff;
+      background: transparent;
+      color: #fff;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    #shopBtn:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    #bambi {
+      position: fixed;
+      top: 45%;
+      left: 50%;
+      width: 400px;
+      cursor: grab;
+      transform: translate(-50%, -50%);
+      z-index: 6;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.7));
+      transition: transform 0.2s ease;
+      user-select: none;
+    }
+
+    #bambi:active {
+      cursor: grabbing;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 1rem;
+      color: #666;
+      user-select: none;
+      padding: 15px 0;
+      background: transparent;
+      z-index: 1;
+    }
+
+    .social-links {
+      margin-top: 6px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .social-links a {
+      color: #ccc;
+      font-size: 1.8rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #fff;
+    }
+
+    /* Nav Bar */
+    .navBar {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+    }
+
+    .navBar a {
+      color: white;
+      text-decoration: none;
+      padding: 6px 10px;
+      transition: all 0.2s ease;
+      letter-spacing: 1px;
+    }
+
+    .navBar a:hover {
+      color: #fff;
+      background: #ffffff22;
+      border-radius: 4px;
+    }
+
+    .navBar input[type="text"] {
+      background: #1a1a1a;
+      border: none;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-family: 'Bebas Neue', sans-serif;
+      width: 140px;
+    }
+
+    .navBar input::placeholder {
+      color: #888;
+    }
+
+    @media (max-width: 768px) {
+      #bambi {
+        width: 320px;
+      }
+
+      #shopBtn {
+        padding: 12px 30px;
+      }
+
+      .navBar {
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 1rem;
+        top: 10px;
+        right: 20px;
+      }
+
+      .navBar input {
+        width: 120px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #shopBtn {
+        padding: 10px 28px;
+        font-size: 0.85rem;
+      }
+
+      #bambi {
+        width: 240px;
+      }
+
+      .navBar {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* About section styling */
+    #aboutMeSection {
+      flex-grow: 1; /* This pushes footer down */
+      margin-top: 140px;
+      padding: 20px 30px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      user-select: text;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      position: relative;
+      font-family: 'Bebas Neue', cursive, sans-serif;
+      letter-spacing: 0.06em;
+      color: #f0f0f0;
+      z-index: 5;
+    }
+
+    #aboutMeTitle img {
+      max-width: 600px;
+      height: auto;
+      margin-bottom: 50px;
+      align-self: center;
+      user-select: none;
+    }
+
+    #aboutMeText {
+      font-weight: 400;
+      font-size: 1.3rem;
+      line-height: 1.5;
+      max-width: 780px;
+      margin-bottom: 50px;
+      color: #ffffff;
+      letter-spacing: 0.08em;
+      white-space: pre-line;
+      position: relative;
+    }
+
+    #aboutMeFooter {
+      font-weight: 900;
+      font-size: 1.5rem;
+      line-height: 1.4;
+      color: #ebebeb;
+      max-width: 780px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      user-select: text;
+      margin-bottom: 60px;
+      text-shadow:
+        0 0 10px #ffffff,
+        0 0 20px #ffffff;
+      position: relative;
+      animation: neonPulse 3s infinite alternate ease-in-out;
+    }
+
+    @keyframes neonPulse {
+      0% {
+        text-shadow:
+          0 0 10px #fdfdfd,
+          0 0 20px #fdfdfd;
+        color: #fdfdfd;
+      }
+      100% {
+        text-shadow:
+          0 0 25px #fdfdfd,
+          0 0 40px #fdfdfd;
+        color: #fdfdfd;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <div class="navBar" role="navigation" aria-label="Primary navigation">
+    <a href="index.html">Home</a>
+    <a href="works.html">Works</a>
+    <a href="shop.html">Shop</a>
+    <a href="social.html">Social Contents</a>
+    <a href="contact.html">Contact</a>
+    <input type="text" placeholder="Search" aria-label="Search site" />
+  </div>
+
+  <!-- About content -->
+  <section id="aboutMeSection" aria-label="About Ughroxx">
+    <div id="aboutMeTitle">
+      <img src="images/about.png" alt="About Ughroxx" draggable="false" />
+    </div>
+    <div id="aboutMeText">
+      Ughroxx arises to represent myself, you, and all those who fear being average.<br>
+      It’s not just a brand, it’s an attitude towards life. A rebellion against sameness. A space for those who crave meaning, raw expression, and the courage to stand out.<br>
+      Ughroxx is where fashion meets art. My mind doesn’t work only as a designer, but as an artist, obsessed with pushing boundaries, telling stories, and creating pieces that make people feel. Every design reflects a journey.<br>
+      I run away from perfection, because I don’t design to fit in. I create to break boundaries.<br>
+      Every piece is 100% vegan-friendly, because making art should never come at the cost of another life.<br>
+      Ughroxx is for those who want more, from themselves, from art, from life.
+    </div>
+    <div id="aboutMeFooter">
+      This is more than style.<br>
+      This is a mindset.<br>
+      This is Ughroxx.
+    </div>
+
+  </section>
+
+  <footer>
+    © 2025 Ughroxx Clothing Brand
+    <div class="social-links">
+      <a href="https://www.instagram.com/ughroxx/?igsh=MXF6YXl6cDdvcTlrMQ%3D%3D&utm_source=qr" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/rossella-macri" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
