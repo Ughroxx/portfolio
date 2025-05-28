@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop UGHROXX</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Bebas Neue font -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Reset and base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      background: #0f0f0f url('images/back.jpg') center center no-repeat;
+      background-size: cover;
+      color: #fff;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 0;
+    }
+
+    /* Nav Bar */
+    .navBar {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+    }
+
+    .navBar a {
+      color: white;
+      text-decoration: none;
+      padding: 6px 10px;
+      transition: all 0.2s ease;
+      letter-spacing: 1px;
+    }
+
+    .navBar a:hover {
+      background: #ffffff22;
+      border-radius: 4px;
+      color: #fff;
+    }
+
+    .navBar input[type="text"] {
+      background: #1a1a1a;
+      border: none;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-family: 'Bebas Neue', sans-serif;
+      width: 140px;
+    }
+
+    .navBar input::placeholder {
+      color: #888;
+    }
+
+    /* Page Heading */
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      text-align: center;
+      margin: 120px 20px 40px;
+      color: #fff;
+      z-index: 5;
+      position: relative;
+    }
+
+    /* Products Grid */
+    .products {
+      max-width: 1200px;
+      margin: 0 auto 80px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      z-index: 5;
+      position: relative;
+    }
+
+    /* Individual product card */
+    .product-card {
+      background: rgba(255 255 255 / 0.05);
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.8);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #ddd;
+      position: relative;
+      cursor: default;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.9);
+      color: #fff;
+    }
+
+    /* Image wrapper for overlay */
+    .image-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 260px;
+      height: 320px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+      border-radius: 12px;
+    }
+
+    .product-card:hover .image-wrapper img {
+      transform: scale(1.1);
+    }
+
+    /* Sold Out Overlay */
+    .sold-out {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(20, 20, 20, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ff3b3b;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      pointer-events: none;
+      user-select: none;
+      border-radius: 12px;
+      z-index: 10;
+      text-shadow: 0 0 8px #ff3b3b;
+    }
+
+    /* Product Title */
+    .product-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      text-align: center;
+      color: #fff;
+    }
+
+    /* Product Price (dimmed since sold out) */
+    .product-price {
+      font-size: 1.1rem;
+      color: #aaa;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    /* Disabled buy button */
+    .btn-soldout {
+      background: transparent;
+      border: 2px solid #ff3b3b;
+      color: #ff3b3b;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-weight: 700;
+      cursor: not-allowed;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background 0.3s ease;
+      user-select: none;
+      align-self: center;
+    }
+
+    /* Footer */
+    footer {
+      position: fixed;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 1rem;
+      color: #666;
+      z-index: 5;
+      user-select: none;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    .social-links {
+      margin-top: 6px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .social-links a {
+      color: #ccc;
+      font-size: 1.8rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+        margin: 100px 10px 30px;
+      }
+      .products {
+        gap: 20px;
+        padding: 0 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+        margin: 80px 10px 24px;
+      }
+      .btn-soldout {
+        padding: 10px 24px;
+        font-size: 0.9rem;
+      }
+      .social-links a {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <div class="navBar" role="navigation" aria-label="Primary navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="works.html" aria-current="page">Works</a>
+    <a href="social.html">Social Contents</a>
+    <a href="contact.html">Contact</a>
+    <input type="text" placeholder="Search" aria-label="Search site" />
+  </div>
+
+  <!-- Page Title -->
+  <h1>Shop Ughroxx</h1>
+
+  <!-- Products Grid -->
+  <section class="products" aria-label="Clothing products, sold out">
+    <!-- Product 1 -->
+    <article class="product-card" tabindex="0">
+      <div class="image-wrapper">
+        <img src="images/shop/item1.webp" alt="Black Ughroxx T-Shirt" />
+        <div class="sold-out" aria-label="Sold Out">Sold Out</div>
+      </div>
+      <div class="product-title">Black Ughroxx T-Shirt</div>
+      <div class="product-price">$26.90</div>
+      <button class="btn-soldout" disabled aria-disabled="true" tabindex="-1">Sold Out</button>
+    </article>
+
+    <!-- Product 2 -->
+    <article class="product-card" tabindex="0">
+      <div class="image-wrapper">
+        <img src="images/shop/item3.webp" alt="White Ughroxx T-Shirt" />
+        <div class="sold-out" aria-label="Sold Out">Sold Out</div>
+      </div>
+      <div class="product-title">White Ughroxx T-Shirt</div>
+      <div class="product-price">$26.90</div>
+      <button class="btn-soldout" disabled aria-disabled="true" tabindex="-1">Sold Out</button>
+    </article>
+
+    <!-- Product 3 -->
+    <article class="product-card" tabindex="0">
+      <div class="image-wrapper">
+        <img src="images/shop/item2.webp" alt="Grey Ughroxx T-Shirt" />
+        <div class="sold-out" aria-label="Sold Out">Sold Out</div>
+      </div>
+      <div class="product-title">Grey Ughroxx T-Shirt</div>
+      <div class="product-price">$28.90</div>
+      <button class="btn-soldout" disabled aria-disabled="true" tabindex="-1">Sold Out</button>
+    </article>
+
+    <!-- Add more items as needed -->
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 UGHROXX. All rights reserved.
+    <div class="social-links" aria-label="Social media links">
+      <a href="https://instagram.com/ughroxx" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/rossella-macri" target="_blank" aria-label="LinkedIn">
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -104,42 +104,49 @@
     }
     /* Slideshow container */
     .slideshow-container {
-      margin: 100px 40px 40px 40px;
-      width: calc(100vw - 80px);
-      height: 70vh;
-      position: relative;
-      z-index: 5;
-      overflow: hidden;
-      background: rgba(255 255 255 / 0.05);
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.8);
-      user-select: none;
-    }
+  margin: 100px 40px 40px 40px;
+  width: calc(100vw - 80px);
+  height: 70vh;
+  position: relative;
+  z-index: 5;
+  overflow: hidden;
+  background: rgba(255 255 255 / 0.05);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.8);
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .slides-wrapper {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      perspective: 1000px;
-      position: relative;
-      justify-content: center;
-      gap: 24px;
-    }
+.slides-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  position: relative;
+}
+
 
     .slide {
-      flex: 0 0 calc((100vw - 80px) / 3 - 16px);
-      height: 100%;
-      object-fit: cover;
-      border-radius: 12px;
-      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));
-      cursor: grab;
-      transition: transform 0.3s ease;
-      backface-visibility: hidden;
-      transform-style: preserve-3d;
-      display: block;
-      position: relative;
-      background: black;
-    }
+  width: calc((100vw - 80px) / 3 - 16px);
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));
+  cursor: grab;
+  transition: transform 0.3s ease;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  display: block;
+  position: relative;
+  background: black;
+}
+
 
     .slide:hover {
       transform: scale(1.05);
@@ -180,26 +187,29 @@
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
-      .slideshow-container {
-        height: 50vh;
-        margin: 80px 20px 30px 20px;
-        width: calc(100vw - 40px);
-      }
-      .slide {
-        flex: 0 0 calc((100vw - 40px) / 3 - 12px);
-      }
-    }
+  .slideshow-container {
+    height: 50vh;
+    margin: 80px 20px 30px 20px;
+    width: calc(100vw - 40px);
+  }
+  .slide {
+    width: calc((100vw - 40px) / 3 - 12px);
+    height: 100%;
+  }
+}
 
-    @media (max-width: 480px) {
-      .slideshow-container {
-        height: 40vh;
-        margin: 60px 10px 20px 10px;
-        width: calc(100vw - 20px);
-      }
-      .slide {
-        flex: 0 0 calc((100vw - 20px) / 3 - 10px);
-      }
-    }
+@media (max-width: 480px) {
+  .slideshow-container {
+    height: 40vh;
+    margin: 60px 10px 20px 10px;
+    width: calc(100vw - 20px);
+  }
+  .slide {
+    width: calc((100vw - 20px) / 3 - 10px);
+    height: 100%;
+  }
+}
+
 
     /* Footer */
     footer {
@@ -274,6 +284,17 @@
       { src: "images/slide/slide3.jpeg", alt: "Streetwear collection photo 3" },
       { src: "images/slide/slide4.jpeg", alt: "Streetwear collection photo 4" },
       { src: "images/slide/slide5.jpeg", alt: "Streetwear collection photo 5" },
+      { src: "images/slide/slide6.jpeg", alt: "Streetwear collection photo 6" },
+      { src: "images/slide/slide7.jpeg", alt: "Streetwear collection photo 7" },
+      { src: "images/slide/slide8.jpeg", alt: "Streetwear collection photo 8" },
+      { src: "images/slide/slide9.jpeg", alt: "Streetwear collection photo 9" },
+      { src: "images/slide/slide10.jpeg", alt: "Streetwear collection photo 10" },
+      { src: "images/slide/slide11.jpeg", alt: "Streetwear collection photo 11" },
+      { src: "images/slide/slide12.jpeg", alt: "Streetwear collection photo 12" },
+      { src: "images/slide/slide13.jpeg", alt: "Streetwear collection photo 13" },
+      { src: "images/slide/slide14.jpeg", alt: "Streetwear collection photo 14" },
+      { src: "images/slide/slide15.jpeg", alt: "Streetwear collection photo 15" },
+      { src: "images/slide/slide16.jpeg", alt: "Streetwear collection photo 16" },
     ];
 
     let currentStartIndex = 0; // index of first image currently displayed in slot 0
