@@ -11,6 +11,9 @@
   <!-- Bebas Neue for bold street font -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
+  <!-- External CSS for navbar and footer -->
+  <link rel="stylesheet" href="css/nav-footer.css" />
+
   <style>
     /* Reset & base styles */
     * {
@@ -39,77 +42,9 @@
       z-index: 0;
     }
 
-    /* Header container for logo and navbar */
-    .headerBar {
-      position: fixed;
-      top: 10px;
-      left: 0;
-      right: 0;
-      z-index: 30;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-      gap: 10px;
-      max-width: 100vw;
-      flex-wrap: nowrap;
-    }
-
-    /* Logo */
-    #logo {
-      position: relative;
-      width: 180px;
-      max-width: 40vw;
-      height: auto;
-      z-index: 10;
-      user-select: none;
-    }
-
-    /* Navigation Bar */
-    .navBar {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.3rem;
-      text-transform: uppercase;
-      flex-wrap: nowrap;
-      max-width: 70vw;
-      white-space: nowrap;
-    }
-
-    .navBar a {
-      color: white;
-      text-decoration: none;
-      padding: 6px 10px;
-      transition: all 0.2s ease;
-      letter-spacing: 1px;
-      white-space: nowrap;
-    }
-
-    .navBar a:hover {
-      color: #fff;
-      background: #ffffff22;
-      border-radius: 4px;
-    }
-
-    .navBar input[type="text"] {
-      background: #1a1a1a;
-      border: none;
-      color: #fff;
-      padding: 6px 10px;
-      border-radius: 4px;
-      font-size: 1rem;
-      font-family: 'Bebas Neue', sans-serif;
-      width: 140px;
-      min-width: 100px;
-      flex-shrink: 1;
-    }
-
-    .navBar input::placeholder {
-      color: #888;
-    }
+    footer {
+  margin-top: auto; /* Push footer to the bottom in flex column */
+}
 
     /* MOVE ME text */
     #moveMe {
@@ -184,37 +119,17 @@
       color: #000;
     }
 
-    /* Footer */
-    footer {
-      position: fixed;
-      bottom: 10px;
-      width: 100%;
-      text-align: center;
-      font-size: 1rem;
-      color: #666;
-      z-index: 1;
+    /* Logo styles */
+    #logo {
+      position: relative;
+      width: 180px;
+      max-width: 40vw;
+      height: auto;
+      z-index: 10;
       user-select: none;
     }
 
-    .social-links {
-      margin-top: 6px;
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-    }
-
-    .social-links a {
-      color: #ccc;
-      font-size: 1.8rem;
-      transition: color 0.3s ease;
-    }
-
-    .social-links a:hover {
-      color: #fff;
-    }
-
     /* Media Queries */
-
     @media (max-width: 768px) {
       #bambi {
         width: 260px;
@@ -224,23 +139,8 @@
         padding: 12px 30px;
       }
 
-      .headerBar {
-        top: 10px;
-        padding: 0 15px;
-        gap: 8px;
-      }
-
-      .navBar {
-        gap: 12px;
-        font-size: 1rem;
-        max-width: 75vw;
-        flex-wrap: nowrap;
-      }
-
-      .navBar input {
-        width: 120px;
-        min-width: 80px;
-        flex-shrink: 1;
+      #logo {
+        width: 160px;
       }
 
       #centerContent {
@@ -258,21 +158,6 @@
         font-size: 0.85rem;
       }
 
-      .headerBar {
-        padding: 0 10px;
-      }
-
-      .navBar {
-        font-size: 0.9rem;
-        gap: 8px;
-        max-width: 70vw;
-      }
-
-      .navBar input {
-        width: 100px;
-        min-width: 70px;
-      }
-
       #logo {
         width: 140px;
         max-width: 40vw;
@@ -287,17 +172,16 @@
 <body>
 
   <!-- Header: Logo + Navbar -->
-  <div class="headerBar">
+  <header class="headerBar">
     <img src="images/logo.png" id="logo" alt="Ughroxx Logo" />
-
-    <div class="navBar">
+    <nav class="navBar" role="navigation" aria-label="Primary navigation">
       <a href="works.html">Works</a>
       <a href="shop.html">Shop</a>
       <a href="social.html">Social Contents</a>
       <a href="contact.html">Contact</a>
-      <input type="text" placeholder="Search" />
-    </div>
-  </div>
+      <input type="text" placeholder="Search" aria-label="Search site" />
+    </nav>
+  </header>
 
   <!-- MOVE ME text -->
   <div id="moveMe">MOVE ME</div>

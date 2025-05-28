@@ -25,13 +25,9 @@
       background-size: cover;
       color: #fff;
       overflow-x: hidden;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center; /* center slideshow horizontally */
-      align-items: center;     /* center slideshow vertically */
       min-height: 100vh;
-      position: relative;
+      display: flex;
+      flex-direction: column;
     }
 
     body::before {
@@ -42,7 +38,7 @@
       z-index: 0;
     }
 
-    /* Nav Bar (unchanged, fixed top-right) */
+    /* Nav Bar */
     .navBar {
       position: fixed;
       top: 20px;
@@ -105,11 +101,10 @@
       }
     }
 
-    /* Slideshow container (centered now) */
+    /* Slideshow container */
     .slideshow-container {
-      margin: 0; /* remove margin to keep centered */
+      margin: 100px 40px 40px 40px;
       width: calc(100vw - 80px);
-      max-width: 1200px;
       height: 70vh;
       position: relative;
       z-index: 5;
@@ -191,6 +186,7 @@
     @media (max-width: 768px) {
       .slideshow-container {
         height: 50vh;
+        margin: 80px 20px 30px 20px;
         width: calc(100vw - 40px);
       }
       .slide {
@@ -202,6 +198,7 @@
     @media (max-width: 480px) {
       .slideshow-container {
         height: 40vh;
+        margin: 60px 10px 20px 10px;
         width: calc(100vw - 20px);
       }
       .slide {
@@ -217,7 +214,7 @@
       width: 100%;
       text-align: center;
       font-size: 1.3rem;
-      color: #666;
+      color: #ccc;
       z-index: 1;
       user-select: none;
     }
@@ -238,6 +235,32 @@
     .social-links a:hover {
       color: #fff;
     }
+
+    /* Responsive */
+@media (max-width: 768px) {
+  .navBar {
+    top: 10px;
+    right: 20px;
+    font-size: 1.1rem;
+    gap: 12px;
+  }
+
+  .navBar input[type="text"] {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navBar {
+    font-size: 1rem;
+  }
+
+  .navBar input[type="text"] {
+    width: 100px;
+    padding: 5px 8px;
+  }
+}
+
   </style>
 </head>
 <body>
