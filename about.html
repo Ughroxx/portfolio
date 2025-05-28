@@ -41,88 +41,6 @@
       z-index: 0;
     }
 
-    #logo {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 300px;
-      z-index: 10;
-    }
-
-    #centerContent {
-      position: fixed;
-      top: 85%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 5;
-      max-width: 90vw;
-      width: 400px;
-    }
-
-    #shopBtn {
-      padding: 14px 38px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      border: 2px solid #fff;
-      background: transparent;
-      color: #fff;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    #shopBtn:hover {
-      background: #fff;
-      color: #000;
-    }
-
-    #bambi {
-      position: fixed;
-      top: 45%;
-      left: 50%;
-      width: 400px;
-      cursor: grab;
-      transform: translate(-50%, -50%);
-      z-index: 6;
-      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.7));
-      transition: transform 0.2s ease;
-      user-select: none;
-    }
-
-    #bambi:active {
-      cursor: grabbing;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 1rem;
-      color: #666;
-      user-select: none;
-      padding: 15px 0;
-      background: transparent;
-      z-index: 1;
-    }
-
-    .social-links {
-      margin-top: 6px;
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-    }
-
-    .social-links a {
-      color: #ccc;
-      font-size: 1.8rem;
-      transition: color 0.3s ease;
-    }
-
-    .social-links a:hover {
-      color: #fff;
-    }
-
     /* Nav Bar */
     .navBar {
       position: fixed;
@@ -166,46 +84,9 @@
       color: #888;
     }
 
-    @media (max-width: 768px) {
-      #bambi {
-        width: 320px;
-      }
-
-      #shopBtn {
-        padding: 12px 30px;
-      }
-
-      .navBar {
-        flex-wrap: wrap;
-        gap: 10px;
-        font-size: 1rem;
-        top: 10px;
-        right: 20px;
-      }
-
-      .navBar input {
-        width: 120px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      #shopBtn {
-        padding: 10px 28px;
-        font-size: 0.85rem;
-      }
-
-      #bambi {
-        width: 240px;
-      }
-
-      .navBar {
-        font-size: 0.9rem;
-      }
-    }
-
-    /* About section styling */
+    /* About Section */
     #aboutMeSection {
-      flex-grow: 1; /* This pushes footer down */
+      flex-grow: 1;
       margin-top: 140px;
       padding: 20px 30px;
       max-width: 900px;
@@ -244,19 +125,18 @@
     }
 
     #aboutMeFooter {
-  font-weight: 900;
-  font-size: 1.5rem;
-  line-height: 1.4;
-  color: #ebebeb;
-  max-width: 780px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  user-select: text;
-  margin: 0 auto 60px auto; /* Center horizontally */
-  text-align: center; /* Center text content */
-  position: relative;
-}
-
+      font-weight: 900;
+      font-size: 1.5rem;
+      line-height: 1.4;
+      color: #ebebeb;
+      max-width: 780px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      user-select: text;
+      margin: 0 auto 60px auto;
+      text-align: center;
+      position: relative;
+    }
 
     @keyframes neonPulse {
       0% {
@@ -273,6 +153,59 @@
       }
     }
 
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 1rem;
+      color: #666;
+      user-select: none;
+      padding: 15px 0;
+      background: transparent;
+      z-index: 1;
+    }
+
+    .social-links {
+      margin-top: 6px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .social-links a {
+      color: #ccc;
+      font-size: 1.8rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #aboutMeTitle img {
+        max-width: 90vw;
+      }
+      .navBar {
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 1rem;
+        top: 10px;
+        right: 20px;
+      }
+      .navBar input {
+        width: 120px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #aboutMeText {
+        font-size: 1.1rem;
+      }
+      .navBar {
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -305,7 +238,6 @@
       This is a mindset.<br>
       This is Ughroxx.
     </div>
-
   </section>
 
   <footer>

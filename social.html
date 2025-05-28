@@ -6,17 +6,25 @@
   <title>UGHROXX Reels</title>
 
   <!-- Font Awesome & Google Fonts -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
+    /* Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
       height: 100%;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       background: #0f0f0f url('images/back.jpg') center center no-repeat;
@@ -25,6 +33,7 @@
       overflow-x: hidden;
     }
 
+    /* Background Overlay */
     body::before {
       content: '';
       position: fixed;
@@ -33,6 +42,7 @@
       z-index: 0;
     }
 
+    /* Navigation Bar */
     .navBar {
       position: fixed;
       top: 20px;
@@ -47,20 +57,23 @@
     }
 
     .navBar a {
-      color: white;
+      color: #fff;
       text-decoration: none;
       padding: 6px 10px;
       transition: all 0.2s ease;
       letter-spacing: 1px;
     }
 
-    .navBar a:hover {
+    .navBar a:hover,
+    .navBar a:focus-visible {
       color: #fff;
       background: #ffffff22;
       border-radius: 4px;
+      outline-offset: 2px;
+      outline: 2px solid #fff;
     }
 
-    .navBar input[type="text"] {
+    .navBar input[type='text'] {
       background: #1a1a1a;
       border: none;
       color: #fff;
@@ -69,12 +82,19 @@
       font-size: 1rem;
       font-family: 'Bebas Neue', sans-serif;
       width: 140px;
+      transition: background-color 0.3s ease;
+    }
+
+    .navBar input[type='text']:focus {
+      outline: 2px solid #fff;
+      background-color: #222;
     }
 
     .navBar input::placeholder {
       color: #888;
     }
 
+    /* Header */
     header {
       text-align: center;
       padding: 100px 20px 40px;
@@ -85,8 +105,10 @@
       position: relative;
       color: #fff;
       text-shadow: 0 0 6px #000;
+      user-select: none;
     }
 
+    /* Reels Grid */
     .reels-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -98,14 +120,14 @@
       position: relative;
     }
 
-    /* Updated reel card style for dark theme */
+    /* Reel Card */
     .reels-grid blockquote {
       background: linear-gradient(145deg, #181818, #121212);
       border-radius: 20px;
       padding: 20px;
       box-shadow:
-        0 4px 8px rgba(0,0,0,0.7),
-        inset 0 0 15px rgba(255,255,255,0.05);
+        0 4px 8px rgba(0, 0, 0, 0.7),
+        inset 0 0 15px rgba(255, 255, 255, 0.05);
       border: 1px solid #222;
       overflow: hidden;
       max-width: 100%;
@@ -113,11 +135,13 @@
       position: relative;
     }
 
-    .reels-grid blockquote:hover {
+    .reels-grid blockquote:hover,
+    .reels-grid blockquote:focus-within {
       transform: scale(1.07);
       box-shadow:
-        0 8px 24px rgba(255,255,255,0.12),
-        inset 0 0 25px rgba(255,255,255,0.1);
+        0 8px 24px rgba(255, 255, 255, 0.12),
+        inset 0 0 25px rgba(255, 255, 255, 0.1);
+      outline: none;
     }
 
     .reels-grid blockquote::before {
@@ -142,16 +166,18 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: block;
       margin: 0 auto;
-      filter: drop-shadow(0 0 4px rgba(255,255,255,0.1));
+      filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.1));
       backdrop-filter: blur(6px);
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .reels-grid blockquote:hover iframe {
+    .reels-grid blockquote:hover iframe,
+    .reels-grid blockquote:focus-within iframe {
       transform: scale(1.1);
       box-shadow: inset 0 0 20px 7px rgba(0, 0, 0, 0.9);
     }
 
+    /* Footer */
     footer {
       position: relative;
       text-align: center;
@@ -177,10 +203,15 @@
       transition: color 0.3s ease;
     }
 
-    .social-links a:hover {
+    .social-links a:hover,
+    .social-links a:focus-visible {
       color: #fff;
+      outline-offset: 2px;
+      outline: 2px solid #fff;
+      border-radius: 4px;
     }
 
+    /* Responsive */
     @media (max-width: 768px) {
       .navBar {
         flex-wrap: wrap;
@@ -210,34 +241,88 @@
   </style>
 </head>
 <body>
-
   <!-- Navigation Bar -->
-  <div class="navBar">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="shop.html">Shop</a>
-    <a href="works.html">Works</a>
-    <a href="contact.html">Contact</a>
-    <input type="text" placeholder="Search" />
-  </div>
+  <nav class="navBar" role="navigation" aria-label="Primary Navigation">
+    <a href="index.html" tabindex="0">Home</a>
+    <a href="about.html" tabindex="0">About</a>
+    <a href="shop.html" tabindex="0">Shop</a>
+    <a href="works.html" tabindex="0">Works</a>
+    <a href="contact.html" tabindex="0">Contact</a>
+    <input type="text" placeholder="Search" aria-label="Search site content" />
+  </nav>
 
   <!-- Page Header -->
   <header>UGHROXX REELS</header>
 
   <!-- Reels Section -->
-  <div class="reels-grid">
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C-coH5esplW/" data-instgrm-version="14"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DKKrmTcsNBc/" data-instgrm-version="14"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DH89Bt8M97S/" data-instgrm-version="14"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DH3ed0qM0r6/" data-instgrm-version="14"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DHq6WsZs-hF/" data-instgrm-version="14"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DHYhWuisksZ/" data-instgrm-version="14"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DHTjZxtsKXo/" data-instgrm-version="14"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DHDy04FsBil/" data-instgrm-version="14"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DG0zuHCMXt6/" data-instgrm-version="14"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C99lD91Meds/" data-instgrm-version="14"></blockquote>
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C9195r2sV_3/" data-instgrm-version="14"></blockquote>
-  </div>
+  <main class="reels-grid" role="main" aria-label="Instagram Reels">
+    <blockquote
+      class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/reel/C-coH5esplW/"
+      data-instgrm-version="14"
+      tabindex="0"
+    ></blockquote>
+    <blockquote
+      class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/reel/DKKrmTcsNBc/"
+      data-instgrm-version="14"
+      tabindex="0"
+    ></blockquote>
+    <blockquote
+      class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/reel/DH89Bt8M97S/"
+      data-instgrm-version="14"
+      tabindex="0"
+    ></blockquote>
+    <blockquote
+      class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/reel/DH3ed0qM0r6/"
+      data-instgrm-version="14"
+      tabindex="0"
+    ></blockquote>
+    <blockquote
+      class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/reel/DHq6WsZs-hF/"
+      data-instgrm-version="14"
+      tabindex="0"
+    ></blockquote>
+    <blockquote
+      class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/reel/DHYhWuisksZ/"
+      data-instgrm-version="14"
+      tabindex="0"
+    ></blockquote>
+    <blockquote
+      class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/reel/DHTjZxtsKXo/"
+      data-instgrm-version="14"
+      tabindex="0"
+    ></blockquote>
+    <blockquote
+      class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/reel/DHDy04FsBil/"
+      data-instgrm-version="14"
+      tabindex="0"
+    ></blockquote>
+    <blockquote
+      class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/reel/DG0zuHCMXt6/"
+      data-instgrm-version="14"
+      tabindex="0"
+    ></blockquote>
+    <blockquote
+      class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/reel/C99lD91Meds/"
+      data-instgrm-version="14"
+      tabindex="0"
+    ></blockquote>
+    <blockquote
+      class="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/reel/C9195r2sV_3/"
+      data-instgrm-version="14"
+      tabindex="0"
+    ></blockquote>
+  </main>
 
   <!-- Instagram Embed Script -->
   <script async src="https://www.instagram.com/embed.js"></script>
@@ -245,15 +330,24 @@
   <!-- Footer -->
   <footer>
     © 2025 Ughroxx Clothing Brand
-    <div class="social-links">
-      <a href="https://www.instagram.com/ughroxx/" target="_blank" aria-label="Instagram">
+    <div class="social-links" aria-label="Social media links">
+      <a
+        href="https://www.instagram.com/ughroxx/"
+        target="_blank"
+        aria-label="Instagram"
+        rel="noopener noreferrer"
+      >
         <i class="fab fa-instagram"></i>
       </a>
-      <a href="https://www.linkedin.com/in/rossella-macri" target="_blank" aria-label="LinkedIn">
+      <a
+        href="https://www.linkedin.com/in/rossella-macri"
+        target="_blank"
+        aria-label="LinkedIn"
+        rel="noopener noreferrer"
+      >
         <i class="fab fa-linkedin"></i>
       </a>
     </div>
   </footer>
-
 </body>
 </html>
