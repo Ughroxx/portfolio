@@ -39,23 +39,35 @@
       z-index: 0;
     }
 
-    /* Logo */
-    #logo {
+    /* Header container for logo and navbar */
+    .headerBar {
       position: fixed;
       top: 10px;
-      left: 10px;
-      width: 220px;
-      max-width: 25vw;
+      left: 0;
+      right: 0;
+      z-index: 30;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      gap: 10px;
+      max-width: 100vw;
+      flex-wrap: nowrap;
+    }
+
+    /* Logo */
+    #logo {
+      position: relative;
+      width: 180px;
+      max-width: 40vw;
       height: auto;
       z-index: 10;
+      user-select: none;
     }
 
     /* Navigation Bar */
     .navBar {
-      position: fixed;
-      top: 20px;
-      right: 30px;
-      z-index: 20;
+      position: relative;
       display: flex;
       align-items: center;
       gap: 20px;
@@ -64,6 +76,7 @@
       text-transform: uppercase;
       flex-wrap: nowrap;
       max-width: 70vw;
+      white-space: nowrap;
     }
 
     .navBar a {
@@ -211,19 +224,23 @@
         padding: 12px 30px;
       }
 
+      .headerBar {
+        top: 10px;
+        padding: 0 15px;
+        gap: 8px;
+      }
+
       .navBar {
-        top: 15px;
-        right: 15px;
         gap: 12px;
         font-size: 1rem;
-        max-width: 90vw;
-        flex-wrap: wrap;
+        max-width: 75vw;
+        flex-wrap: nowrap;
       }
 
       .navBar input {
         width: 120px;
-        min-width: 100px;
-        flex-grow: 1;
+        min-width: 80px;
+        flex-shrink: 1;
       }
 
       #centerContent {
@@ -241,37 +258,45 @@
         font-size: 0.85rem;
       }
 
+      .headerBar {
+        padding: 0 10px;
+      }
+
       .navBar {
         font-size: 0.9rem;
-        top: 10px;
-        right: 10px;
+        gap: 8px;
+        max-width: 70vw;
+      }
+
+      .navBar input {
+        width: 100px;
+        min-width: 70px;
+      }
+
+      #logo {
+        width: 140px;
+        max-width: 40vw;
       }
 
       #centerContent {
         width: 280px;
-      }
-
-      #logo {
-        width: 180px;
-        max-width: 50vw;
-        top: 5px;
-        left: 5px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Logo -->
-  <img src="images/logo.png" id="logo" alt="Ughroxx Logo" />
+  <!-- Header: Logo + Navbar -->
+  <div class="headerBar">
+    <img src="images/logo.png" id="logo" alt="Ughroxx Logo" />
 
-  <!-- Navigation Bar -->
-  <div class="navBar">
-    <a href="works.html">Works</a>
-    <a href="shop.html">Shop</a>
-    <a href="social.html">Social Contents</a>
-    <a href="contact.html">Contact</a>
-    <input type="text" placeholder="Search" />
+    <div class="navBar">
+      <a href="works.html">Works</a>
+      <a href="shop.html">Shop</a>
+      <a href="social.html">Social Contents</a>
+      <a href="contact.html">Contact</a>
+      <input type="text" placeholder="Search" />
+    </div>
   </div>
 
   <!-- MOVE ME text -->

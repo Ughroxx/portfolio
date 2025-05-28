@@ -81,6 +81,7 @@
       width: 140px;
       min-width: 100px;
       flex-shrink: 1;
+      transition: width 0.3s ease;
     }
 
     .navBar input::placeholder {
@@ -193,6 +194,7 @@
       margin-bottom: 8px;
       text-align: center;
       color: #fff;
+      word-break: break-word;
     }
 
     /* Product Price (dimmed since sold out) */
@@ -218,6 +220,7 @@
       transition: background 0.3s ease;
       user-select: none;
       align-self: center;
+      white-space: nowrap;
     }
 
     /* Footer */
@@ -231,6 +234,7 @@
       z-index: 5;
       user-select: none;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      padding: 0 10px;
     }
 
     .social-links {
@@ -271,8 +275,8 @@
         flex-wrap: wrap;
       }
       .navBar input {
-        width: 120px;
-        min-width: 100px;
+        width: 100%;
+        min-width: unset;
         flex-grow: 1;
       }
     }

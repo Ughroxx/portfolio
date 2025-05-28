@@ -22,8 +22,6 @@
       height: 100%;
       margin: 0;
       padding: 0;
-      display: flex;
-      flex-direction: column;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       background: #0f0f0f url('images/back.jpg') center center no-repeat;
       background-size: cover;
@@ -31,6 +29,8 @@
       overflow-x: hidden;
       min-height: 100vh;
       position: relative;
+      display: flex;
+      flex-direction: column;
     }
 
     body::before {
@@ -41,7 +41,7 @@
       z-index: 0;
     }
 
-    /* Nav Bar */
+    /* Nav Bar - identical to main page */
     .navBar {
       position: fixed;
       top: 20px;
@@ -51,7 +51,7 @@
       align-items: center;
       gap: 20px;
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.3rem;
+      font-size: 1.8rem;
       text-transform: uppercase;
     }
 
@@ -211,14 +211,14 @@
 <body>
 
   <!-- Navigation Bar -->
-  <div class="navBar" role="navigation" aria-label="Primary navigation">
+  <nav class="navBar" role="navigation" aria-label="Primary navigation">
     <a href="index.html">Home</a>
     <a href="works.html">Works</a>
     <a href="shop.html">Shop</a>
     <a href="social.html">Social Contents</a>
     <a href="contact.html">Contact</a>
     <input type="text" placeholder="Search" aria-label="Search site" />
-  </div>
+  </nav>
 
   <!-- About content -->
   <section id="aboutMeSection" aria-label="About Ughroxx">
@@ -251,5 +251,6 @@
       </a>
     </div>
   </footer>
+
 </body>
 </html>
