@@ -73,11 +73,30 @@
         font-size: 2.2rem;
         padding-top: 80px;
       }
-
-      .taggbox {
-        padding: 10px;
-      }
     }
+
+    @media (max-width: 768px) {
+  header {
+    font-size: 2rem;
+    padding: 60px 10px 20px;
+  }
+
+  .taggbox {
+    padding: 0;
+    height: 80vh; /* Give height instead of full 100% */
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    font-size: 1.6rem;
+    padding: 40px 8px 15px;
+  }
+
+  .taggbox {
+    height: 75vh;
+  }
+}
   </style>
 </head>
 <body>
