@@ -121,13 +121,18 @@
 
     /* Logo styles */
     #logo {
-      position: relative;
-      width: 180px;
-      max-width: 40vw;
-      height: auto;
-      z-index: 10;
-      user-select: none;
-    }
+  position: absolute;
+  top: 260px;              /* Lower on the page */
+  left: -280px;              /* Push to the left */
+  width: 900px;           /* Large size */
+  max-width: 60vw;
+  height: auto;
+  z-index: 10;
+  user-select: none;
+  transform: rotate(90deg);
+  margin: 0 !important;   /* Rotate 90 degrees */
+}
+
 
     /* Media Queries */
     @media (max-width: 768px) {
@@ -137,10 +142,6 @@
 
       #shopBtn {
         padding: 12px 30px;
-      }
-
-      #logo {
-        width: 160px;
       }
 
       #centerContent {
@@ -158,15 +159,29 @@
         font-size: 0.85rem;
       }
 
-      #logo {
-        width: 140px;
-        max-width: 40vw;
-      }
-
       #centerContent {
         width: 280px;
       }
     }
+
+    @media (max-width: 768px) {
+  #logo {
+    width: 240px;
+    top: 40px;
+    left: 10px;
+    transform: rotate(180deg);
+  }
+}
+
+@media (max-width: 480px) {
+  #logo {
+    width: 200px;
+    top: 30px;
+    left: 10px;
+    transform: rotate(180deg);
+  }
+}
+
   </style>
 </head>
 <body>
