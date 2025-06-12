@@ -121,18 +121,16 @@
 
     /* Logo styles */
     #logo {
-  position: absolute;
-  top: 260px;              /* Lower on the page */
-  left: -280px;              /* Push to the left */
-  width: 900px;           /* Large size */
-  max-width: 60vw;
+  position: fixed;
+  top: 50%;
+  left: -100px;
+  width: 600px;
+  max-width: none;
   height: auto;
+  transform: translateY(-50%) rotate(90deg);
   z-index: 10;
   user-select: none;
-  transform: rotate(90deg);
-  margin: 0 !important;   /* Rotate 90 degrees */
 }
-
 
     /* Media Queries */
     @media (max-width: 768px) {
@@ -164,22 +162,19 @@
       }
     }
 
-    @media (max-width: 768px) {
+   @media (max-width: 768px) {
   #logo {
     width: 240px;
-    top: 40px;
-    left: 10px;
-    transform: rotate(90deg);
+    left: -50px;
   }
 }
 
 @media (max-width: 480px) {
   #logo {
     width: 200px;
-    top: 30px;
-    left: 10px;
-    transform: rotate(90deg);
+    left: -50px;
   }
+
 }
 
   </style>
