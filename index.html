@@ -120,7 +120,7 @@
     }
 
     /* Logo styles */
-    #logo {
+  #logo {
   position: fixed;
   top: 50%;
   left: -200px;
@@ -130,7 +130,14 @@
   transform: translateY(-50%) rotate(90deg);
   z-index: 10;
   user-select: none;
+  cursor: grab;
+  transition: transform 0.2s ease;
 }
+
+#logo:active {
+  cursor: grabbing;
+}
+
 
     /* Media Queries */
     @media (max-width: 768px) {
@@ -218,54 +225,77 @@
 
   <!-- Script to Drag Bambi with mouse & touch support -->
   <script>
-    const bambi = document.getElementById('bambi');
-    let isDragging = false,
-        offsetX = 0,
-        offsetY = 0;
+ const logo = document.getElementById('logo');
+const bambi = document.getElementById('bambi');
 
-    function startDrag(e) {
-      isDragging = true;
-      const rect = bambi.getBoundingClientRect();
-      const clientX = e.type.startsWith('touch') ? e.touches[0].clientX : e.clientX;
-      const clientY = e.type.startsWith('touch') ? e.touches[0].clientY : e.clientY;
+let isDragging = false,
+    offsetX = 0,
+    offsetY = 0,
+    target = null;
 
-      offsetX = clientX - rect.left;
-      offsetY = clientY - rect.top;
-      bambi.style.transition = 'none';
-      e.preventDefault();
-    }
+function startDrag(e) {
+  isDragging = true;
+  target = e.currentTarget;
+  const rect = target.getBoundingClientRect();
 
-    function stopDrag() {
-      isDragging = false;
-      bambi.style.transition = 'transform 0.2s ease';
-    }
+  const clientX = e.type.startsWith('touch') ? e.touches[0].clientX : e.clientX;
+  const clientY = e.type.startsWith('touch') ? e.touches[0].clientY : e.clientY;
 
-    function drag(e) {
-      if (!isDragging) return;
-      const clientX = e.type.startsWith('touch') ? e.touches[0].clientX : e.clientX;
-      const clientY = e.type.startsWith('touch') ? e.touches[0].clientY : e.clientY;
+  offsetX = clientX - rect.left;
+  offsetY = clientY - rect.top;
 
-      let x = clientX - offsetX;
-      let y = clientY - offsetY;
+  target.style.transition = 'none';
+  e.preventDefault();
+}
 
-      const bounds = bambi.getBoundingClientRect();
-      x = Math.max(0, Math.min(window.innerWidth - bounds.width, x));
-      y = Math.max(0, Math.min(window.innerHeight - bounds.height, y));
+function stopDrag() {
+  if (!isDragging) return;
+  isDragging = false;
+  if (target) {
+    target.style.transition = 'transform 0.2s ease';
+    target = null;
+  }
+}
 
-      bambi.style.left = `${x}px`;
-      bambi.style.top = `${y}px`;
-      bambi.style.transform = 'none';
-      e.preventDefault();
-    }
+function drag(e) {
+  if (!isDragging || !target) return;
 
-    bambi.addEventListener('mousedown', startDrag);
-    bambi.addEventListener('touchstart', startDrag, { passive: false });
+  const clientX = e.type.startsWith('touch') ? e.touches[0].clientX : e.clientX;
+  const clientY = e.type.startsWith('touch') ? e.touches[0].clientY : e.clientY;
 
-    window.addEventListener('mouseup', stopDrag);
-    window.addEventListener('touchend', stopDrag);
+  let x = clientX - offsetX;
+  let y = clientY - offsetY;
 
-    window.addEventListener('mousemove', drag);
-    window.addEventListener('touchmove', drag, { passive: false });
+  const bounds = target.getBoundingClientRect();
+  x = Math.max(0, Math.min(window.innerWidth - bounds.width, x));
+  y = Math.max(0, Math.min(window.innerHeight - bounds.height, y));
+
+  target.style.left = `${x}px`;
+  target.style.top = `${y}px`;
+
+  // Apply rotation only to logo
+  if (target.id === "logo") {
+    target.style.transform = 'rotate(90deg)';
+  } else {
+    target.style.transform = 'none';
+  }
+
+  e.preventDefault();
+}
+
+// Attach listeners to both elements
+logo.addEventListener('mousedown', startDrag);
+logo.addEventListener('touchstart', startDrag, { passive: false });
+
+bambi.addEventListener('mousedown', startDrag);
+bambi.addEventListener('touchstart', startDrag, { passive: false });
+
+window.addEventListener('mouseup', stopDrag);
+window.addEventListener('touchend', stopDrag);
+
+window.addEventListener('mousemove', drag);
+window.addEventListener('touchmove', drag, { passive: false });
+
   </script>
 </body>
 </html>
