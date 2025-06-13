@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio – UGHROXX</title>
+
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Bebas Neue for bold street font -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="css/nav-footer.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #0f0f0f url('images/back.jpg') center center no-repeat;
+      background-size: cover;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mainWrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 5;
+    }
+
+    #portfolioContent {
+      text-align: center;
+      max-width: 700px;
+      width: 100%;
+    }
+
+    #portfolioContent h1 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 3rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+
+    #portfolioContent a.button {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-weight: 700;
+      border: 2px solid #fff;
+      background: transparent;
+      color: #fff;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    #portfolioContent a.button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    @media (max-width: 768px) {
+      #portfolioContent h1 {
+        font-size: 2.2rem;
+      }
+
+      #portfolioContent a.button {
+        padding: 12px 28px;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo and Navbar -->
+  <header class="headerBar">
+    <nav class="navBar" role="navigation" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="works.html" aria-current="page">Works</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="social.html">Social Contents</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main Centered Portfolio Section -->
+  <div class="mainWrapper">
+    <section id="portfolioContent">
+      <h1>Rossella Macri – Portfolio & CV</h1>
+      <a href="https://www.behance.net/gallery/225934725/Rossella-Macri/modules/1291934085" target="_blank" rel="noopener noreferrer" class="button">View Portfolio</a>
+      <a href="images/cv.pdf" download class="button">Download CV (PDF)</a>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Ughroxx Clothing Brand
+    <div class="social-links">
+      <a href="https://www.instagram.com/ughroxx/?igsh=MXF6YXl6cDdvcTlrMQ%3D%3D&utm_source=qr" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/rossella-macri" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </footer>
+
+</body>
+</html>
