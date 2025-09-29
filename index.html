@@ -18,6 +18,7 @@
 
   <style>
     /* Reset & base styles */
+/* Reset & base styles */
 * {
   margin: 0;
   padding: 0;
@@ -35,8 +36,6 @@ html, body {
   scroll-behavior: smooth;
 }
 
-/* Remove the problematic max-width: 100% from all elements */
-/* Keep only for images and specific elements */
 img, video {
   max-width: 100%;
 }
@@ -114,11 +113,6 @@ img, video {
 
 .mobile-menu-btn {
   display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
 }
 
 /* Section styling */
@@ -333,7 +327,7 @@ section {
 
 .ugc-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 40px;
 }
@@ -679,12 +673,273 @@ footer {
   color: #ffffff;
 }
 
-/* Mobile menu button always hidden since we want desktop layout */
+/* Mobile Scaling - Dynamic scaling based on device width */
+@media (max-width: 1200px) {
+  html {
+    font-size: 15px;
+  }
+  
+  .ugc-title {
+    font-size: 70px;
+  }
+  
+  .ugc-logo {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .circle {
+    width: 180px;
+    height: 180px;
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 992px) {
+  html {
+    font-size: 14px;
+  }
+  
+  body {
+    transform: scale(0.9);
+    transform-origin: top left;
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .navBar {
+    transform: scale(0.95);
+    transform-origin: top left;
+  }
+  
+  section {
+    padding: 70px 15px;
+    min-height: 90vh;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  .ugc-container,
+  .section-inner,
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .ugc-title {
+    font-size: 60px;
+  }
+  
+  .ugc-hero {
+    gap: 40px;
+  }
+  
+  .ugc-logo {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .circle {
+    width: 160px;
+    height: 160px;
+    font-size: 2.5rem;
+  }
+  
+  .circle span {
+    font-size: 1rem;
+  }
+  
+  .taggbox {
+    height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 13px;
+  }
+  
+  body {
+    transform: scale(0.85);
+    transform-origin: top left;
+  }
+  
+  .navBar {
+    transform: scale(0.9);
+    transform-origin: top left;
+  }
+  
+  section {
+    padding: 60px 12px;
+    min-height: 85vh;
+  }
+  
+  .ugc-title {
+    font-size: 52px;
+  }
+  
+  .ugc-hero {
+    gap: 30px;
+  }
+  
+  .ugc-logo {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .circle {
+    width: 140px;
+    height: 140px;
+    font-size: 2.2rem;
+  }
+  
+  .taggbox {
+    height: 400px;
+  }
+  
+  /* Slightly reduce gaps */
+  .ugc-hero {
+    gap: 25px;
+  }
+  
+  .analytics-row {
+    gap: 30px;
+  }
+  
+  .demographics-row {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 12px;
+  }
+  
+  body {
+    transform: scale(0.8);
+    transform-origin: top left;
+  }
+  
+  .navBar {
+    transform: scale(0.85);
+    transform-origin: top left;
+  }
+  
+  section {
+    padding: 50px 10px;
+    min-height: 80vh;
+  }
+  
+  .ugc-title {
+    font-size: 44px;
+    margin-left: 0;
+  }
+  
+  .ugc-hero {
+    gap: 20px;
+  }
+  
+  .ugc-logo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .circle {
+    width: 120px;
+    height: 120px;
+    font-size: 2rem;
+    padding: 20px;
+  }
+  
+  .circle span {
+    font-size: 0.9rem;
+  }
+  
+  .taggbox {
+    height: 350px;
+  }
+  
+  /* Further reduce gaps for small phones */
+  .ugc-hero {
+    gap: 20px;
+  }
+  
+  .analytics-row {
+    gap: 25px;
+  }
+  
+  .demographics-row {
+    gap: 15px;
+  }
+  
+  .ugc-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  html {
+    font-size: 11px;
+  }
+  
+  body {
+    transform: scale(0.75);
+    transform-origin: top left;
+  }
+  
+  .navBar {
+    transform: scale(0.8);
+    transform-origin: top left;
+  }
+  
+  section {
+    padding: 40px 8px;
+    min-height: 75vh;
+  }
+  
+  .ugc-title {
+    font-size: 38px;
+  }
+  
+  .ugc-logo {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .circle {
+    width: 100px;
+    height: 100px;
+    font-size: 1.8rem;
+  }
+  
+  .taggbox {
+    height: 300px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 320px) {
+  html {
+    font-size: 10px;
+  }
+  
+  body {
+    transform: scale(0.7);
+    transform-origin: top left;
+  }
+  
+  .ugc-title {
+    font-size: 34px;
+  }
+}
+
+/* Hide mobile menu button */
 .mobile-menu-btn {
   display: none !important;
 }
 
-/* Force desktop layout on all devices */
+/* Ensure desktop layout is maintained but allow some flexibility */
 .nav-links {
   display: flex !important;
 }
@@ -711,18 +966,16 @@ footer {
       "left . right" !important;
 }
 
-/* Ensure everything scales properly */
-html, body {
-  min-width: 1024px;
-  overflow-x: auto;
-}
-
+/* Remove centering to reduce space */
 section {
-  min-height: 100vh;
-  height: auto;
+  align-items: flex-start;
 }
 
-/* Remove all responsive media queries */
+.ugc-container,
+.section-inner {
+  margin: 0 auto;
+  width: 100%;
+}
   </style>
 </head>
 <body>
