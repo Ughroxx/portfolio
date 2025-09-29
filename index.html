@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>UGHROXX - Complete Brand Experience</title>
 
+  <!-- Resource hints for faster external resource loading -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://elfsight.com">
+
   <!-- Font Awesome for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- Bebas Neue for bold street font -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
-  <!-- Additional fonts for UGC Creator section -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Dancing+Script:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Optimized Font Loading -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"></noscript>
 
   <style>
-    /* Reset & base styles */
 /* Reset & base styles */
 * {
   margin: 0;
@@ -28,31 +29,49 @@
 html, body {
   height: 100%;
   font-family: 'Bebas Neue', sans-serif; 
-  background: #0f0f0f url('images/back.jpg') center center no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
   color: #fff;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  font-size: 21.6px; /* Increased by 20% from 18px */
+}
+
+/* Background image with optimized loading */
+body {
+  background: #0f0f0f url('images/back.jpg') center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Add overlay for better text readability */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
 }
 
 img, video {
   max-width: 100%;
 }
 
-/* Navigation Bar */
+/* Navigation Bar - Right Aligned */
 .navBar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px 0;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: flex-end; /* Changed to right alignment */
+  align-items: center;
+  padding: 19.2px 0; /* Increased by 20% */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -60,32 +79,32 @@ img, video {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
-  max-width: 1200px;
+  width: 95%;
+  padding: 0 16.32px; /* Increased by 20% */
 }
 
 .logo {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.8rem;
+  font-size: 2.7648rem; /* Increased by 20% from 2.304rem */
   color: white;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 2.304px; /* Increased by 20% */
 }
 
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 32.64px; /* Increased by 20% */
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.2rem;
+  font-size: 42px; /* Increased by 20% from 35px */
   text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 8px 15px;
-  border-radius: 4px;
+  letter-spacing: 1.152px; /* Increased by 20% */
+  padding: 14.4px 19.2px; /* Increased by 20% */
+  border-radius: 3.84px; /* Increased by 20% */
   transition: all 0.3s ease;
   position: relative;
 }
@@ -99,7 +118,7 @@ img, video {
   content: '';
   position: absolute;
   width: 0;
-  height: 2px;
+  height: 1.92px; /* Increased by 20% */
   bottom: 0;
   left: 50%;
   background-color: white;
@@ -111,8 +130,30 @@ img, video {
   left: 10%;
 }
 
+/* Mobile Menu Button */
 .mobile-menu-btn {
   display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.4rem; /* Increased by 20% */
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* Footer */
+footer {
+  position: relative;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 48.96px 16.32px; /* Increased by 20% */
+  text-align: center;
+  user-select: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.40544rem, 3.13344vw, 2.4rem); /* Increased by 20% */
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  width: 100%;
 }
 
 /* Section styling */
@@ -121,7 +162,7 @@ section {
   margin: 0;
   min-height: 100vh;
   position: relative;
-  padding: 100px 20px;
+  padding: 81.6px 16.32px; /* Increased by 20% */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -132,40 +173,68 @@ section {
 
 /* UGC Creator Section */
 #ugc-creator {
-  padding: 80px 20px;
+  padding: 65.28px 16.32px; /* Increased by 20% */
 }
 
 .ugc-container {
-  max-width: 1200px;
+  width: 95%;
   margin: 0 auto;
-  width: 100%;
   overflow: visible;
 }
 
 .ugc-hero {
   display: grid;
   grid-template-columns: 1.2fr .9fr;
-  gap: 50px;
+  gap: 40.32px; /* Increased by 20% */
   align-items: center;
-  margin-bottom: 60px;
+  margin-bottom: 48.96px; /* Increased by 20% */
+}
+
+/* CONSISTENT HEADING SIZES */
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.13344rem, 9.40032vw, 120px);
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  line-height: 1.1;
+}
+
+h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.58048rem, 5.48352vw, 96px);
+  font-weight: 500;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  line-height: 1.1;
+}
+
+h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.56672rem, 3.31776vw, 42px);
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  line-height: 1.1;
+}
+
+p {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.19808rem, 2.48832vw, 30px);
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
 }
 
 .ugc-title {
-  font-family: 'Bebas Neue', sans-serif; 
-  font-weight: 600;
-  font-size: 82px;
-  color: #fff;
-  margin: 0 0 12px;
-  line-height: 1.1;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin: 0 0 16.32px; /* Increased by 20% */
   text-align: left;
-  margin-left: -10px;
 }
 
 .ugc-sub {
   font-weight: 600;
-  font-size: 20px;
-  letter-spacing: 0.5px;
+  font-size: clamp(1.0944rem, 3.13344vw, 48px); /* Increased by 20% */
+  letter-spacing: 0.576px; /* Increased by 20% */
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
@@ -173,29 +242,25 @@ section {
 }
 
 .ugc-line {
-  height: 1px;
+  height: 0.96px; /* Increased by 20% */
   background: rgba(255, 255, 255, 0.5);
-  margin: 24px 0;
+  margin: 24px 0; /* Increased by 20% */
   width: 80%;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 3.84px rgba(0, 0, 0, 0.3); /* Increased by 20% */
 }
 
 .ugc-blurb {
-  font-size: 28px;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.9);
-  font-family: 'Bebas Neue', sans-serif; 
   font-style: normal;
   font-weight: 500;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
   text-align: left;
 }
 
 .ugc-portrait {
-  border-radius: 30px;
+  border-radius: 24px; /* Increased by 20% */
   overflow: hidden;
   background: rgba(0, 0, 0, 0.3);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 13.44px rgba(0, 0, 0, 0.4); /* Increased by 20% */
   border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
 }
@@ -206,95 +271,87 @@ section {
   display: block;
 }
 
-.ugc-contact {
-  margin-top: 20px;
+/* Inline Contact Info */
+.ugc-contact-inline {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  gap: 12.48px; /* Increased by 20% */
+  margin-top: 16.32px; /* Increased by 20% */
+  flex-wrap: wrap;
 }
 
-.ugc-contact-item {
+.ugc-contact-item-inline {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 20px;
+  gap: 3.84px; /* Increased by 20% */
+  font-size: clamp(0.94464rem, 2.35008vw, 48px); /* Increased by 20% */
 }
 
-.ugc-contact-label {
+.ugc-contact-label-inline {
   font-weight: 600;
-  min-width: 80px;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
-.ugc-contact-value a {
+.ugc-contact-value-inline a {
   color: #fff;
   transition: color 0.3s ease;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  text-decoration: none;
 }
 
-.ugc-contact-value a:hover {
+.ugc-contact-value-inline a:hover {
   color: #ccc;
 }
 
 /* Trusted By Section */
 .ugc-trust {
   text-align: center;
-  padding: 70px 0;
+  padding: 56.64px 0;
   overflow: hidden;
+  width: 100%;
 }
 
 .ugc-trust h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px;
-  margin-bottom: 40px;
-  color: #fff;
-  font-weight: 500;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin-bottom: 46.08px; /* Increased by 20% */
+  text-align: center;
 }
 
 .ugc-logos-container {
   overflow: hidden;
   position: relative;
   width: 100%;
-  max-width: 2100px;
   margin: 0 auto;
 }
 
 .ugc-logos {
   display: flex;
-  animation: scroll 30s linear infinite;
-  gap: 52px;
-  padding: 26px 0;
+  animation: scroll 25s linear infinite;
+  gap: clamp(16.32px, 4.08vw, 42.432px);
+  padding: clamp(12.48px, 1.632vw, 21.216px) 0;
+  will-change: transform;
 }
 
 .ugc-logo {
   flex: 0 0 auto;
-  width: 180px;
-  height: 180px;
+  width: clamp(81.6px, 14.688vw, 163.2px);
+  height: clamp(81.6px, 14.688vw, 163.2px);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10.4px;
-  box-shadow: 0 2.6px 13px rgba(0,0,0,0.1);
-  padding: 13px;
+  border-radius: 8.448px;
+  box-shadow: 0 2.112px 10.56px rgba(0,0,0,0.1);
+  padding: clamp(6.72px, 0.816vw, 10.56px);
   background-color: white;
   transition: transform 0.3s ease;
 }
 
-.ugc-logo img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  transform: scale(1.1);
-}
-
+/* Updated animation for continuous scrolling */
 @keyframes scroll {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(calc(-156px * 10 - 52px * 10));
+    transform: translate3d(calc(-1 * (clamp(81.6px, 14.688vw, 163.2px) + clamp(16.32px, 4.08vw, 42.432px)) * 12), 0, 0);
   }
 }
 
@@ -302,40 +359,33 @@ section {
   animation-play-state: paused;
 }
 
-.placeholder-logo {
-  font-weight: bold;
-  color: #666;
-  text-align: center;
-  font-size: 12px;
-}
-
 /* Services Section */
 .ugc-services {
-  margin-top: 60px;
+  margin-top: 48.96px; /* Increased by 20% */
   overflow: visible;
+  width: 100%;
 }
 
 .ugc-services h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px;
-  margin-bottom: 40px;
-  color: #fff;
-  font-weight: 500;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin-bottom: 46.08px; /* Increased by 20% */
   text-align: center;
 }
 
 .ugc-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(387.072px, 1fr)); /* Increased by 20% */
+  gap: 33.6px; /* Increased by 20% */
+  margin-top: 46.08px; /* Increased by 20% */
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ugc-card {
   background: rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  border-radius: 16.32px; /* Increased by 20% */
+  box-shadow: 0 4px 13.44px rgba(0, 0, 0, 0.3); /* Increased by 20% */
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -343,21 +393,24 @@ section {
   z-index: 1;
   border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(4px);
+  min-height: 604.8px; /* Increased by 20% */
 }
 
 .ugc-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  transform: translateY(-4.8px); /* Increased by 20% */
+  box-shadow: 0 9.6px 19.2px rgba(0, 0, 0, 0.4); /* Increased by 20% */
   border-color: rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.12);
 }
 
 .ugc-card img {
   object-fit: cover;
-  height: 220px;
+  height: 403.2px; /* Increased by 20% */
   width: 100%;
   transition: transform 0.5s ease;
   object-position: top center; 
+  display: block;
+  flex-shrink: 0;
 }
 
 .ugc-card:hover img {
@@ -365,80 +418,256 @@ section {
 }
 
 .ugc-card .pad {
-  padding: 20px;
+  padding: 20.16px 26.88px 26.88px 26.88px; /* Increased by 20% */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-top: auto;
 }
 
 .ugc-tag {
-  font-size: 11px;
-  letter-spacing: .15em;
+  font-size: 20.2752px; /* Increased by 20% */
+  letter-spacing: .1728em; /* Increased by 20% */
   text-transform: uppercase;
   opacity: .9;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+  margin-bottom: 7.68px; /* Increased by 20% */
 }
 
 .ugc-card h3 {
-  margin: 8px 0 10px;
-  font-family: 'Bebas Neue', sans-serif; 
-  font-size: 20px;
-  font-weight: 400;
-  color: #fff;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  margin: 0 0 9.6px; /* Increased by 20% */
 }
 
 .ugc-card p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+  margin: 0;
 }
 
-/* Social Section */
+/* Social Section - REDESIGNED */
 #social {
-  padding: 80px 20px;
+  padding: 28.8px 16.32px; /* Increased by 20% */
   overflow: visible;
+  width: 100%;
+  background: transparent !important;
+  min-height: auto;
 }
 
 #social h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 3rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.1152em; /* Increased by 20% */
   text-align: center;
-  margin-bottom: 40px;
-  color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  margin-bottom: 28.8px; /* Increased by 20% */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
-.taggbox {
-  width: 100%;
-  max-width: 1400px;
-  height: 600px;
+.social-container {
+  width: 95%;
   margin: 0 auto;
-  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border-radius: 14.4px; /* Increased by 20% */
+  box-shadow: 0 7.68px 24px rgba(255, 255, 255, 0.4); /* Reduced opacity */
+  background: rgba(255, 255, 255, 0.90) !important; /* More transparent */
+  border: 1.92px solid rgba(255, 255, 255, 0.15); /* Reduced opacity */
+  height: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  /* Remove clip-path to show full widget */
+  clip-path: none;
+  padding: 0;
+}
+
+/* Simplify Instagram widget styling */
+.elfsight-app-31e99a15-bcde-4671-9d5b-8abe2fd98aa5 {
+  width: 100% !important;
+  height: auto !important;
+  border: none !important;
+  overflow: visible !important;
+  position: relative;
+  background: transparent !important;
+  transform: none;
+  box-shadow: none !important;
+}
+
+/* Target the Instagram feed directly */
+.eapps-instagram-feed {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  background: transparent !important;
+}
+
+.eapps-instagram-feed-posts-grid {
+  grid-template-rows: repeat(2, 1fr) !important;
+  gap: 7.68px !important; /* Increased by 20% */
+}
+
+.eapps-instagram-feed-post {
+  margin: 0 !important;
+  transform: none !important;
+}
+
+/* Simplify header styling */
+.eapps-instagram-feed-header {
+  padding: 19.2px 16.32px !important; /* Reduced padding */
+  background: rgba(255, 255, 255, 0.05) !important; /* More transparent */
+  backdrop-filter: blur(10px) !important;
+  border-bottom: 1.92px solid rgba(255, 255, 255, 0.1) !important; /* Reduced opacity */
+}
+
+.eapps-instagram-feed-header-user {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14.4px !important; /* Reduced gap */
+}
+
+.eapps-instagram-feed-header-avatar {
+  width: 76.8px !important; /* Smaller avatar */
+  height: 76.8px !important; /* Smaller avatar */
+  border: 2.88px solid rgba(255, 255, 255, 0.2) !important; /* Reduced opacity */
+}
+
+.eapps-instagram-feed-header-avatar img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.eapps-instagram-feed-header-info {
+  flex: 1 !important;
+}
+
+.eapps-instagram-feed-header-username {
+  font-size: 1.728rem !important; /* Smaller font */
+  font-weight: 700 !important;
+  color: #fff !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+  margin-bottom: 7.68px !important; /* Reduced margin */
+  font-family: 'Bebas Neue', sans-serif !important;
+}
+
+.eapps-instagram-feed-header-bio {
+  font-size: 1.0368rem !important; /* Smaller font */
+  color: rgba(255, 255, 255, 0.8) !important; /* Reduced opacity */
+  line-height: 1.4 !important;
+  margin-bottom: 9.6px !important; /* Reduced margin */
+}
+
+.eapps-instagram-feed-header-stats {
+  display: flex !important;
+  gap: 19.2px !important; /* Reduced gap */
+}
+
+.eapps-instagram-feed-header-stat {
+  text-align: center !important;
+}
+
+.eapps-instagram-feed-header-stat-value {
+  font-size: 1.3824rem !important; /* Smaller font */
+  font-weight: 700 !important;
+  color: #fff !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
+  display: block !important;
+  font-family: 'Bebas Neue', sans-serif !important;
+}
+
+.eapps-instagram-feed-header-stat-label {
+  font-size: 0.9216rem !important; /* Smaller font */
+  color: rgba(255, 255, 255, 0.7) !important; /* Reduced opacity */
+  text-transform: uppercase !important;
+  letter-spacing: 1.152px !important; /* Increased by 20% */
+  font-family: 'Bebas Neue', sans-serif !important;
+}
+
+/* Make Instagram Follow Button Black */
+.eapps-instagram-feed-header-follow-button,
+.eapps-instagram-feed-header-follow,
+.eapps-instagram-feed-follow-button,
+.eapps-instagram-feed-header-actions .eapps-instagram-feed-button,
+.eapps-instagram-feed-header-actions button,
+.eapps-instagram-feed-header .eapps-instagram-feed-button {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Hover state for black follow button */
+.eapps-instagram-feed-header-follow-button:hover,
+.eapps-instagram-feed-header-follow:hover,
+.eapps-instagram-feed-follow-button:hover,
+.eapps-instagram-feed-header-actions .eapps-instagram-feed-button:hover,
+.eapps-instagram-feed-header-actions button:hover,
+.eapps-instagram-feed-header .eapps-instagram-feed-button:hover {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  border-color: #333333 !important;
+  color: #ffffff !important;
+}
+
+/* Stack header vertically on mobile */
+.eapps-instagram-feed-header-user {
+  flex-direction: column !important;
+  text-align: center !important;
+  gap: 14.4px !important; /* Increased by 20% */
+}
+
+.eapps-instagram-feed-header-avatar {
+  width: 76.8px !important; /* Increased by 20% */
+  height: 76.8px !important; /* Increased by 20% */
+}
+
+.eapps-instagram-feed-header-username {
+  font-size: 1.536rem !important; /* Increased by 20% */
+}
+
+.eapps-instagram-feed-header-bio {
+  font-size: 0.9216rem !important; /* Increased by 20% */
+}
+
+.eapps-instagram-feed-header-stats {
+  justify-content: center !important;
+  gap: 19.2px !important; /* Increased by 20% */
+}
+
+.eapps-instagram-feed-header-stat-value {
+  font-size: 1.152rem !important; /* Increased by 20% */
+}
+
+.eapps-instagram-feed-header-stat-label {
+  font-size: 0.768rem !important; /* Increased by 20% */
+}
+
+.elfsight-app-31e99a15-bcde-4671-9d5d-8abe2fd98aa5 {
+  transform: none;
 }
 
 /* Analytics Services Section */
 #analytics-services {
-  padding: 80px 20px;
+  padding: 65.28px 16.32px; /* Increased by 20% */
   overflow: visible;
+  width: 100%;
+}
+
+#analytics-services h1 {
+  letter-spacing: 0.1152em; /* Increased by 20% */
+  text-align: center;
+  margin-bottom: 32.64px; /* Increased by 20% */
 }
 
 .section-inner {
-  max-width: 1200px;
+  width: 95%;
   margin: 0 auto;
-  width: 100%;
   overflow: visible;
 }
 
 .sec-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 3rem;
-  letter-spacing: 0.1em;
+  font-size: clamp(1.9584rem, 5.48352vw, 54px); /* Increased by 20% */
+  letter-spacing: 0.1152em; /* Increased by 20% */
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 32.64px; /* Increased by 20% */
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
@@ -446,535 +675,367 @@ section {
 .analytics-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  align-items: center;
+  gap: 32.64px; /* Increased by 20% */
+  align-items: start;
+  width: 100%;
+  margin-top: 81.6px; /* Increased by 20% */
 }
 
-/* Pyramid layout for analytics circles */
+/* Tighter pyramid formation for circles - CONSISTENT ACROSS DEVICES */
 .analytics-circles {
   display: grid;
   grid-template-areas: 
-      "top top top"
-      "left . right";
-  gap: 20px;
+      "top top"
+      "left right";
+  gap: 0;
   justify-items: center;
   align-items: center;
-  max-width: 600px;
+  width: fit-content;
   margin: 0 auto;
+  position: relative;
 }
 
 .circle:nth-child(1) {
   grid-area: top;
   justify-self: center;
+  margin-bottom: -28.8px; /* Increased by 20% */
+  z-index: 3;
 }
 
 .circle:nth-child(2) {
   grid-area: left;
+  margin-top: -28.8px; /* Increased by 20% */
+  margin-right: -19.2px; /* Increased by 20% */
+  z-index: 2;
 }
 
 .circle:nth-child(3) {
   grid-area: right;
+  margin-top: -28.8px; /* Increased by 20% */
+  margin-left: -19.2px; /* Increased by 20% */
+  z-index: 2;
 }
 
 .circle {
-  width: 200px;
-  height: 200px;
+  width: clamp(172.8px, 26.88vw, 364.8px); /* Increased by 20% */
+  height: clamp(172.8px, 26.88vw, 364.8px); /* Increased by 20% */
   border-radius: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  border: 2.88px solid rgba(255, 255, 255, 0.3); /* Increased by 20% */
+  box-shadow: 0 9.6px 24px rgba(0, 0, 0, 0.4); /* Increased by 20% */
   font-family: 'Bebas Neue', sans-serif;
   text-align: center;
   transition: all 0.3s ease;
-  font-size: 3rem;
-  padding: 25px;
+  font-size: clamp(2.304rem, 5.0688vw, 7.2rem); /* Increased by 20% */
+  padding: clamp(19.2px, 2.88vw, 28.8px); /* Increased by 20% */
 }
 
 .circle:hover {
   transform: scale(1.05);
   background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .circle span {
-  font-size: 1.2rem;
-  margin-top: 15px;
+  font-size: clamp(0.9216rem, 1.8432vw, 1.3824rem); /* Increased by 20% */
+  margin-top: 9.6px; /* Increased by 20% */
   display: block;
   font-family: 'Bebas Neue', sans-serif; 
   font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: 0.5px;
+  line-height: 1.2;
+  letter-spacing: 0.3456px; /* Increased by 20% */
 }
 
+/* Demographics with much bigger text */
 .demographics-triangle {
   display: flex;
   flex-direction: column;
-  gap: 35px;
+  gap: 24px; /* Increased by 20% */
+  width: 100%;
+  align-items: stretch;
 }
 
 .demographics-row {
   display: flex;
-  gap: 35px;
+  gap: 24px; /* Increased by 20% */
+  width: 100%;
+  align-items: stretch;
 }
 
 .demographics {
   flex: 1;
   background: rgba(255, 255, 255, 0.08);
-  padding: 25px 20px;
-  border-radius: 15px;
+  padding: clamp(28.8px, 3.84vw, 43.2px) clamp(21.12px, 2.88vw, 28.8px); /* Increased by 20% */
+  border-radius: 12.48px; /* Increased by 20% */
   border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(4px);
   text-align: center;
-  min-height: 280px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  min-height: 307.2px; /* Increased by 20% */
+  height: auto;
+}
+
+/* Specific fix for single demographics box row */
+.demographics-row:first-child .demographics {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
 }
 
 .demographics h3 {
-  margin-bottom: 15px;
-  font-family: 'Bebas Neue', sans-serif; 
-  font-size: 2rem;
+  margin-bottom: 21.6px; /* Increased by 20% */
   font-weight: 700;
   text-align: center;
-  color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  letter-spacing: 1px;
+  letter-spacing: 1.3824px; /* Increased by 20% */
 }
 
 .demographics ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .demographics li {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
+  margin-bottom: 19.2px; /* Increased by 20% */
+  font-size: clamp(1.47456rem, 2.94912vw, 1.8432rem); /* Increased by 20% */
   line-height: 1.4;
-  font-weight: 500;
+  font-weight: 600;
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8064px; /* Increased by 20% */
 }
 
-/* Contact Section */
-#contact {
-  padding: 80px 20px;
-  overflow: visible;
-}
-
-.container {
-  width: 90%;
-  max-width: 800px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
-  padding: 50px;
-  border-radius: 12px;
-  backdrop-filter: blur(4px);
-}
-
-h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.8rem;
-  letter-spacing: 0.1em;
-  text-align: center;
-  margin-bottom: 30px;
-  color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-input, textarea {
-  padding: 14px 18px;
-  border: none;
-  font-size: 1.1rem;
-  background: rgba(0, 0, 0, 0.3);
-  color: #fff;
-  font-family: 'Bebas Neue', sans-serif; 
-  border-radius: 6px;
-  resize: vertical;
-  transition: background 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-input:focus,
-textarea:focus {
-  background: rgba(0, 0, 0, 0.4);
-  outline: none;
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-button {
-  background: transparent;
-  color: #fff;
-  border: 2px solid #fff;
-  padding: 14px 32px;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  align-self: center;
-  text-transform: uppercase;
-  font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: 0.15em;
-  border-radius: 30px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-}
-
-button:hover {
-  background: #fff;
-  color: #000;
-  text-shadow: none;
-}
-
-/* Footer */
-footer {
-  position: relative;
-  color: rgba(255, 255, 255, 0.9);
-  padding: 20px 10px;
-  text-align: center;
-  user-select: none;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.4rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  z-index: 5;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-}
-
-.social-links {
-  margin-top: 8px;
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-}
-
-.social-links a {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.9rem;
-  transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-  color: #ffffff;
-}
-
-/* Mobile Scaling - Dynamic scaling based on device width */
-@media (max-width: 1200px) {
-  html {
-    font-size: 15px;
-  }
-  
-  .ugc-title {
-    font-size: 70px;
-  }
-  
-  .ugc-logo {
-    width: 160px;
-    height: 160px;
-  }
-  
-  .circle {
-    width: 180px;
-    height: 180px;
-    font-size: 2.8rem;
-  }
-}
-
-@media (max-width: 992px) {
-  html {
-    font-size: 14px;
-  }
-  
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
   body {
-    transform: scale(0.9);
-    transform-origin: top left;
-    width: 100%;
-    overflow-x: auto;
+    transform: none !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+    background-attachment: scroll;
+    font-size: 28.08px; /* Increased by 20% from 23.4px */
   }
   
   .navBar {
-    transform: scale(0.95);
-    transform-origin: top left;
+    transform: none !important;
+    backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 18.6px 0; /* Increased by 20% */
+    justify-content: space-between; /* Keep logo and menu on right */
   }
   
-  section {
-    padding: 70px 15px;
-    min-height: 90vh;
-    justify-content: flex-start;
-    align-items: flex-start;
+  html {
+    font-size: 17.9712px; /* Increased by 20% */
+  }
+  
+  .logo {
+    font-size: 2.9952rem; /* Increased by 20% */
+  }
+  
+  .nav-links a {
+    font-size: 1.916928rem; /* Increased by 20% */
+    padding: 12.48px 16.224px; /* Increased by 20% */
   }
   
   .ugc-container,
   .section-inner,
-  .container {
-    max-width: 100%;
-    margin: 0 auto;
+  .social-container {
+    width: 100%;
+    padding: 0 16.224px; /* Increased by 20% */
   }
   
-  .ugc-title {
-    font-size: 60px;
-  }
-  
-  .ugc-hero {
-    gap: 40px;
-  }
-  
-  .ugc-logo {
-    width: 140px;
-    height: 140px;
-  }
-  
-  .circle {
-    width: 160px;
-    height: 160px;
-    font-size: 2.5rem;
-  }
-  
-  .circle span {
-    font-size: 1rem;
-  }
-  
-  .taggbox {
-    height: 450px;
-  }
-}
-
-@media (max-width: 768px) {
-  html {
-    font-size: 13px;
-  }
-  
-  body {
-    transform: scale(0.85);
-    transform-origin: top left;
-  }
-  
-  .navBar {
-    transform: scale(0.9);
-    transform-origin: top left;
-  }
-  
-  section {
-    padding: 60px 12px;
-    min-height: 85vh;
-  }
-  
-  .ugc-title {
-    font-size: 52px;
+  .ugc-title,
+  .ugc-sub {
+    text-align: center;
   }
   
   .ugc-hero {
-    gap: 30px;
+    grid-template-columns: 1fr !important;
+    gap: 31.2px; /* Increased by 20% */
+    text-align: center;
   }
   
-  .ugc-logo {
-    width: 120px;
-    height: 120px;
+  .ugc-line {
+    margin: 21.216px auto; /* Increased by 20% */
+    width: 80%;
   }
   
-  .circle {
-    width: 140px;
-    height: 140px;
-    font-size: 2.2rem;
+  .ugc-contact-inline {
+    justify-content: center;
   }
   
-  .taggbox {
-    height: 400px;
+  .ugc-logos {
+    gap: 31.2px; /* Increased by 20% */
+    padding: 21.216px 0; /* Increased by 20% */
+    animation-duration: 30s;
   }
   
-  /* Slightly reduce gaps */
-  .ugc-hero {
-    gap: 25px;
+  .ugc-grid {
+    grid-template-columns: repeat(auto-fit, minmax(356.4288px, 1fr)) !important; /* Increased by 20% */
+    gap: 21.216px; /* Increased by 20% */
+  }
+  
+  .ugc-card {
+    backdrop-filter: none;
+    transform: none !important;
+  }
+  
+  .ugc-card:hover {
+    transform: none !important;
   }
   
   .analytics-row {
-    gap: 30px;
+    grid-template-columns: 1fr !important;
+    gap: 31.2px; /* Increased by 20% */
   }
   
   .demographics-row {
-    gap: 20px;
+    flex-direction: column !important;
+    gap: 16.224px; /* Increased by 20% */
+  }
+  
+  .demographics {
+    min-height: auto;
+    padding: 26.208px 21.216px; /* Increased by 20% */
+  }
+  
+  .social-container {
+    min-height: 500px; /* Reduced height */
+    height: auto;
+  }
+  
+  section {
+    padding: 73.632px 16.224px; /* Increased by 20% */
+    min-height: auto;
+    height: auto;
+  }
+  
+  .mobile-menu-btn {
+    display: block !important;
+  }
+  
+  .nav-links {
+    display: none !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    padding: 21.216px; /* Increased by 20% */
+    gap: 16.224px; /* Increased by 20% */
+    text-align: center;
+  }
+  
+  .nav-links.active {
+    display: flex !important;
+  }
+  
+  footer {
+    padding: 42.432px 21.216px; /* Increased by 20% */
+    font-size: clamp(1.827072rem, 4.073472vw, 3.12rem); /* Increased by 20% */
+  }
+
+  /* Instagram widget mobile text increases */
+  .eapps-instagram-feed-header-user {
+    gap: 24.96px !important; /* Increased by 20% */
+  }
+  
+  .eapps-instagram-feed-header-avatar {
+    width: 99.84px !important; /* Increased by 20% */
+    height: 99.84px !important; /* Increased by 20% */
+  }
+  
+  .eapps-instagram-feed-header-username {
+    font-size: 1.9968rem !important; /* Increased by 20% */
+  }
+  
+  .eapps-instagram-feed-header-bio {
+    font-size: 1.19776rem !important; /* Increased by 20% */
+  }
+  
+  .eapps-instagram-feed-header-stats {
+    gap: 24.96px !important; /* Increased by 20% */
+  }
+  
+  .eapps-instagram-feed-header-stat-value {
+    font-size: 1.4976rem !important; /* Increased by 20% */
+  }
+  
+  .eapps-instagram-feed-header-stat-label {
+    font-size: 0.9984rem !important; /* Increased by 20% */
+  }
+
+  /* Analytics section mobile text */
+  .circle {
+    font-size: clamp(2.036736rem, 8.146944vw, 3.564288rem) !important; /* Increased by 20% */
+  }
+  
+  .circle span {
+    font-size: clamp(0.928512rem, 3.055104vw, 1.317888rem) !important; /* Increased by 20% */
+  }
+
+  .demographics h3 {
+    font-size: clamp(2.9952rem, 6.58944vw, 3.12rem) !important; /* Increased by 20% */
+  }
+  
+  .demographics li {
+    font-size: clamp(1.916928rem, 3.833856vw, 2.39616rem) !important; /* Increased by 20% */
   }
 }
 
 @media (max-width: 576px) {
   html {
-    font-size: 12px;
-  }
-  
-  body {
-    transform: scale(0.8);
-    transform-origin: top left;
-  }
-  
-  .navBar {
-    transform: scale(0.85);
-    transform-origin: top left;
+    font-size: 16.4736px; /* Increased by 20% */
   }
   
   section {
-    padding: 50px 10px;
-    min-height: 80vh;
+    padding: 63.648px 11.232px; /* Increased by 20% */
   }
   
-  .ugc-title {
-    font-size: 44px;
-    margin-left: 0;
-  }
-  
-  .ugc-hero {
-    gap: 20px;
-  }
-  
-  .ugc-logo {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .circle {
-    width: 120px;
-    height: 120px;
-    font-size: 2rem;
-    padding: 20px;
-  }
-  
-  .circle span {
-    font-size: 0.9rem;
-  }
-  
-  .taggbox {
-    height: 350px;
-  }
-  
-  /* Further reduce gaps for small phones */
-  .ugc-hero {
-    gap: 20px;
-  }
-  
-  .analytics-row {
-    gap: 25px;
+  .demographics-triangle {
+    gap: 12.48px; /* Increased by 20% */
   }
   
   .demographics-row {
-    gap: 15px;
+    gap: 12.48px; /* Increased by 20% */
   }
   
-  .ugc-grid {
-    gap: 20px;
-  }
-}
-
-@media (max-width: 400px) {
-  html {
-    font-size: 11px;
-  }
-  
-  body {
-    transform: scale(0.75);
-    transform-origin: top left;
-  }
-  
-  .navBar {
-    transform: scale(0.8);
-    transform-origin: top left;
-  }
-  
-  section {
-    padding: 40px 8px;
-    min-height: 75vh;
-  }
-  
-  .ugc-title {
-    font-size: 38px;
-  }
-  
-  .ugc-logo {
-    width: 90px;
-    height: 90px;
+  .analytics-circles {
+    gap: 9.984px !important; /* Increased by 20% */
   }
   
   .circle {
-    width: 100px;
-    height: 100px;
-    font-size: 1.8rem;
+    width: clamp(148.512px, 47.736vw, 212.16px) !important; /* Increased by 20% */
+    height: clamp(148.512px, 47.736vw, 212.16px) !important; /* Increased by 20% */
+  }
+
+  /* Even smaller screens Instagram adjustments */
+  .social-container {
+    min-height: 450px; /* Reduced height */
   }
   
-  .taggbox {
-    height: 300px;
-  }
-}
-
-/* Extra small devices */
-@media (max-width: 320px) {
-  html {
-    font-size: 10px;
+  .eapps-instagram-feed-header {
+    padding: 16.224px 12.48px !important; /* Reduced padding */
   }
   
-  body {
-    transform: scale(0.7);
-    transform-origin: top left;
+  .eapps-instagram-feed-header-avatar {
+    width: 67.2px !important; /* Smaller avatar */
+    height: 67.2px !important; /* Smaller avatar */
   }
   
-  .ugc-title {
-    font-size: 34px;
+  .eapps-instagram-feed-header-username {
+    font-size: 1.4976rem !important; /* Smaller font */
   }
-}
-
-/* Hide mobile menu button */
-.mobile-menu-btn {
-  display: none !important;
-}
-
-/* Ensure desktop layout is maintained but allow some flexibility */
-.nav-links {
-  display: flex !important;
-}
-
-.ugc-hero {
-  grid-template-columns: 1.2fr .9fr !important;
-}
-
-.analytics-row {
-  grid-template-columns: 1fr 1fr !important;
-}
-
-.demographics-row {
-  flex-direction: row !important;
-}
-
-.ugc-grid {
-  grid-template-columns: repeat(3, 1fr) !important;
-}
-
-.analytics-circles {
-  grid-template-areas: 
-      "top top top"
-      "left . right" !important;
-}
-
-/* Remove centering to reduce space */
-section {
-  align-items: flex-start;
-}
-
-.ugc-container,
-.section-inner {
-  margin: 0 auto;
-  width: 100%;
 }
   </style>
 </head>
@@ -988,7 +1049,6 @@ section {
         <a href="#ugc-creator">UGC Creator</a>
         <a href="#social">Social</a>
         <a href="#analytics-services">Analytics</a>
-        <a href="#contact">Contact</a>
       </div>
       <button class="mobile-menu-btn" aria-label="Toggle menu">
         <i class="fas fa-bars"></i>
@@ -1003,84 +1063,130 @@ section {
         <div>
           <h1 class="ugc-title">UGHROXX</h1>
           <div class="ugc-sub">UGC Creator & Influencer</div>
-          <div class="ugc-line"></div>
-          <p class="ugc-sub">I craft compelling content that converts viewers into customers and clicks into sales.</p>
           
-          <!-- Contact info -->
-          <div class="ugc-contact">
-            <div class="ugc-contact-item">
-              <span class="ugc-contact-label">Instagram:</span>
-              <span class="ugc-contact-value"><a href="https://www.instagram.com/ughroxx/" target="_blank">@ughroxx</a></span>
+          <!-- Inline Contact Info -->
+          <div class="ugc-contact-inline">
+            <div class="ugc-contact-item-inline">
+              <span class="ugc-contact-label-inline">Instagram:</span>
+              <span class="ugc-contact-value-inline"><a href="https://www.instagram.com/ughroxx/" target="_blank">@ughroxx</a></span>
             </div>
-            <div class="ugc-contact-item">
-              <span class="ugc-contact-label">Email:</span>
-              <span class="ugc-contact-value"><a href="mailto:ughroxx@gmail.com">ughroxx@gmail.com</a></span>
+            <div class="ugc-contact-item-inline">
+              <span class="ugc-contact-label-inline">Email:</span>
+              <span class="ugc-contact-value-inline"><a href="mailto:ughroxx@gmail.com">ughroxx@gmail.com</a></span>
             </div>
           </div>
+          
+          <div class="ugc-line"></div>
+          <p class="ugc-blurb">I craft compelling content that converts viewers into customers and clicks into sales.</p>
         </div>
         <div class="ugc-portrait">
-          <img src="images/portrait.jpeg" alt="Portrait of Rossella Macri" />
+          <img src="images/portrait.jpeg" alt="Portrait of Rossella Macri" loading="lazy" decoding="async" />
         </div>
       </div>
 
-      <!-- Trusted By Section with LOGOS -->
+      <!-- Trusted By Section -->
       <div class="ugc-trust">
         <h1>Trusted by 100+ brands such as:</h1>
         <div class="ugc-logos-container">
           <div class="ugc-logos">
-            <!-- Known logos -->
+            <!-- Duplicate logos for seamless looping -->
             <div class="ugc-logo">
-              <img src="images/buffalo.png" alt="Buffalo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <img src="images/buffalo.png" alt="Buffalo" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <div class="placeholder-logo" style="display:none;">Buffalo</div>
             </div>
             <div class="ugc-logo">
-              <img src="images/crocs.png" alt="Crocs" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <img src="images/crocs.png" alt="Crocs" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <div class="placeholder-logo" style="display:none;">Crocs</div>
             </div>
             <div class="ugc-logo">
-              <img src="images/adidas.png" alt="Adidas" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <img src="images/adidas.png" alt="Adidas" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <div class="placeholder-logo" style="display:none;">Adidas</div>
             </div>
             <div class="ugc-logo">
-              <img src="images/zara.png" alt="Zara" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <img src="images/zara.png" alt="Zara" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <div class="placeholder-logo" style="display:none;">Zara</div>
             </div>
-            <!-- Custom brands -->
             <div class="ugc-logo">
-              <img src="images/asy.png" alt="Asyllum" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <img src="images/asy.png" alt="Asyllum" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <div class="placeholder-logo" style="display:none;">Asyllum</div>
             </div>
             <div class="ugc-logo">
-              <img src="images/ditsy.png" alt="Ditsy Bits" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <img src="images/ditsy.png" alt="Ditsy Bits" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <div class="placeholder-logo" style="display:none;">Ditsy Bits</div>
             </div>
             <div class="ugc-logo">
-              <img src="images/helen.jpg" alt="Helen Steele" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <img src="images/helen.jpg" alt="Helen Steele" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <div class="placeholder-logo" style="display:none;">Helen Steele</div>
             </div>
             <div class="ugc-logo">
-              <img src="images/seodra.png" alt="Seodra Beaga" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <img src="images/seodra.png" alt="Seodra Beaga" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <div class="placeholder-logo" style="display:none;">Seodra Beaga</div>
             </div>
             <div class="ugc-logo">
-              <img src="images/maia.png" alt="MaiaMina" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <img src="images/maia.png" alt="MaiaMina" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <div class="placeholder-logo" style="display:none;">MaiaMina</div>
             </div>
             <div class="ugc-logo">
-              <img src="images/airup.png" alt="air up" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <img src="images/airup.png" alt="air up" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <div class="placeholder-logo" style="display:none;">air up</div>
             </div>
             <div class="ugc-logo">
-              <img src="images/lar.png" alt="lar jewelry" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <img src="images/lar.png" alt="lar jewelry" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <div class="placeholder-logo" style="display:none;">lar jewelry</div>
             </div>
             <div class="ugc-logo">
-              <img src="images/teelab.png" alt="teelab" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <img src="images/teelab.png" alt="teelab" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <div class="placeholder-logo" style="display:none;">teelab</div>
             </div>
+            
+            <!-- Duplicate logos for seamless looping -->
             <div class="ugc-logo">
-              <img src="images/your-brand.png" alt="Your Brand" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-              <div class="placeholder-logo" style="display:none;">Your Brand</div>
+              <img src="images/buffalo.png" alt="Buffalo" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="placeholder-logo" style="display:none;">Buffalo</div>
+            </div>
+            <div class="ugc-logo">
+              <img src="images/crocs.png" alt="Crocs" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="placeholder-logo" style="display:none;">Crocs</div>
+            </div>
+            <div class="ugc-logo">
+              <img src="images/adidas.png" alt="Adidas" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="placeholder-logo" style="display:none;">Adidas</div>
+            </div>
+            <div class="ugc-logo">
+              <img src="images/zara.png" alt="Zara" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="placeholder-logo" style="display:none;">Zara</div>
+            </div>
+            <div class="ugc-logo">
+              <img src="images/asy.png" alt="Asyllum" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="placeholder-logo" style="display:none;">Asyllum</div>
+            </div>
+            <div class="ugc-logo">
+              <img src="images/ditsy.png" alt="Ditsy Bits" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="placeholder-logo" style="display:none;">Ditsy Bits</div>
+            </div>
+            <div class="ugc-logo">
+              <img src="images/helen.jpg" alt="Helen Steele" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="placeholder-logo" style="display:none;">Helen Steele</div>
+            </div>
+            <div class="ugc-logo">
+              <img src="images/seodra.png" alt="Seodra Beaga" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="placeholder-logo" style="display:none;">Seodra Beaga</div>
+            </div>
+            <div class="ugc-logo">
+              <img src="images/maia.png" alt="MaiaMina" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="placeholder-logo" style="display:none;">MaiaMina</div>
+            </div>
+            <div class="ugc-logo">
+              <img src="images/airup.png" alt="air up" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="placeholder-logo" style="display:none;">air up</div>
+            </div>
+            <div class="ugc-logo">
+              <img src="images/lar.png" alt="lar jewelry" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="placeholder-logo" style="display:none;">lar jewelry</div>
+            </div>
+            <div class="ugc-logo">
+              <img src="images/teelab.png" alt="teelab" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="placeholder-logo" style="display:none;">teelab</div>
             </div>
           </div>
         </div>
@@ -1091,7 +1197,7 @@ section {
         <h1>What I can do for you</h1>
         <div class="ugc-grid">
           <article class="ugc-card">
-            <img src="images/paidads.png" alt="UGC Reels for brand use"/>
+            <img src="images/paidads.png" alt="UGC Reels for brand use" loading="lazy" decoding="async" />
             <div class="pad">
               <div class="ugc-tag">UGC Reels</div>
               <h3>Brand UGC Reels</h3>
@@ -1099,7 +1205,7 @@ section {
             </div>
           </article>
           <article class="ugc-card">
-            <img src="images/trip.png" alt="Instagram collaboration"/>
+            <img src="images/trip.png" alt="Instagram collaboration" loading="lazy" decoding="async" />
             <div class="pad">
               <div class="ugc-tag">Instagram Collab</div>
               <h3>Profile Feature Reels</h3>
@@ -1107,7 +1213,7 @@ section {
             </div>
           </article>
           <article class="ugc-card">
-            <img src="images/photog.png" alt="Paid ad usage"/>
+            <img src="images/photog.png" alt="Paid ad usage" loading="lazy" decoding="async" />
             <div class="pad">
               <div class="ugc-tag">Paid Ads</div>
               <h3>Monthly Ad Content</h3>
@@ -1122,7 +1228,10 @@ section {
   <!-- Social Section -->
   <section id="social">
     <h1>Social Content</h1>
-    <div class="taggbox" style="width:100%;height:100%;" data-widget-id="287759" website="1"></div>
+    <div class="social-container">
+      <!-- Elfsight Instagram Feed Widget -->
+      <div class="elfsight-app-31e99a15-bcde-4671-9d5b-8abe2fd98aa5" data-elfsight-app-lazy></div>
+    </div>
   </section>
 
   <!-- Analytics Services Section -->
@@ -1131,8 +1240,8 @@ section {
       <h1>My Instagram Analytics</h1>
       <div class="analytics-row">
         <div class="analytics-circles">
-          <div class="circle">5K <span>FOLLOWERS</span></div>
-          <div class="circle">507.8K <span>ACCOUNTS REACHED<br>(LAST 30 DAYS)</span></div>
+          <div class="circle">6K <span>FOLLOWERS</span></div>
+          <div class="circle">1.6M <span>ACCOUNTS REACHED<br>(LAST 30 DAYS)</span></div>
           <div class="circle">1.3M <span>IMPRESSIONS<br>(LAST 30 DAYS)</span></div>
         </div>
         <div class="demographics-triangle">
@@ -1173,55 +1282,71 @@ section {
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="container">
-      <h1>Contact UGHROXX</h1>
-      <form action="https://formsubmit.co/macrirossella8@gmail.com" method="POST" novalidate>
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_redirect" value="https://sammyjoe01.github.io/Ughroxx/index.html" />
-
-        <input type="text" name="name" placeholder="Your Name" required aria-required="true" />
-        <input type="email" name="email" placeholder="Your Email" required aria-required="true" />
-        <textarea name="message" rows="6" placeholder="Your Message" required aria-required="true"></textarea>
-
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer>
-    © 2025 Ughroxx Clothing Brand
-    <div class="social-links">
-      <a href="https://www.instagram.com/ughroxx/?igsh=MXF6YXl6cDdvcTlrMQ%3D%3D&utm_source=qr" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/rossella-macri" target="_blank" aria-label="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
-    </div>
+    © 2025 Ughroxx Portfolio
   </footer>
-
-  <!-- Taggbox script -->
-  <script src="https://widget.taggbox.com/embed.min.js" type="text/javascript"></script>
   
+  <!-- Optimized JavaScript -->
   <script>
-    // Mobile menu toggle removed since we're using desktop layout only
-    
-    // Fallback for images that might not load
     document.addEventListener('DOMContentLoaded', function() {
-      const images = document.querySelectorAll('.ugc-logo img');
-      images.forEach(img => {
-        img.addEventListener('error', function() {
-          this.style.display = 'none';
-          const placeholder = this.nextElementSibling;
-          if (placeholder && placeholder.classList.contains('placeholder-logo')) {
-            placeholder.style.display = 'block';
-          }
+        const navLinks = document.querySelector('.nav-links');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        
+        if (!navLinks || !mobileMenuBtn) return;
+        
+        let menuOpen = false;
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            menuOpen = !menuOpen;
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = menuOpen ? 'hidden' : '';
         });
-      });
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+                menuOpen = false;
+            });
+        });
+        
+        document.addEventListener('click', function(e) {
+            if (menuOpen && !e.target.closest('.nav-container')) {
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+                menuOpen = false;
+            }
+        });
+
+        // Elfsight widget optimization
+        const optimizeElfsightWidget = function() {
+            setTimeout(() => {
+                const elfsightWidget = document.querySelector('.elfsight-app-31e99a15-bcde-4671-9d5b-8abe2fd98aa5');
+                if (elfsightWidget) {
+                    elfsightWidget.style.background = 'transparent';
+                    
+                    const allElements = document.querySelectorAll('*');
+                    allElements.forEach(el => {
+                        const compStyle = window.getComputedStyle(el);
+                        if (compStyle.backgroundColor !== 'rgba(0, 0, 0, 0)' && 
+                            compStyle.backgroundColor !== 'transparent' &&
+                            (el.className.includes('elfsight') || el.className.includes('eapps'))) {
+                            el.style.background = 'transparent';
+                        }
+                    });
+                }
+            }, 2000);
+        };
+
+        optimizeElfsightWidget();
+        window.addEventListener('load', optimizeElfsightWidget);
     });
   </script>
+  
+  <!-- Elfsight Widget Script -->
+  <script src="https://elfsightcdn.com/platform.js" async></script>
 </body>
 </html>
