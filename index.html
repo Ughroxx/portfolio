@@ -847,14 +847,14 @@ p {
     line-height: 1.3 !important;
   }
   
-  /* Make h1 titles even bigger on mobile */
+  /* Make h1 titles 30% smaller on mobile */
   h1 {
-    font-size: clamp(3rem, 10vw, 100px) !important;
+    font-size: clamp(2.1rem, 7vw, 70px) !important; /* 30% smaller */
   }
   
-  /* Make main UGHROXX title way bigger on mobile */
+  /* Make main UGHROXX title 30% smaller on mobile */
   .ugc-title {
-    font-size: clamp(4rem, 12vw, 120px) !important;
+    font-size: clamp(2.8rem, 8.4vw, 84px) !important; /* 30% smaller */
   }
   
   /* Navigation fixes */
@@ -931,7 +931,7 @@ p {
     gap: 25px;
   }
   
-  /* FIXED: Paralympic-style circle arrangement for mobile */
+  /* FIXED: Olympic rings style circle arrangement for mobile */
   .analytics-circles {
     display: grid;
     grid-template-areas: 
@@ -948,40 +948,40 @@ p {
   .circle:nth-child(1) {
     grid-area: top;
     justify-self: center;
-    margin-bottom: -35px; /* Overlap for paralympic style */
+    margin-bottom: -45px; /* Increased overlap for Olympic rings style */
     z-index: 3;
   }
 
   .circle:nth-child(2) {
     grid-area: left;
-    margin-top: -30px; /* Overlap for paralympic style */
-    margin-right: -20px; /* Overlap for paralympic style */
+    margin-top: -40px; /* Increased overlap for Olympic rings style */
+    margin-right: -35px; /* Increased overlap for Olympic rings style */
     z-index: 2;
   }
 
   .circle:nth-child(3) {
     grid-area: right;
-    margin-top: -30px; /* Overlap for paralympic style */
-    margin-left: -20px; /* Overlap for paralympic style */
+    margin-top: -40px; /* Increased overlap for Olympic rings style */
+    margin-left: -35px; /* Increased overlap for Olympic rings style */
     z-index: 2;
   }
 
   .circle {
-    width: 140px !important;
-    height: 140px !important;
+    width: 120px !important; /* Slightly smaller for better Olympic rings arrangement */
+    height: 120px !important;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: rgba(255, 255, 255, 0.1);
-    border: 2.88px solid rgba(255, 255, 255, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.5); /* Thicker border for Olympic rings effect */
     box-shadow: 0 9.6px 24px rgba(0, 0, 0, 0.4);
     font-family: 'Bebas Neue', sans-serif;
     text-align: center;
     transition: all 0.3s ease;
-    font-size: 1.8rem !important;
-    padding: 15px;
+    font-size: 1.5rem !important; /* Slightly smaller font */
+    padding: 12px;
   }
   
   .demographics-row {
@@ -1121,25 +1121,25 @@ p {
     gap: 10px;
   }
   
-  /* Smaller circles for very small screens */
+  /* Smaller circles for very small screens - Olympic rings style */
   .circle {
-    width: 120px !important;
-    height: 120px !important;
-    font-size: 1.5rem !important;
+    width: 100px !important;
+    height: 100px !important;
+    font-size: 1.2rem !important;
   }
 
   .circle:nth-child(1) {
-    margin-bottom: -30px;
+    margin-bottom: -40px; /* Maintain Olympic rings overlap */
   }
 
   .circle:nth-child(2) {
-    margin-top: -25px;
-    margin-right: -15px;
+    margin-top: -35px; /* Maintain Olympic rings overlap */
+    margin-right: -30px; /* Maintain Olympic rings overlap */
   }
 
   .circle:nth-child(3) {
-    margin-top: -25px;
-    margin-left: -15px;
+    margin-top: -35px; /* Maintain Olympic rings overlap */
+    margin-left: -30px; /* Maintain Olympic rings overlap */
   }
 
   /* Social widget on very small screens */
