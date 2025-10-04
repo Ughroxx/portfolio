@@ -20,6 +20,7 @@
 
   <style>
 /* Reset & base styles */
+/* Reset & base styles */
 * {
   margin: 0;
   padding: 0;
@@ -190,14 +191,21 @@ section {
   margin-bottom: 48.96px; /* Increased by 20% */
 }
 
-/* CONSISTENT HEADING SIZES */
+/* CONSISTENT HEADING SIZES - BIGGER H1 TITLES */
 h1 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3.13344rem, 9.40032vw, 120px);
+  font-size: clamp(4rem, 12vw, 140px); /* Made much bigger */
   font-weight: 600;
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   line-height: 1.1;
+}
+
+/* Main UGHROXX title - WAY BIGGER */
+.ugc-title {
+  font-size: clamp(5rem, 15vw, 160px) !important; /* Much bigger than other h1 */
+  margin: 0 0 16.32px; /* Increased by 20% */
+  text-align: left;
 }
 
 h2 {
@@ -211,7 +219,7 @@ h2 {
 
 h3 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(1.56672rem, 3.31776vw, 42px);
+  font-size: clamp(1.56672rem, 3.31776vw, 40px);
   font-weight: 400;
   color: #fff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
@@ -224,11 +232,6 @@ p {
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
-}
-
-.ugc-title {
-  margin: 0 0 16.32px; /* Increased by 20% */
-  text-align: left;
 }
 
 .ugc-sub {
@@ -445,7 +448,7 @@ p {
   margin: 0;
 }
 
-/* Social Section - REDESIGNED */
+/* Social Section - TRANSPARENT CONTAINER */
 #social {
   padding: 28.8px 16.32px; /* Increased by 20% */
   overflow: visible;
@@ -465,16 +468,15 @@ p {
   width: 95%;
   margin: 0 auto;
   overflow: hidden;
-  border-radius: 14.4px; /* Increased by 20% */
-  box-shadow: 0 7.68px 24px rgba(255, 255, 255, 0.4); /* Reduced opacity */
-  background: rgba(255, 255, 255, 0.90) !important; /* More transparent */
-  border: 1.92px solid rgba(255, 255, 255, 0.15); /* Reduced opacity */
+  border-radius: 14.4px;
+  background: transparent !important; /* Made transparent */
+  border: 1.92px solid rgba(255, 255, 255, 0.15);
   height: auto;
   position: relative;
   display: flex;
   justify-content: center;
-  /* Remove clip-path to show full widget */
-  clip-path: none;
+  /* Cut 10px from the bottom */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 70px), 0 calc(100% - 70px));
   padding: 0;
 }
 
@@ -500,18 +502,27 @@ p {
 
 .eapps-instagram-feed-posts-grid {
   grid-template-rows: repeat(2, 1fr) !important;
-  gap: 7.68px !important; /* Increased by 20% */
+  gap: 4px !important; /* Increased by 20% */
 }
 
 .eapps-instagram-feed-post {
   margin: 0 !important;
   transform: none !important;
+  aspect-ratio: 1 !important;
+  min-height: 200px !important;
+}
+
+.eapps-instagram-feed-post-image,
+.eapps-instagram-feed-post-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
 }
 
 /* Simplify header styling */
 .eapps-instagram-feed-header {
   padding: 19.2px 16.32px !important; /* Reduced padding */
-  background: rgba(255, 255, 255, 0.05) !important; /* More transparent */
+  background: rgba(255, 255, 255, 0.8) !important; /* More transparent */
   backdrop-filter: blur(10px) !important;
   border-bottom: 1.92px solid rgba(255, 255, 255, 0.1) !important; /* Reduced opacity */
 }
@@ -681,7 +692,7 @@ p {
   margin-top: 81.6px; /* Increased by 20% */
 }
 
-/* Tighter pyramid formation for circles - CONSISTENT ACROSS DEVICES */
+/* FIXED ANALYTICS CIRCLES - INTRICATE POSITIONING */
 .analytics-circles {
   display: grid;
   grid-template-areas: 
@@ -698,22 +709,25 @@ p {
 .circle:nth-child(1) {
   grid-area: top;
   justify-self: center;
-  margin-bottom: -28.8px; /* Increased by 20% */
+  margin-bottom: -40px; /* Increased overlap */
   z-index: 3;
+  transform: scale(1.1); /* Make top circle slightly larger */
 }
 
 .circle:nth-child(2) {
   grid-area: left;
-  margin-top: -28.8px; /* Increased by 20% */
-  margin-right: -19.2px; /* Increased by 20% */
+  margin-top: -35px; /* Increased overlap */
+  margin-right: -25px; /* Increased overlap */
   z-index: 2;
+  transform: translateX(-10px); /* Shift left */
 }
 
 .circle:nth-child(3) {
   grid-area: right;
-  margin-top: -28.8px; /* Increased by 20% */
-  margin-left: -19.2px; /* Increased by 20% */
+  margin-top: -35px; /* Increased overlap */
+  margin-left: -25px; /* Increased overlap */
   z-index: 2;
+  transform: translateX(10px); /* Shift right */
 }
 
 .circle {
@@ -815,42 +829,58 @@ p {
   letter-spacing: 0.8064px; /* Increased by 20% */
 }
 
-/* Mobile Responsive Design */
+/* Mobile Responsive Design - FIXED */
 @media (max-width: 768px) {
   body {
     transform: none !important;
     width: 100% !important;
     overflow-x: hidden !important;
     background-attachment: scroll;
-    font-size: 28.08px; /* Increased by 20% from 23.4px */
+    font-size: 24px; /* Medium size for all text */
   }
   
+  /* Consistent text sizing for all elements */
+  h1, h2, h3, p, .ugc-sub, .ugc-blurb, .ugc-contact-label-inline, 
+  .ugc-contact-value-inline, .ugc-tag, .circle, .circle span, 
+  .demographics h3, .demographics li, footer {
+    font-size: 24px !important; /* Medium consistent size */
+    line-height: 1.3 !important;
+  }
+  
+  /* Make h1 titles even bigger on mobile */
+  h1 {
+    font-size: clamp(3rem, 10vw, 100px) !important;
+  }
+  
+  /* Make main UGHROXX title way bigger on mobile */
+  .ugc-title {
+    font-size: clamp(4rem, 12vw, 120px) !important;
+  }
+  
+  /* Navigation fixes */
   .navBar {
     transform: none !important;
     backdrop-filter: none;
     background: rgba(0, 0, 0, 0.8);
-    padding: 18.6px 0; /* Increased by 20% */
-    justify-content: space-between; /* Keep logo and menu on right */
-  }
-  
-  html {
-    font-size: 17.9712px; /* Increased by 20% */
+    padding: 15px 0;
+    justify-content: space-between;
   }
   
   .logo {
-    font-size: 2.9952rem; /* Increased by 20% */
+    font-size: 2rem !important;
   }
   
   .nav-links a {
-    font-size: 1.916928rem; /* Increased by 20% */
-    padding: 12.48px 16.224px; /* Increased by 20% */
+    font-size: 1.5rem !important;
+    padding: 12px 16px;
   }
   
+  /* Layout fixes */
   .ugc-container,
   .section-inner,
   .social-container {
     width: 100%;
-    padding: 0 16.224px; /* Increased by 20% */
+    padding: 15px !important;
   }
   
   .ugc-title,
@@ -860,33 +890,36 @@ p {
   
   .ugc-hero {
     grid-template-columns: 1fr !important;
-    gap: 31.2px; /* Increased by 20% */
+    gap: 25px;
     text-align: center;
   }
   
   .ugc-line {
-    margin: 21.216px auto; /* Increased by 20% */
+    margin: 15px auto;
     width: 80%;
   }
   
   .ugc-contact-inline {
     justify-content: center;
+    flex-direction: column;
+    gap: 10px;
   }
   
   .ugc-logos {
-    gap: 31.2px; /* Increased by 20% */
-    padding: 21.216px 0; /* Increased by 20% */
+    gap: 20px;
+    padding: 15px 0;
     animation-duration: 30s;
   }
   
   .ugc-grid {
-    grid-template-columns: repeat(auto-fit, minmax(356.4288px, 1fr)) !important; /* Increased by 20% */
-    gap: 21.216px; /* Increased by 20% */
+    grid-template-columns: 1fr !important;
+    gap: 20px;
   }
   
   .ugc-card {
     backdrop-filter: none;
     transform: none !important;
+    min-height: auto !important;
   }
   
   .ugc-card:hover {
@@ -895,26 +928,106 @@ p {
   
   .analytics-row {
     grid-template-columns: 1fr !important;
-    gap: 31.2px; /* Increased by 20% */
+    gap: 25px;
+  }
+  
+  /* Fixed analytics circles for mobile */
+  .analytics-circles {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .circle:nth-child(1),
+  .circle:nth-child(2),
+  .circle:nth-child(3) {
+    margin: 0;
+    transform: none;
+  }
+  
+  .circle {
+    width: 200px !important;
+    height: 200px !important;
   }
   
   .demographics-row {
     flex-direction: column !important;
-    gap: 16.224px; /* Increased by 20% */
+    gap: 15px;
   }
   
   .demographics {
     min-height: auto;
-    padding: 26.208px 21.216px; /* Increased by 20% */
+    padding: 20px 15px;
   }
   
+  /* Social widget - focused on images with bottom cut */
   .social-container {
-    min-height: 500px; /* Reduced height */
+    min-height: 400px;
     height: auto;
+    /* Cut the bottom by 70px */
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 70px), 0 calc(100% - 70px));
+    overflow: hidden;
+  }
+  
+  /* Instagram widget mobile optimizations */
+  .eapps-instagram-feed-posts-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: repeat(2, 1fr) !important;
+    gap: 2px !important;
+  }
+  
+  .eapps-instagram-feed-post {
+    aspect-ratio: 1 !important;
+    min-height: 150px !important;
+  }
+  
+  .eapps-instagram-feed-post-image,
+  .eapps-instagram-feed-post-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  
+  /* Reduce header size to focus on images */
+  .eapps-instagram-feed-header {
+    padding: 10px 15px !important;
+    min-height: 80px !important;
+  }
+  
+  .eapps-instagram-feed-header-user {
+    flex-direction: row !important;
+    gap: 10px !important;
+  }
+  
+  .eapps-instagram-feed-header-avatar {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .eapps-instagram-feed-header-username {
+    font-size: 1.2rem !important;
+    margin-bottom: 5px !important;
+  }
+  
+  .eapps-instagram-feed-header-bio {
+    display: none !important; /* Hide bio to focus on images */
+  }
+  
+  .eapps-instagram-feed-header-stats {
+    gap: 15px !important;
+  }
+  
+  .eapps-instagram-feed-header-stat-value {
+    font-size: 1rem !important;
+  }
+  
+  .eapps-instagram-feed-header-stat-label {
+    font-size: 0.8rem !important;
   }
   
   section {
-    padding: 73.632px 16.224px; /* Increased by 20% */
+    padding: 50px 15px;
     min-height: auto;
     height: auto;
   }
@@ -931,8 +1044,8 @@ p {
     width: 100%;
     background: rgba(0, 0, 0, 0.95);
     flex-direction: column;
-    padding: 21.216px; /* Increased by 20% */
-    gap: 16.224px; /* Increased by 20% */
+    padding: 15px;
+    gap: 15px;
     text-align: center;
   }
   
@@ -941,100 +1054,52 @@ p {
   }
   
   footer {
-    padding: 42.432px 21.216px; /* Increased by 20% */
-    font-size: clamp(1.827072rem, 4.073472vw, 3.12rem); /* Increased by 20% */
-  }
-
-  /* Instagram widget mobile text increases */
-  .eapps-instagram-feed-header-user {
-    gap: 24.96px !important; /* Increased by 20% */
-  }
-  
-  .eapps-instagram-feed-header-avatar {
-    width: 99.84px !important; /* Increased by 20% */
-    height: 99.84px !important; /* Increased by 20% */
-  }
-  
-  .eapps-instagram-feed-header-username {
-    font-size: 1.9968rem !important; /* Increased by 20% */
-  }
-  
-  .eapps-instagram-feed-header-bio {
-    font-size: 1.19776rem !important; /* Increased by 20% */
-  }
-  
-  .eapps-instagram-feed-header-stats {
-    gap: 24.96px !important; /* Increased by 20% */
-  }
-  
-  .eapps-instagram-feed-header-stat-value {
-    font-size: 1.4976rem !important; /* Increased by 20% */
-  }
-  
-  .eapps-instagram-feed-header-stat-label {
-    font-size: 0.9984rem !important; /* Increased by 20% */
-  }
-
-  /* Analytics section mobile text */
-  .circle {
-    font-size: clamp(2.036736rem, 8.146944vw, 3.564288rem) !important; /* Increased by 20% */
-  }
-  
-  .circle span {
-    font-size: clamp(0.928512rem, 3.055104vw, 1.317888rem) !important; /* Increased by 20% */
-  }
-
-  .demographics h3 {
-    font-size: clamp(2.9952rem, 6.58944vw, 3.12rem) !important; /* Increased by 20% */
-  }
-  
-  .demographics li {
-    font-size: clamp(1.916928rem, 3.833856vw, 2.39616rem) !important; /* Increased by 20% */
+    padding: 30px 15px;
+    font-size: 1.2rem !important;
   }
 }
 
 @media (max-width: 576px) {
-  html {
-    font-size: 16.4736px; /* Increased by 20% */
-  }
-  
+  /* Even smaller screens */
   section {
-    padding: 63.648px 11.232px; /* Increased by 20% */
+    padding: 40px 10px;
   }
   
   .demographics-triangle {
-    gap: 12.48px; /* Increased by 20% */
+    gap: 10px;
   }
   
   .demographics-row {
-    gap: 12.48px; /* Increased by 20% */
+    gap: 10px;
   }
   
   .analytics-circles {
-    gap: 9.984px !important; /* Increased by 20% */
+    gap: 15px !important;
   }
   
   .circle {
-    width: clamp(148.512px, 47.736vw, 212.16px) !important; /* Increased by 20% */
-    height: clamp(148.512px, 47.736vw, 212.16px) !important; /* Increased by 20% */
+    width: 160px !important;
+    height: 160px !important;
   }
 
-  /* Even smaller screens Instagram adjustments */
+  /* Social widget on very small screens */
   .social-container {
-    min-height: 450px; /* Reduced height */
+    min-height: 350px;
+    /* Keep the same clip-path for smaller screens */
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 70px), 0 calc(100% - 70px));
   }
   
   .eapps-instagram-feed-header {
-    padding: 16.224px 12.48px !important; /* Reduced padding */
+    padding: 8px 10px !important;
   }
   
   .eapps-instagram-feed-header-avatar {
-    width: 67.2px !important; /* Smaller avatar */
-    height: 67.2px !important; /* Smaller avatar */
+    width: 40px !important;
+    height: 40px !important;
   }
   
   .eapps-instagram-feed-header-username {
-    font-size: 1.4976rem !important; /* Smaller font */
+    font-size: 1rem !important;
   }
 }
   </style>
