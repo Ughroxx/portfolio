@@ -20,7 +20,6 @@
 
   <style>
 /* Reset & base styles */
-/* Reset & base styles */
 * {
   margin: 0;
   padding: 0;
@@ -60,9 +59,9 @@ img, video {
   max-width: 100%;
 }
 
-/* Navigation Bar - Right Aligned */
+/* Navigation Bar - Right Aligned - FIXED FOR ALL DEVICES */
 .navBar {
-  position: fixed;
+    position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -70,65 +69,61 @@ img, video {
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(8px);
   display: flex;
-  justify-content: flex-end; /* Changed to right alignment */
+  justify-content: flex-end; /* Far right aligned */
   align-items: center;
-  padding: 19.2px 0; /* Increased by 20% */
+  padding: 12px 0; /* Medium size */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end; /* Far right alignment */
   align-items: center;
   width: 95%;
-  padding: 0 16.32px; /* Increased by 20% */
+  padding: 0 16.32px;
 }
 
 .logo {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.7648rem; /* Increased by 20% from 2.304rem */
+  font-size: 2.4rem; /* Medium size */
   color: white;
   text-decoration: none;
-  letter-spacing: 2.304px; /* Increased by 20% */
+  letter-spacing: 2.304px;
+  position: absolute;
+  left: 16.32px; /* Keep logo on far left */
 }
 
 .nav-links {
   display: flex;
-  gap: 32.64px; /* Increased by 20% */
+  gap: 25px; /* Medium spacing */
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 42px; /* Increased by 20% from 35px */
+  font-size: 36px; /* Medium size */
   text-transform: uppercase;
-  letter-spacing: 1.152px; /* Increased by 20% */
-  padding: 14.4px 19.2px; /* Increased by 20% */
-  border-radius: 3.84px; /* Increased by 20% */
+  letter-spacing: 1.152px;
+  padding: 10px 14px; /* Medium size */
+  border-radius: 3.84px;
   transition: all 0.3s ease;
   position: relative;
 }
 
-.nav-links a:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 1.92px; /* Increased by 20% */
-  bottom: 0;
-  left: 50%;
-  background-color: white;
-  transition: all 0.3s ease;
-}
-
-.nav-links a:hover::after {
-  width: 80%;
-  left: 10%;
+/* Footer - MEDIUM SIZE */
+footer {
+  position: relative;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 35px 16.32px; /* Medium size */
+  text-align: center;
+  user-select: none;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.3rem, 2.8vw, 2rem); /* Medium size */
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  width: 100%;
 }
 
 /* Mobile Menu Button */
@@ -140,21 +135,6 @@ img, video {
   font-size: 2.4rem; /* Increased by 20% */
   cursor: pointer;
   padding: 10px;
-}
-
-/* Footer */
-footer {
-  position: relative;
-  color: rgba(255, 255, 255, 0.9);
-  padding: 48.96px 16.32px; /* Increased by 20% */
-  text-align: center;
-  user-select: none;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(1.40544rem, 3.13344vw, 2.4rem); /* Increased by 20% */
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  z-index: 5;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-  width: 100%;
 }
 
 /* Section styling */
@@ -686,96 +666,86 @@ p {
 .analytics-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32.64px; /* Increased by 20% */
+  gap: 70px; /* Increased by 20% */
   align-items: start;
   width: 100%;
   margin-top: 81.6px; /* Increased by 20% */
 }
 
-/* FIXED ANALYTICS CIRCLES - INTRICATE POSITIONING */
+/* FIXED: Olympic rings style - BIG circles matching box size */
 .analytics-circles {
-  display: grid;
-  grid-template-areas: 
-      "top top"
-      "left right";
-  gap: 0;
-  justify-items: center;
+  display: flex !important;
+  justify-content: center;
   align-items: center;
-  width: fit-content;
-  margin: 0 auto;
+  gap: 0 !important;
+  margin-bottom: 30px !important;
   position: relative;
-}
-
-.circle:nth-child(1) {
-  grid-area: top;
-  justify-self: center;
-  margin-bottom: -40px; /* Increased overlap */
-  z-index: 3;
-  transform: scale(1.1); /* Make top circle slightly larger */
-}
-
-.circle:nth-child(2) {
-  grid-area: left;
-  margin-top: -35px; /* Increased overlap */
-  margin-right: -25px; /* Increased overlap */
-  z-index: 2;
-  transform: translateX(-10px); /* Shift left */
-}
-
-.circle:nth-child(3) {
-  grid-area: right;
-  margin-top: -35px; /* Increased overlap */
-  margin-left: -25px; /* Increased overlap */
-  z-index: 2;
-  transform: translateX(10px); /* Shift right */
+  height: 400px; /* Increased height to accommodate larger circles */
+  width: 100%;
 }
 
 .circle {
-  width: clamp(172.8px, 26.88vw, 364.8px); /* Increased by 20% */
-  height: clamp(172.8px, 26.88vw, 364.8px); /* Increased by 20% */
+  width: 320px !important; /* Much bigger to match box size */
+  height: 320px !important; /* Much bigger to match box size */
   border-radius: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.1);
-  border: 2.88px solid rgba(255, 255, 255, 0.3); /* Increased by 20% */
-  box-shadow: 0 9.6px 24px rgba(0, 0, 0, 0.4); /* Increased by 20% */
+  border: 4px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 9.6px 24px rgba(0, 0, 0, 0.4);
   font-family: 'Bebas Neue', sans-serif;
   text-align: center;
   transition: all 0.3s ease;
-  font-size: clamp(2.304rem, 5.0688vw, 7.2rem); /* Increased by 20% */
-  padding: clamp(19.2px, 2.88vw, 28.8px); /* Increased by 20% */
+  font-size: 3.8rem !important; /* Bigger font */
+  padding: 16px !important;
+  position: absolute;
 }
 
-.circle:hover {
-  transform: scale(1.05);
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.5);
+/* Olympic rings positioning - adjusted for larger circles */
+.circle:nth-child(1) {
+  top: 40px; /* Adjusted for larger circles */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.circle:nth-child(2) {
+  top: 220px; /* Adjusted for larger circles */
+  left: 25%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.circle:nth-child(3) {
+  top: 220px; /* Adjusted for larger circles */
+  left: 75%;
+  transform: translateX(-50%);
+  z-index: 2;
 }
 
 .circle span {
-  font-size: clamp(0.9216rem, 1.8432vw, 1.3824rem); /* Increased by 20% */
-  margin-top: 9.6px; /* Increased by 20% */
-  display: block;
-  font-family: 'Bebas Neue', sans-serif; 
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: 0.3456px; /* Increased by 20% */
+  font-size: 1.6rem !important; /* Bigger text */
+  margin-top: 12px !important;
+  line-height: 1.1 !important;
+  padding: 0 6px !important;
+  position: relative;
+  z-index: 4;
 }
 
 /* Demographics with much bigger text */
 .demographics-triangle {
   display: flex;
   flex-direction: column;
-  gap: 24px; /* Increased by 20% */
+  gap: 70px; /* Increased by 20% */
   width: 100%;
   align-items: stretch;
 }
 
 .demographics-row {
   display: flex;
-  gap: 24px; /* Increased by 20% */
+  gap: 70px; /* Increased by 20% */
   width: 100%;
   align-items: stretch;
 }
@@ -829,7 +799,7 @@ p {
   letter-spacing: 0.8064px; /* Increased by 20% */
 }
 
-/* Mobile Responsive Design - FIXED */
+/* Mobile Responsive Design - FIXED NAVIGATION */
 @media (max-width: 768px) {
   body {
     transform: none !important;
@@ -837,6 +807,63 @@ p {
     overflow-x: hidden !important;
     background-attachment: scroll;
     font-size: 24px; /* Medium size for all text */
+  }
+  
+  /* FIXED NAVIGATION - No overlapping */
+  .navBar {
+    transform: none !important;
+    backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 10px 0 !important;
+    justify-content: space-between;
+    height: 60px;
+    position: fixed;
+  }
+  
+  .nav-container {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+  
+  .logo {
+    font-size: 1.8rem !important;
+    left: 15px !important;
+    position: relative;
+  }
+  
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    gap: 15px;
+    z-index: 999;
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-links a {
+    font-size: 1.5rem !important;
+    padding: 12px 20px !important;
+    width: 80%;
+    text-align: center;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+    font-size: 1.8rem !important;
+    padding: 6px !important;
   }
   
   /* Consistent text sizing for all elements */
@@ -847,32 +874,21 @@ p {
     line-height: 1.3 !important;
   }
   
-  /* Make h1 titles 30% smaller on mobile */
+  /* Make h1 titles even smaller on mobile */
   h1 {
-    font-size: clamp(2.1rem, 7vw, 70px) !important; /* 30% smaller */
+    font-size: clamp(1.8rem, 6vw, 60px) !important; /* Smaller titles */
+    margin-bottom: 20px !important; /* Closer to content */
   }
   
-  /* Make main UGHROXX title 30% smaller on mobile */
+  /* Make main UGHROXX title smaller on mobile */
   .ugc-title {
-    font-size: clamp(2.8rem, 8.4vw, 84px) !important; /* 30% smaller */
+    font-size: clamp(2.2rem, 7vw, 70px) !important; /* Smaller title */
   }
   
-  /* Navigation fixes */
-  .navBar {
-    transform: none !important;
-    backdrop-filter: none;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 15px 0;
-    justify-content: space-between;
-  }
-  
-  .logo {
-    font-size: 2rem !important;
-  }
-  
-  .nav-links a {
-    font-size: 1.5rem !important;
-    padding: 12px 16px;
+  /* Footer medium size on mobile */
+  footer {
+    padding: 25px 12px !important; /* Medium size */
+    font-size: 1.1rem !important; /* Medium size */
   }
   
   /* Layout fixes */
@@ -926,227 +942,112 @@ p {
     transform: none !important;
   }
   
+  /* MORE GAP between circles and demographics */
   .analytics-row {
     grid-template-columns: 1fr !important;
-    gap: 25px;
-  }
-  
-  /* FIXED: Olympic rings style circle arrangement for mobile */
-  .analytics-circles {
-    display: grid;
-    grid-template-areas: 
-        "top top"
-        "left right";
-    gap: 0;
-    justify-items: center;
-    align-items: center;
-    width: fit-content;
-    margin: 0 auto;
-    position: relative;
+    gap: 100px !important; /* More gap between sections */
   }
 
+  .analytics-circles {
+    height: 400px !important; /* Taller container for larger circles */
+    margin-bottom: 20px !important;
+  }
+
+  .circle {
+    width: 280px !important; /* Bigger circles for mobile */
+    height: 280px !important; /* Bigger circles for mobile */
+    font-size: 3.2rem !important; /* Bigger font */
+    padding: 12.8px !important;
+    border: 4.8px solid rgba(255, 255, 255, 0.6);
+  }
+
+  /* MINIMAL INTERSECTION positioning for mobile */
   .circle:nth-child(1) {
-    grid-area: top;
-    justify-self: center;
-    margin-bottom: -45px; /* Increased overlap for Olympic rings style */
+    top: 40px; /* Higher for minimal intersection */
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 3;
   }
 
   .circle:nth-child(2) {
-    grid-area: left;
-    margin-top: -40px; /* Increased overlap for Olympic rings style */
-    margin-right: -35px; /* Increased overlap for Olympic rings style */
+    top: 220px; /* Lower for minimal intersection */
+    left: 25%; /* Further from center */
+    transform: translateX(-50%);
     z-index: 2;
   }
 
   .circle:nth-child(3) {
-    grid-area: right;
-    margin-top: -40px; /* Increased overlap for Olympic rings style */
-    margin-left: -35px; /* Increased overlap for Olympic rings style */
+    top: 220px; /* Lower for minimal intersection */
+    left: 75%; /* Further from center */
+    transform: translateX(-50%);
     z-index: 2;
   }
 
-  .circle {
-    width: 120px !important; /* Slightly smaller for better Olympic rings arrangement */
-    height: 120px !important;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    border: 3px solid rgba(255, 255, 255, 0.5); /* Thicker border for Olympic rings effect */
-    box-shadow: 0 9.6px 24px rgba(0, 0, 0, 0.4);
-    font-family: 'Bebas Neue', sans-serif;
-    text-align: center;
-    transition: all 0.3s ease;
-    font-size: 1.5rem !important; /* Slightly smaller font */
-    padding: 12px;
-  }
-  
-  .demographics-row {
-    flex-direction: column !important;
-    gap: 15px;
-  }
-  
-  .demographics {
-    min-height: auto;
-    padding: 20px 15px;
-  }
-  
-  /* FIXED: Social widget - white with 80-90% transparency */
-  .social-container {
-    min-height: 400px;
-    height: auto;
-    background: rgba(255, 255, 255, 0.85) !important; /* White with 85% opacity */
-    backdrop-filter: blur(10px);
-    border: 1.92px solid rgba(255, 255, 255, 0.3);
-    /* Cut the bottom by 70px */
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 70px), 0 calc(100% - 70px));
-    overflow: hidden;
-  }
-  
-  /* Instagram widget mobile optimizations for white background */
-  .eapps-instagram-feed {
-    background: transparent !important;
-  }
-  
-  .eapps-instagram-feed-posts-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    grid-template-rows: repeat(2, 1fr) !important;
-    gap: 2px !important;
-  }
-  
-  .eapps-instagram-feed-post {
-    aspect-ratio: 1 !important;
-    min-height: 150px !important;
-  }
-  
-  .eapps-instagram-feed-post-image,
-  .eapps-instagram-feed-post-image img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-  
-  /* Reduce header size to focus on images - adjusted for white background */
-  .eapps-instagram-feed-header {
-    padding: 10px 15px !important;
-    min-height: 80px !important;
-    background: rgba(255, 255, 255, 0.9) !important; /* White header */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-  }
-  
-  .eapps-instagram-feed-header-user {
-    flex-direction: row !important;
-    gap: 10px !important;
-  }
-  
-  .eapps-instagram-feed-header-avatar {
-    width: 50px !important;
-    height: 50px !important;
-    border: 2px solid rgba(0, 0, 0, 0.2) !important;
-  }
-  
-  .eapps-instagram-feed-header-username {
-    font-size: 1.2rem !important;
-    margin-bottom: 5px !important;
-    color: #000 !important; /* Black text for white background */
-    text-shadow: none !important;
-  }
-  
-  .eapps-instagram-feed-header-bio {
-    display: none !important; /* Hide bio to focus on images */
-  }
-  
-  .eapps-instagram-feed-header-stats {
-    gap: 15px !important;
-  }
-  
-  .eapps-instagram-feed-header-stat-value {
-    font-size: 1rem !important;
-    color: #000 !important; /* Black text for white background */
-    text-shadow: none !important;
-  }
-  
-  .eapps-instagram-feed-header-stat-label {
-    font-size: 0.8rem !important;
-    color: rgba(0, 0, 0, 0.7) !important; /* Dark gray for white background */
-  }
-  
-  section {
-    padding: 50px 15px;
-    min-height: auto;
-    height: auto;
-  }
-  
-  .mobile-menu-btn {
-    display: block !important;
-  }
-  
-  .nav-links {
-    display: none !important;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    flex-direction: column;
-    padding: 15px;
-    gap: 15px;
-    text-align: center;
-  }
-  
-  .nav-links.active {
-    display: flex !important;
-  }
-  
-  footer {
-    padding: 30px 15px;
-    font-size: 1.2rem !important;
+  .circle span {
+    font-size: 1.4rem !important; /* Bigger text */
+    margin-top: 8px !important;
+    line-height: 1.1 !important;
+    padding: 0 4px !important;
   }
 }
 
 @media (max-width: 576px) {
   /* Even smaller screens */
   section {
-    padding: 40px 10px;
+    padding: 30px 10px !important;
   }
   
   .demographics-triangle {
-    gap: 10px;
+    gap: 100px;
   }
   
   .demographics-row {
     gap: 10px;
   }
   
-  /* Smaller circles for very small screens - Olympic rings style */
+  .analytics-circles {
+    height: 380px !important;
+  }
+
   .circle {
-    width: 100px !important;
-    height: 100px !important;
-    font-size: 1.2rem !important;
+    width: 250px !important; /* Bigger circles for very small screens */
+    height: 250px !important; /* Bigger circles for very small screens */
+    font-size: 2.8rem !important; /* Bigger font */
+    padding: 9.6px !important;
+    border: 4.8px solid rgba(255, 255, 255, 0.6);
   }
 
   .circle:nth-child(1) {
-    margin-bottom: -40px; /* Maintain Olympic rings overlap */
+    top: 30px;
+    left: 50%;
   }
 
   .circle:nth-child(2) {
-    margin-top: -35px; /* Maintain Olympic rings overlap */
-    margin-right: -30px; /* Maintain Olympic rings overlap */
+    top: 200px;
+    left: 20%; /* Even further from center */
   }
 
   .circle:nth-child(3) {
-    margin-top: -35px; /* Maintain Olympic rings overlap */
-    margin-left: -30px; /* Maintain Olympic rings overlap */
+    top: 200px;
+    left: 80%; /* Even further from center */
+  }
+
+  .circle span {
+    font-size: 1.2rem !important; /* Bigger text */
+    margin-top: 6px !important;
+    line-height: 1.1 !important;
+  }
+}
+
+  /* MORE GAP between circles and demographics on small screens */
+  .analytics-row {
+    gap: 100px !important;
   }
 
   /* Social widget on very small screens */
   .social-container {
     min-height: 350px;
-    background: rgba(255, 255, 255, 0.9) !important; /* Slightly more opaque on small screens */
-    /* Keep the same clip-path for smaller screens */
+    background: transparent !important;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 70px), 0 calc(100% - 70px));
   }
   
@@ -1162,7 +1063,31 @@ p {
   .eapps-instagram-feed-header-username {
     font-size: 1rem !important;
   }
-}
+
+  .navBar {
+    padding: 8px 0 !important; /* Medium size */
+    height: 55px !important; /* Medium size */
+  }
+  
+  .logo {
+    font-size: 1.6rem !important; /* Medium size */
+    left: 12px !important; /* Keep logo on far left */
+  }
+  
+  .nav-links a {
+    font-size: 1.3rem !important; /* Medium size */
+    padding: 10px 15px !important; /* Medium size */
+  }
+  
+  .mobile-menu-btn {
+    font-size: 1.6rem !important; /* Medium size */
+    padding: 5px !important; /* Medium size */
+  }
+  
+  footer {
+    padding: 20px 10px !important; /* Medium size */
+    font-size: 1rem !important; /* Medium size */
+  }
   </style>
 </head>
 <body>
@@ -1429,6 +1354,16 @@ p {
             menuOpen = !menuOpen;
             navLinks.classList.toggle('active');
             document.body.style.overflow = menuOpen ? 'hidden' : '';
+            
+            // Change icon based on menu state
+            const icon = mobileMenuBtn.querySelector('i');
+            if (menuOpen) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
         
         document.querySelectorAll('.nav-links a').forEach(link => {
@@ -1436,6 +1371,11 @@ p {
                 navLinks.classList.remove('active');
                 document.body.style.overflow = '';
                 menuOpen = false;
+                
+                // Reset icon
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             });
         });
         
@@ -1444,6 +1384,11 @@ p {
                 navLinks.classList.remove('active');
                 document.body.style.overflow = '';
                 menuOpen = false;
+                
+                // Reset icon
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             }
         });
 
