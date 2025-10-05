@@ -155,6 +155,7 @@ section {
 /* UGC Creator Section */
 #ugc-creator {
   padding: 65.28px 16.32px; /* Increased by 20% */
+  padding-top: 200px; /* INCREASED SPACE between navbar and content */
 }
 
 .ugc-container {
@@ -254,12 +255,14 @@ p {
   display: block;
 }
 
-/* Inline Contact Info */
+/* Contact Info - Left aligned on desktop, centered on mobile */
 .ugc-contact-inline {
   display: flex;
+  flex-direction: column;
   gap: 12.48px; /* Increased by 20% */
   margin-top: 16.32px; /* Increased by 20% */
-  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .ugc-contact-item-inline {
@@ -672,7 +675,7 @@ p {
   margin-top: 81.6px; /* Increased by 20% */
 }
 
-/* FIXED: Olympic rings style - BIG circles matching box size */
+/* FIXED: Olympic rings style - Responsive circles that fit screen */
 .analytics-circles {
   display: flex !important;
   justify-content: center;
@@ -738,14 +741,14 @@ p {
 .demographics-triangle {
   display: flex;
   flex-direction: column;
-  gap: 70px; /* Increased by 20% */
+  gap: 20px; /* REDUCED GAP between top and bottom rows */
   width: 100%;
   align-items: stretch;
 }
 
 .demographics-row {
   display: flex;
-  gap: 70px; /* Increased by 20% */
+  gap: 30px; /* Increased by 20% */
   width: 100%;
   align-items: stretch;
 }
@@ -797,6 +800,47 @@ p {
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
   letter-spacing: 0.8064px; /* Increased by 20% */
+}
+
+/* Laptop/Desktop specific styles */
+@media (min-width: 1024px) {
+  /* Make titles medium size for laptop screens */
+  h1 {
+    font-size: clamp(3.5rem, 8vw, 100px) !important; /* Medium size for laptop */
+  }
+  
+  .ugc-title {
+    font-size: clamp(4rem, 10vw, 120px) !important; /* Medium size for laptop */
+  }
+  
+  /* Make analytics circles responsive to screen size */
+  .analytics-circles {
+    height: 350px;
+  }
+  
+  .circle {
+    width: 280px !important;
+    height: 280px !important;
+    font-size: 3.2rem !important;
+  }
+  
+  .circle:nth-child(1) {
+    top: 35px;
+  }
+  
+  .circle:nth-child(2),
+  .circle:nth-child(3) {
+    top: 190px;
+  }
+  
+  .circle span {
+    font-size: 1.4rem !important;
+  }
+  
+  /* Keep contact info on left side on laptop */
+  .ugc-contact-inline {
+    align-items: flex-start;
+  }
 }
 
 /* Mobile Responsive Design - FIXED NAVIGATION */
@@ -915,8 +959,10 @@ p {
     width: 80%;
   }
   
+  /* Center contact info on mobile */
   .ugc-contact-inline {
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     gap: 10px;
   }
@@ -945,49 +991,55 @@ p {
   /* MORE GAP between circles and demographics */
   .analytics-row {
     grid-template-columns: 1fr !important;
-    gap: 100px !important; /* More gap between sections */
+    gap: 40px !important; /* More gap between sections */
   }
 
+  /* Make circles fit mobile screen */
   .analytics-circles {
-    height: 400px !important; /* Taller container for larger circles */
+    height: 320px !important; /* Taller container for larger circles */
     margin-bottom: 20px !important;
   }
 
   .circle {
-    width: 280px !important; /* Bigger circles for mobile */
-    height: 280px !important; /* Bigger circles for mobile */
-    font-size: 3.2rem !important; /* Bigger font */
+    width: 200px !important; /* Smaller circles for mobile */
+    height: 200px !important; /* Smaller circles for mobile */
+    font-size: 2.5rem !important; /* Smaller font */
     padding: 12.8px !important;
     border: 4.8px solid rgba(255, 255, 255, 0.6);
   }
 
   /* MINIMAL INTERSECTION positioning for mobile */
   .circle:nth-child(1) {
-    top: 40px; /* Higher for minimal intersection */
+    top: 30px; /* Higher for minimal intersection */
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
   }
 
   .circle:nth-child(2) {
-    top: 220px; /* Lower for minimal intersection */
+    top: 180px; /* Lower for minimal intersection */
     left: 25%; /* Further from center */
     transform: translateX(-50%);
     z-index: 2;
   }
 
   .circle:nth-child(3) {
-    top: 220px; /* Lower for minimal intersection */
+    top: 180px; /* Lower for minimal intersection */
     left: 75%; /* Further from center */
     transform: translateX(-50%);
     z-index: 2;
   }
 
   .circle span {
-    font-size: 1.4rem !important; /* Bigger text */
+    font-size: 1.1rem !important; /* Smaller text */
     margin-top: 8px !important;
     line-height: 1.1 !important;
     padding: 0 4px !important;
+  }
+  
+  /* REDUCED GAP for mobile analytics */
+  .demographics-triangle {
+    gap: 15px !important; /* Very little gap between top and bottom rows on mobile */
   }
 }
 
@@ -998,42 +1050,43 @@ p {
   }
   
   .demographics-triangle {
-    gap: 100px;
+    gap: 15px !important; /* Very little gap between top and bottom rows on very small screens */
   }
   
   .demographics-row {
-    gap: 10px;
+    gap: 5px;
   }
   
+  /* Make circles fit very small screens */
   .analytics-circles {
-    height: 380px !important;
+    height: 280px !important;
   }
 
   .circle {
-    width: 250px !important; /* Bigger circles for very small screens */
-    height: 250px !important; /* Bigger circles for very small screens */
-    font-size: 2.8rem !important; /* Bigger font */
+    width: 160px !important; /* Even smaller circles for very small screens */
+    height: 160px !important; /* Even smaller circles for very small screens */
+    font-size: 2rem !important; /* Smaller font */
     padding: 9.6px !important;
     border: 4.8px solid rgba(255, 255, 255, 0.6);
   }
 
   .circle:nth-child(1) {
-    top: 30px;
+    top: 25px;
     left: 50%;
   }
 
   .circle:nth-child(2) {
-    top: 200px;
+    top: 150px;
     left: 20%; /* Even further from center */
   }
 
   .circle:nth-child(3) {
-    top: 200px;
+    top: 150px;
     left: 80%; /* Even further from center */
   }
 
   .circle span {
-    font-size: 1.2rem !important; /* Bigger text */
+    font-size: 0.9rem !important; /* Smaller text */
     margin-top: 6px !important;
     line-height: 1.1 !important;
   }
@@ -1041,7 +1094,7 @@ p {
 
   /* MORE GAP between circles and demographics on small screens */
   .analytics-row {
-    gap: 100px !important;
+    gap: 40px !important;
   }
 
   /* Social widget on very small screens */
@@ -1115,7 +1168,7 @@ p {
           <h1 class="ugc-title">UGHROXX</h1>
           <div class="ugc-sub">UGC Creator & Influencer</div>
           
-          <!-- Inline Contact Info -->
+          <!-- Contact Info - Left aligned on desktop, centered on mobile -->
           <div class="ugc-contact-inline">
             <div class="ugc-contact-item-inline">
               <span class="ugc-contact-label-inline">Instagram:</span>
