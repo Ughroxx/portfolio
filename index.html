@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UGHROXX | Fashion Stylist & Digital Creator</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,11 +25,10 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* STRICT WIDTH LIMITS TO PREVENT RIGHT-SIDE EMPTY SPACE */
         html, body { 
             width: 100%; 
             max-width: 100vw; 
-            overflow-x: hidden; /* Kills horizontal scrolling */
+            overflow-x: hidden; 
             background: #000; 
             -webkit-font-smoothing: antialiased; 
         }
@@ -66,11 +65,10 @@
 
         /* HERO AREA */
         .hero { 
-            min-height: 100vh; /* Failsafe for older browsers */
-            min-height: 100svh; /* Prevents vertical cutting by mobile browser UI */
+            min-height: 100svh; 
             display: flex; 
             align-items: center; 
-            padding: 100px 5% 0; /* Adjust padding to fit */
+            padding: 100px 5% 0; 
             position: relative; 
             z-index: 1; 
         }
@@ -81,16 +79,15 @@
             width: 100%; 
         }
 
-        /* FIXED FONT SIZING SO IT DOESN'T CUT ON SMALL SCREENS */
         .hero-content h1 { 
             font-family: var(--font-display); 
             font-weight: 800; 
-            font-size: clamp(2.5rem, 12vw, 7rem); /* 2.5rem fits inside 320px screens */
-            line-height: 0.85; 
+            font-size: clamp(2.5rem, 12vw, 7rem); 
+            line-height: 1; 
             text-transform: uppercase; 
             letter-spacing: -0.04em; 
             margin-bottom: 15px; 
-            word-break: keep-all; /* Prevents word splitting */
+            white-space: nowrap; /* Keeps it on one line */
         }
 
         .hero-subhead { 
@@ -101,22 +98,21 @@
             margin-bottom: 35px; 
         }
         
-        /* IMAGE PLACEMENT */
         .hero-image { 
             position: absolute; 
-            right: 0; /* Anchored explicitly to the edge */
-            top: 55%; 
+            right: 0; 
+            top: 50%; 
             transform: translateY(-50%); 
-            width: 45%; 
-            max-width: 550px; 
-            height: 75vh; 
+            width: 35%; 
+            max-width: 450px; 
+            height: 85vh; 
             z-index: 2; 
         }
         .hero-image img { 
             width: 100%; 
             height: 100%; 
             object-fit: cover; 
-            border-radius: 2px 0 0 2px; /* Curves inside edge, leaves right edge flat */
+            border-radius: 4px 0 0 4px; 
         } 
 
         .cta-group { display: flex; gap: 15px; flex-wrap: wrap; }
@@ -124,10 +120,7 @@
         .chip:hover { background: var(--primary); color: #000; }
         .chip.alt { background: var(--silver-metallic); background-size: 200% auto; color: #000; border: none; animation: shine 3s linear infinite; }
 
-        /* SPACER */
-        .spacer { height: 5vh; width: 100%; }
-
-        /* TRANSPARENT WRAPPER */
+        /* CONTENT WRAPPER */
         .page-glass-wrap {
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
@@ -137,7 +130,6 @@
             border-top: 1px solid var(--glass-border);
         }
 
-        /* BRAND SLIDER */
         .brand-slider { padding: 80px 0; overflow: hidden; }
         .brand-title { text-align: center; font-family: var(--font-display); letter-spacing: 12px; margin-bottom: 60px; text-transform: uppercase; }
         .logo-track { 
@@ -155,13 +147,11 @@
             opacity: 0.8; 
         }
 
-        /* SERVICES */
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); padding: 100px 5%; border-top: 1px solid var(--glass-border); gap: 30px; }
         .service-card { padding: 20px; border-right: 1px solid var(--glass-border); }
         .service-card:last-child { border-right: none; }
         .service-card h3 { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 20px; font-weight: 400; line-height: 1; }
 
-        /* ANALYTICS */
         .analytics { padding: 120px 5%; border-top: 1px solid var(--glass-border); }
         .analytics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 60px; }
         .stat-card { padding: 20px 0; border-bottom: 1px solid var(--glass-border); }
@@ -169,11 +159,9 @@
         .progress-bar { height: 2px; background: rgba(255,255,255,0.1); margin: 15px 0 25px; overflow: hidden; }
         .progress-fill { height: 100%; background: var(--silver-metallic); background-size: 200% auto; animation: shine 3s linear infinite; }
 
-        /* SOCIAL */
         .social-outer { padding: 120px 5% 50px; border-top: 1px solid var(--glass-border); }
         .social-container { position: relative; min-height: 700px; width: 100%; }
 
-        /* FOOTER */
         footer {
             padding: 60px 5%; 
             border-top: 1px solid var(--glass-border); 
@@ -188,14 +176,24 @@
         }
 
         /* MOBILE FIXES */
-        @media (max-width: 850px) {
-            .hero-image { 
-                width: 60%; /* Adjusted for mobile */
-                height: 65svh; /* Dynamic height */
-                top: 60%;
-                right: 0; /* STRICTLY 0 to prevent right-side empty space */
+        @media (max-width: 1024px) {
+            body {
+                background-attachment: scroll !important; 
+                background-size: 100% auto !important;
+                background-repeat: repeat-y; 
+            }
+            .hero-image { display: none; } 
+            .hero-content { 
+                text-align: center; 
+                padding: 0 10px; /* Reduced padding to give text more space */
             } 
-            .hero-content { z-index: 100; } 
+            .hero-content h1 {
+                /* Aggressive resizing: smaller minimum (1.5rem) and scaling (12vw) 
+                   to ensure 7 letters stay on one line without "cutting" */
+                font-size: clamp(1.5rem, 12.5vw, 5rem);
+                letter-spacing: -0.02em; /* Slightly less tight for readability */
+            }
+            .cta-group { justify-content: center; }
             .nav-links { display: none; }
             .service-grid { gap: 0; }
             .service-card { border-right: none; border-bottom: 1px solid var(--glass-border); padding: 40px 0; }
@@ -230,8 +228,6 @@
         <img src="images/portrait.jpeg" alt="Portrait">
     </div>
 </section>
-
-<div class="spacer"></div>
 
 <div class="page-glass-wrap">
     
