@@ -1,306 +1,561 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UGHROXX | Fashion Stylist & Digital Creator</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGHROXX | Editorial Stylist & Creator</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Syne:wght@400;700;800&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-image: url('images/back.jpg'); 
-            --primary: #FFFFFF;
-            --accent: #A3A3A3;
-            --silver-metallic: linear-gradient(135deg, #8e8e93 0%, #e2e4e5 20%, #ffffff 50%, #e2e4e5 80%, #8e8e93 100%);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --font-main: 'Inter', sans-serif;
-            --font-display: 'Syne', sans-serif;
-            --font-serif: 'Bodoni Moda', serif;
-            --glass-bg: rgba(0, 0, 0, 0.4); 
+            --bg-color: #fcfcfc; 
+            --text-color: #1a1a1a;
+            --accent-color: #7d7d7d;
+            --border-color: #e8e6e1;
+            --klein-blue: #002fa7;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --standard-title-size: clamp(1.5rem, 4vw, 3.6rem);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
-        html, body { 
-            width: 100%; 
-            max-width: 100vw; 
-            overflow-x: hidden; 
-            background: #000; 
-            -webkit-font-smoothing: antialiased; 
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        body { 
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), var(--bg-image); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--primary); 
-            font-family: var(--font-main); 
+        .section-label {
+            font-family: var(--font-serif);
+            font-size: var(--standard-title-size);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-color);
+            margin-bottom: 40px;
+            display: block;
+            font-weight: 700;
+            text-align: center;
+            width: 100%;
+            line-height: 1.1;
         }
-
-        .metallic {
-            background: var(--silver-metallic);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 3s linear infinite;
-        }
-        @keyframes shine { to { background-position: 200% center; } }
 
         /* NAVIGATION */
-        nav { 
-            position: fixed; 
-            top: 0; left: 0; width: 100%; padding: 25px 5%; 
-            display: flex; justify-content: space-between; align-items: center; 
-            z-index: 1000; background: rgba(13,13,13,0.85); 
-            backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border); 
-        }
-        .logo { font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; text-decoration: none; color: var(--primary); letter-spacing: -1px; }
-        .nav-links a { text-decoration: none; color: var(--primary); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-left: 20px; opacity: 0.5; transition: 0.3s; }
-        .nav-links a:hover { opacity: 1; }
-
-        /* HERO AREA */
-        .hero { 
-            min-height: 100svh; 
-            display: flex; 
-            align-items: center; 
-            padding: 100px 5% 0; 
-            position: relative; 
-            z-index: 1; 
-        }
-        
-        .hero-content { 
-            position: relative; 
-            z-index: 10; 
-            width: 100%; 
+        nav {
+            position: fixed;
+            top: 0; 
+            width: 100%;
+            padding: 25px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(252, 252, 252, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .hero-content h1 { 
-            font-family: var(--font-display); 
-            font-weight: 800; 
-            font-size: clamp(2.5rem, 12vw, 7rem); 
-            line-height: 1; 
-            text-transform: uppercase; 
-            letter-spacing: -0.04em; 
-            margin-bottom: 15px; 
-            white-space: nowrap; /* Keeps it on one line */
+        .logo {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 2rem;
+            letter-spacing: -1px;
+            text-decoration: none;
+            color: var(--text-color);
+            text-transform: uppercase;
         }
 
-        .hero-subhead { 
-            font-family: var(--font-serif); 
-            font-style: italic; 
-            font-size: clamp(1.2rem, 4vw, 3rem); 
-            color: var(--accent); 
-            margin-bottom: 35px; 
+        .nav-links {
+            display: flex; gap: 40px;
         }
-        
-        .hero-image { 
-            position: absolute; 
-            right: 0; 
-            top: 50%; 
-            transform: translateY(-50%); 
-            width: 35%; 
-            max-width: 450px; 
-            height: 85vh; 
-            z-index: 2; 
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
         }
-        .hero-image img { 
+
+        .nav-links a:hover { opacity: 0.5; }
+
+        /* HERO */
+        .hero-video-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            padding: 120px 5% 60px;
+            position: relative;
+        }
+        .video-wrapper { 
             width: 100%; 
             height: 100%; 
-            object-fit: cover; 
-            border-radius: 4px 0 0 4px; 
-        } 
+            background: #eee; 
+            overflow: hidden; 
+            border: 1px solid var(--border-color); 
+            position: relative; 
+        }
+        video { width: 100%; height: 100%; object-fit: cover; }
 
-        .cta-group { display: flex; gap: 15px; flex-wrap: wrap; }
-        .chip { padding: 18px 40px; border: 1px solid var(--primary); text-decoration: none; color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 700; transition: 0.4s; }
-        .chip:hover { background: var(--primary); color: #000; }
-        .chip.alt { background: var(--silver-metallic); background-size: 200% auto; color: #000; border: none; animation: shine 3s linear infinite; }
-
-        /* CONTENT WRAPPER */
-        .page-glass-wrap {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            width: 100%;
-            position: relative;
-            z-index: 50; 
-            border-top: 1px solid var(--glass-border);
+        .overlay-title {
+            position: absolute;
+            bottom: 100px;
+            left: 10%;
+            z-index: 5;
+            color: #fff;
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 0.85;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        .brand-slider { padding: 80px 0; overflow: hidden; }
-        .brand-title { text-align: center; font-family: var(--font-display); letter-spacing: 12px; margin-bottom: 60px; text-transform: uppercase; }
-        .logo-track { 
+        /* STATEMENT */
+        .statement-section {
+            padding: 120px 5%;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .statement-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        .statement-header h2 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 700;
+        }
+
+        .statement-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+        }
+
+        .statement-text-main {
+            font-size: clamp(1.3rem, 2vw, 1.8rem);
+            line-height: 1.4;
+            font-weight: 400;
+            color: var(--text-color);
+        }
+
+        .statement-aside {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            border-left: 1px solid var(--border-color);
+            padding-left: 40px;
+        }
+
+        .statement-aside p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--accent-color);
+        }
+
+        /* NICHE */
+        .niche-section {
+            background-color: var(--klein-blue) !important;
+            color: white !important;
+            border-top: none !important;
+            padding: 100px 5% 140px;
+        }
+        .niche-section .section-label { color: white !important; }
+
+        .video-container { display: flex; flex-direction: column; align-items: center; }
+        .video-tag {
+            font-family: var(--font-serif); 
+            font-size: 1.2rem; 
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white; 
+        }
+
+        /* BRAND COLLABS */
+        .content-grid { padding: 100px 5%; border-top: 1px solid var(--border-color); }
+        .brand-strip { 
             display: flex; 
-            width: calc(220px * 12); 
-            animation: scroll 25s linear infinite; 
-            align-items: center; 
+            gap: 25px; 
+            overflow-x: auto; 
+            padding-bottom: 20px; 
+            scrollbar-width: none; 
+            -ms-overflow-style: none;
         }
-        .logo-item { 
-            width: 220px; 
-            height: 80px; 
-            object-fit: contain; 
-            padding: 0 25px; 
-            filter: invert(1) brightness(1.2); 
-            opacity: 0.8; 
+        .brand-strip::-webkit-scrollbar { display: none; }
+        
+        .brand-item { 
+            flex: 0 0 calc(33.33% - 17px); 
+            min-width: 280px; 
+            overflow: hidden; 
+            cursor: pointer;
+            border: 1px solid var(--border-color);
         }
+        .brand-item video { 
+            width: 100%; 
+            aspect-ratio: 9/16; 
+            object-fit: cover; 
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform: scale(1.1); 
+            display: block;
+        }
+        .brand-item:hover video { transform: scale(1); }
 
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); padding: 100px 5%; border-top: 1px solid var(--glass-border); gap: 30px; }
-        .service-card { padding: 20px; border-right: 1px solid var(--glass-border); }
-        .service-card:last-child { border-right: none; }
-        .service-card h3 { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 20px; font-weight: 400; line-height: 1; }
-
-        .analytics { padding: 120px 5%; border-top: 1px solid var(--glass-border); }
-        .analytics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 60px; }
-        .stat-card { padding: 20px 0; border-bottom: 1px solid var(--glass-border); }
-        .stat-card h4 { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; line-height: 1; letter-spacing: -3px; }
-        .progress-bar { height: 2px; background: rgba(255,255,255,0.1); margin: 15px 0 25px; overflow: hidden; }
-        .progress-fill { height: 100%; background: var(--silver-metallic); background-size: 200% auto; animation: shine 3s linear infinite; }
-
-        .social-outer { padding: 120px 5% 50px; border-top: 1px solid var(--glass-border); }
-        .social-container { position: relative; min-height: 700px; width: 100%; }
-
-        footer {
-            padding: 60px 5%; 
-            border-top: 1px solid var(--glass-border); 
-            display: flex; justify-content: space-between; 
-            font-size: 1.1rem; font-family: var(--font-display);
-            font-weight: 800; text-transform: uppercase;
+        /* MARQUEE UPDATES */
+        .brands-marquee-section {
+            width: 100vw;
+            overflow: hidden;
+            padding: 100px 0;
+            background: #fff;
+            border-top: 1px solid var(--border-color);
         }
 
-        @keyframes scroll { 
-            0% { transform: translateX(0); } 
-            100% { transform: translateX(calc(-220px * 6)); } 
+        .brands-marquee-container {
+            width: 100%;
+            background: #fff;
+            padding: 20px 0;
+            display: flex;
+            overflow: hidden;
         }
 
-        /* MOBILE FIXES */
-        @media (max-width: 1024px) {
-            body {
-                background-attachment: scroll !important; 
-                background-size: 100% auto !important;
-                background-repeat: repeat-y; 
-            }
-            .hero-image { display: none; } 
-            .hero-content { 
-                text-align: center; 
-                padding: 0 10px; /* Reduced padding to give text more space */
-            } 
-            .hero-content h1 {
-                /* Aggressive resizing: smaller minimum (1.5rem) and scaling (12vw) 
-                   to ensure 7 letters stay on one line without "cutting" */
-                font-size: clamp(1.5rem, 12.5vw, 5rem);
-                letter-spacing: -0.02em; /* Slightly less tight for readability */
-            }
-            .cta-group { justify-content: center; }
-            .nav-links { display: none; }
-            .service-grid { gap: 0; }
-            .service-card { border-right: none; border-bottom: 1px solid var(--glass-border); padding: 40px 0; }
-            .logo-track { width: calc(160px * 12); }
-            .logo-item { width: 160px; padding: 0 15px; }
-            footer { flex-direction: column; text-align: center; gap: 20px; }
-            @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-160px * 6)); } }
+        .brands-inner {
+            display: flex;
+            width: max-content;
+            /* Adjusted speed for visibility and smooth looping */
+            animation: marquee-scroll 40s linear infinite; 
+        }
+
+        .brand-logo-item {
+            flex: 0 0 auto;
+            height: 85px; 
+            margin: 0 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-logo-item img { height: 100%; width: auto; object-fit: contain; }
+
+        .creative-marquee {
+            width: 100vw;
+            overflow: hidden;
+            padding: 40px 0 100px;
+            background: #fff;
+            position: relative;
+        }
+
+        .marquee-inner {
+            display: flex;
+            width: max-content;
+            /* Drastically slowed down to allow all 60+ items to be seen */
+            animation: marquee-scroll 80s linear infinite; 
+            will-change: transform;
+        }
+
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+
+        .still-item {
+            flex: 0 0 350px;
+            height: 500px;
+            margin: 0 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        .still-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* ANALYTICS */
+        .analytics-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 40px; }
+        .stat-card { padding: 60px 20px; text-align: center; border-right: 1px solid var(--border-color); }
+        .stat-card h4 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; }
+
+        /* BIO */
+        .bio-section { padding: 140px 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; border-top: 1px solid var(--border-color); }
+        .bio-image img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+
+        footer { padding: 80px 5%; text-align: center; opacity: 0.4; font-size: 0.7rem; letter-spacing: 3px; border-top: 1px solid var(--border-color); text-transform: uppercase; }
+
+        @media (max-width: 900px) {
+            .statement-grid, .bio-section { grid-template-columns: 1fr; }
+            .statement-aside { border-left: none; padding-left: 0; border-top: 1px solid var(--border-color); padding-top: 20px; }
+            .brand-item { flex: 0 0 80%; }
+            .analytics-grid { grid-template-columns: 1fr 1fr; }
+            .overlay-title { bottom: 60px; left: 5%; font-size: 3.5rem; }
         }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="#" class="logo">UGHROXX</a>
-    <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#analytics">Data</a>
-        <a href="#social">Feed</a>
-    </div>
-</nav>
+    <nav>
+        <a href="#" class="logo">UGHROXX</a>
+        <div class="nav-links">
+            <a href="#hero-section">Home</a>
+            <a href="#work">Work</a>
+            <a href="#performance">Stats</a>
+            <a href="mailto:ughroxx@gmail.com">Contact</a>
+        </div>
+    </nav>
 
-<section class="hero">
-    <div class="hero-content">
-        <h1 class="metallic">UGHROXX</h1>
-        <h2 class="hero-subhead">Stylist & Content Creator</h2>
-        <div class="cta-group">
-            <a href="mailto:ughroxx@gmail.com" class="chip alt">Inquire</a>
-            <a href="https://instagram.com/ughroxx" target="_blank" class="chip">Instagram</a>
-        </div>
-    </div>
-    <div class="hero-image">
-        <img src="images/portrait.jpeg" alt="Portrait">
-    </div>
-</section>
-
-<div class="page-glass-wrap">
-    
-    <section class="brand-slider">
-        <h3 class="metallic brand-title">Selected Partners</h3>
-        <div class="logo-track">
-            <img src="images/buffalo.png" class="logo-item">
-            <img src="images/crocs.png" class="logo-item">
-            <img src="images/adidas.png" class="logo-item">
-            <img src="images/zara.png" class="logo-item">
-            <img src="images/airup.png" class="logo-item">
-            <img src="images/helen.jpg" class="logo-item">
-            <img src="images/buffalo.png" class="logo-item">
-            <img src="images/crocs.png" class="logo-item">
-            <img src="images/adidas.png" class="logo-item">
-            <img src="images/zara.png" class="logo-item">
-            <img src="images/airup.png" class="logo-item">
-            <img src="images/helen.jpg" class="logo-item">
-        </div>
-    </section>
-
-    <section id="services" class="service-grid">
-        <div class="service-card">
-            <h3>Fashion<br>Styling</h3>
-            <p style="color: var(--accent); font-size: 1.1rem;">Full-service editorial direction for lookbooks and campaigns.</p>
-        </div>
-        <div class="service-card">
-            <h3>UGC<br>Direction</h3>
-            <p style="color: var(--accent); font-size: 1.1rem;">Bespoke video assets designed for digital conversion.</p>
-        </div>
-        <div class="service-card">
-            <h3>Brand<br>Partnerships</h3>
-            <p style="color: var(--accent); font-size: 1.1rem;">Strategic features reaching a 24K+ niche audience.</p>
-        </div>
-    </section>
-
-    <section class="analytics" id="analytics">
-        <div class="analytics-grid">
-            <div class="stats-text">
-                <h3 class="metallic" style="font-family: var(--font-display); font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px;">Insights</h3>
-                <div class="stat-card"><h4 class="metallic">23K+</h4><p style="letter-spacing: 2px; font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Total Followers</p></div>
-                <div class="stat-card"><h4 class="metallic">25.6M</h4><p style="letter-spacing: 2px; font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">30-Day Reach</p></div>
-                <div class="stat-card"><h4 class="metallic">15.3M</h4><p style="letter-spacing: 2px; font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Impressions</p></div>
+    <main>
+        <section class="hero-video-container" id="hero-section">
+            <div class="video-wrapper">
+                <video id="hero-video" autoplay muted loop playsinline>
+                    <source src="images/1.mp4" type="video/mp4">
+                </video>
             </div>
-            <div style="display: flex; flex-direction: column; justify-content: center;">
-                <p style="font-size: 0.7rem; letter-spacing: 2px;">FEMALE PRESENCE / 81.3%</p>
-                <div class="progress-bar"><div class="progress-fill" style="width: 81.3%"></div></div>
-                <p style="font-size: 0.7rem; letter-spacing: 2px;">KEY DEMO (18-34) / 91%</p>
-                <div class="progress-bar"><div class="progress-fill" style="width: 91%"></div></div>
+        </section>
+
+        <section class="statement-section">
+            <div class="statement-header">
+                <h2>Why UGHROXX?</h2>
+                <span style="font-size: 0.7rem; letter-spacing: 2px;">AUTHENTICITY // 01</span>
             </div>
-        </div>
-    </section>
 
-    <section class="social-outer" id="social">
-        <h3 style="font-family: var(--font-display); font-size: 2.5rem; text-transform: uppercase; margin-bottom: 30px;">The Visual Feed</h3>
-        <div class="social-container">
-            <div class="elfsight-app-31e99a15-bcde-4671-9d5b-8abe2fd98aa5" data-elfsight-app-lazy></div>
-        </div>
-    </section>
+            <div class="statement-grid">
+                <div class="statement-text-main">
+                    I don’t just create content, I create visual stories that people can actually feel. With my background in fashion design, I naturally pay attention to details, styling, and aesthetics, which shapes everything I do. I’m not interested in just following trends, I focus on creating content that feels intentional and has a real impact.
+                </div>
+                
+                <div class="statement-aside">
+                    <p>
+                        Everything I create has a purpose. Whether it’s an outfit, a shot, or an edit, there’s always a feeling behind it. I don’t see myself as just a content creator, but also as an artist and that’s what makes my work authentic.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-    <footer>
-        <p>UGHROXX © 2026</p>
-        <p>STYLING — CONTENT CREATOR</p>
-    </footer>
+        <section class="content-grid niche-section" id="work">
+            <span class="section-label">My Niche</span>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px;">
+                <div class="video-container">
+                    <span class="video-tag">Fashion</span>
+                    <div style="width:100%; aspect-ratio:9/16; overflow:hidden;"><video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"><source src="images/3.mp4" type="video/mp4"></video></div>
+                </div>
+                <div class="video-container">
+                    <span class="video-tag">Styling</span>
+                    <div style="width:100%; aspect-ratio:9/16; overflow:hidden;"><video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"><source src="images/4.mp4" type="video/mp4"></video></div>
+                </div>
+                <div class="video-container">
+                    <span class="video-tag">Lifestyle</span>
+                    <div style="width:100%; aspect-ratio:9/16; overflow:hidden;"><video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"><source src="images/2.mp4" type="video/mp4"></video></div>
+                </div>
+            </div>
+        </section>
 
-</div>
+        <section class="content-grid">
+            <span class="section-label">Brand Collaborations</span>
+            <div class="brand-strip">
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/5.mp4" type="video/mp4"></video></div>
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/6.mp4" type="video/mp4"></video></div>
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/7.mp4" type="video/mp4"></video></div>
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/8.mp4" type="video/mp4"></video></div>
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/20.mp4" type="video/mp4"></video></div>
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/10.mp4" type="video/mp4"></video></div>
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/11.mp4" type="video/mp4"></video></div>
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/21.mp4" type="video/mp4"></video></div>
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/13.mov" type="video/mp4"></video></div>
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/14.mp4" type="video/mp4"></video></div>
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/15.mp4" type="video/mp4"></video></div>
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/16.mp4" type="video/mp4"></video></div>
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/22.mp4" type="video/mp4"></video></div>
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/18.mp4" type="video/mp4"></video></div>
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/19.mp4" type="video/mp4"></video></div> 
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/9.mp4" type="video/mp4"></video></div>
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/12.mp4" type="video/mp4"></video></div>
+                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/17.mov" type="video/mp4"></video></div>
+            </div>
+        </section>
 
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<script>
-    setInterval(() => {
-        const links = document.querySelectorAll('a[href*="elfsight.com"]');
-        links.forEach(l => { l.style.display = 'none'; l.remove(); });
-    }, 1000);
-</script>
+        <section class="brands-marquee-section">
+            <span class="section-label">Partnerships</span>
+            <div class="brands-marquee-container">
+                <div class="brands-inner">
+                    <div class="brand-logo-item"><img src="images/23.png"></div>
+                    <div class="brand-logo-item"><img src="images/24.png"></div>
+                    <div class="brand-logo-item"><img src="images/25.png"></div>
+                    <div class="brand-logo-item"><img src="images/26.png"></div>
+                    <div class="brand-logo-item"><img src="images/27.png"></div>
+                    <div class="brand-logo-item"><img src="images/28.png"></div>
+                    <div class="brand-logo-item"><img src="images/29.jpg"></div>
+                    <div class="brand-logo-item"><img src="images/30.png"></div>
+                    <div class="brand-logo-item"><img src="images/31.png"></div>
+                    <div class="brand-logo-item"><img src="images/23.png"></div>
+                    <div class="brand-logo-item"><img src="images/24.png"></div>
+                    <div class="brand-logo-item"><img src="images/25.png"></div>
+                    <div class="brand-logo-item"><img src="images/26.png"></div>
+                    <div class="brand-logo-item"><img src="images/27.png"></div>
+                    <div class="brand-logo-item"><img src="images/28.png"></div>
+                    <div class="brand-logo-item"><img src="images/29.jpg"></div>
+                    <div class="brand-logo-item"><img src="images/30.png"></div>
+                    <div class="brand-logo-item"><img src="images/31.png"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-grid" style="padding-bottom: 0;">
+            <span class="section-label">Creative Styling</span>
+        </section>
+        <section class="creative-marquee">
+            <div class="marquee-inner">
+                <div class="still-item"><img src="images/42.jpeg"></div>
+                <div class="still-item"><img src="images/43.jpeg"></div>
+                <div class="still-item"><img src="images/44.jpeg"></div>
+                <div class="still-item"><img src="images/45.jpeg"></div>
+                <div class="still-item"><img src="images/46.jpeg"></div>
+                <div class="still-item"><img src="images/47.jpeg"></div>
+                <div class="still-item"><img src="images/48.jpeg"></div>
+                <div class="still-item"><img src="images/49.jpeg"></div>
+                <div class="still-item"><img src="images/50.jpeg"></div>
+                <div class="still-item"><img src="images/51.jpeg"></div>
+                <div class="still-item"><img src="images/52.jpeg"></div>
+                <div class="still-item"><img src="images/53.jpeg"></div>
+                <div class="still-item"><img src="images/54.jpeg"></div>
+                <div class="still-item"><img src="images/55.jpeg"></div>
+                <div class="still-item"><img src="images/56.jpeg"></div>
+                <div class="still-item"><img src="images/57.jpeg"></div>
+                <div class="still-item"><img src="images/58.jpeg"></div>
+                <div class="still-item"><img src="images/59.jpeg"></div>
+                <div class="still-item"><img src="images/60.jpeg"></div>
+                <div class="still-item"><img src="images/61.jpeg"></div>
+                <div class="still-item"><img src="images/62.jpeg"></div>
+                <div class="still-item"><img src="images/63.jpeg"></div>
+                <div class="still-item"><img src="images/64.jpeg"></div>
+                <div class="still-item"><img src="images/65.jpeg"></div>
+                <div class="still-item"><img src="images/66.jpeg"></div>
+                <div class="still-item"><img src="images/67.jpeg"></div>
+                <div class="still-item"><img src="images/68.jpeg"></div>
+                <div class="still-item"><img src="images/69.jpeg"></div>
+                <div class="still-item"><img src="images/70.jpeg"></div>
+                <div class="still-item"><img src="images/71.jpeg"></div>
+                <div class="still-item"><img src="images/72.jpeg"></div>
+                <div class="still-item"><img src="images/73.jpeg"></div>
+                <div class="still-item"><img src="images/74.jpeg"></div>
+                <div class="still-item"><img src="images/42.jpeg"></div>
+                <div class="still-item"><img src="images/43.jpeg"></div>
+                <div class="still-item"><img src="images/44.jpeg"></div>
+                <div class="still-item"><img src="images/45.jpeg"></div>
+                <div class="still-item"><img src="images/46.jpeg"></div>
+                <div class="still-item"><img src="images/47.jpeg"></div>
+                <div class="still-item"><img src="images/48.jpeg"></div>
+                <div class="still-item"><img src="images/49.jpeg"></div>
+                <div class="still-item"><img src="images/50.jpeg"></div>
+                <div class="still-item"><img src="images/51.jpeg"></div>
+                <div class="still-item"><img src="images/52.jpeg"></div>
+                <div class="still-item"><img src="images/53.jpeg"></div>
+                <div class="still-item"><img src="images/54.jpeg"></div>
+                <div class="still-item"><img src="images/55.jpeg"></div>
+                <div class="still-item"><img src="images/56.jpeg"></div>
+                <div class="still-item"><img src="images/57.jpeg"></div>
+                <div class="still-item"><img src="images/58.jpeg"></div>
+                <div class="still-item"><img src="images/59.jpeg"></div>
+                <div class="still-item"><img src="images/60.jpeg"></div>
+                <div class="still-item"><img src="images/61.jpeg"></div>
+                <div class="still-item"><img src="images/62.jpeg"></div>
+                <div class="still-item"><img src="images/63.jpeg"></div>
+                <div class="still-item"><img src="images/64.jpeg"></div>
+                <div class="still-item"><img src="images/65.jpeg"></div>
+                <div class="still-item"><img src="images/66.jpeg"></div>
+                <div class="still-item"><img src="images/67.jpeg"></div>
+                <div class="still-item"><img src="images/68.jpeg"></div>
+                <div class="still-item"><img src="images/69.jpeg"></div>
+                <div class="still-item"><img src="images/70.jpeg"></div>
+                <div class="still-item"><img src="images/71.jpeg"></div>
+                <div class="still-item"><img src="images/72.jpeg"></div>
+                <div class="still-item"><img src="images/73.jpeg"></div>
+                <div class="still-item"><img src="images/74.jpeg"></div>
+            </div>
+        </section>
+
+        <section class="hero-video-container" id="who-is-section">
+            <div class="video-wrapper">
+                <video id="ughroxx-video" autoplay muted loop playsinline>
+                    <source src="images/76.mov" type="video/mp4">
+                </video>
+                <div class="overlay-title">WHO IS <br>UGHROXX?</div>
+            </div>
+        </section>
+
+        <section class="performance-section" id="performance" style="padding: 100px 5%; border-top: 1px solid var(--border-color);">
+            <span class="section-label">Performance</span>
+            <div class="analytics-grid">
+                <div class="stat-card"><h4>25.6M</h4><p>REACH</p></div>
+                <div class="stat-card"><h4>15.3M</h4><p>IMPRESSIONS</p></div>
+                <div class="stat-card"><h4>81%</h4><p>FEMALE</p></div>
+                <div class="stat-card"><h4>91%</h4><p>18-34</p></div>
+            </div>
+        </section>
+
+        <section class="bio-section">
+            <div class="bio-image"><img src="images/75.jpeg"></div>
+            <div class="bio-info">
+                <h2 style="text-align: left; font-size: 2rem; font-family: var(--font-serif);">THE PROFILE</h2>
+                <p style="margin-top: 20px;">Location: Worldwide / Remote</p>
+                <p>Email: <a href="mailto:ughroxx@gmail.com" style="color:var(--text-color)">ughroxx@gmail.com</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>UGHROXX © 2026</footer>
+
+    <script>
+        const heroVideo = document.getElementById('hero-video');
+        const profileVideo = document.getElementById('ughroxx-video');
+
+        const handleStart = () => {
+            heroVideo.muted = false;
+            profileVideo.muted = false;
+            window.removeEventListener('scroll', handleStart);
+            window.removeEventListener('mousedown', handleStart);
+        };
+        window.addEventListener('scroll', handleStart);
+        window.addEventListener('mousedown', handleStart);
+
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
+            
+            const heroSection = document.getElementById('hero-section');
+            const heroHeight = heroSection.offsetHeight;
+            if (scrollPos < heroHeight) {
+                heroVideo.volume = Math.max(0, 1 - (scrollPos / heroHeight));
+            } else { heroVideo.volume = 0; }
+
+            const whoIsSection = document.getElementById('who-is-section');
+            const rect = whoIsSection.getBoundingClientRect();
+            const viewHeight = window.innerHeight;
+
+            if (rect.top < viewHeight && rect.bottom > 0) {
+                profileVideo.volume = 1;
+            } else {
+                profileVideo.volume = 0;
+            }
+        });
+
+        document.querySelectorAll('.brand-item').forEach(item => {
+            const v = item.querySelector('video');
+            item.addEventListener('mouseenter', () => { v.muted = false; v.volume = 0.4; v.play(); });
+            item.addEventListener('mouseleave', () => { v.muted = true; });
+        });
+    </script>
 </body>
 </html>
