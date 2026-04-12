@@ -32,6 +32,24 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        .brand-header {
+            position: absolute; 
+            top: 0;
+            left: 0;
+            padding: 40px 5%;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 3rem;
+            letter-spacing: -1px;
+            text-decoration: none;
+            color: var(--text-color);
+            text-transform: uppercase;
+        }
+
         .section-label {
             font-family: var(--font-serif);
             font-size: var(--standard-title-size);
@@ -46,53 +64,11 @@
             line-height: 1.1;
         }
 
-        /* NAVIGATION */
-        nav {
-            position: fixed;
-            top: 0; 
-            width: 100%;
-            padding: 25px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(252, 252, 252, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .logo {
-            font-family: var(--font-serif);
-            font-weight: 700;
-            font-size: 2rem;
-            letter-spacing: -1px;
-            text-decoration: none;
-            color: var(--text-color);
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            display: flex; gap: 40px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            transition: opacity 0.3s ease;
-        }
-
-        .nav-links a:hover { opacity: 0.5; }
-
-        /* HERO */
         .hero-video-container {
             width: 100%;
             height: 100vh;
             display: flex;
-            padding: 120px 5% 60px;
+            padding: 140px 5% 60px; 
             position: relative;
         }
         .video-wrapper { 
@@ -103,7 +79,7 @@
             border: 1px solid var(--border-color); 
             position: relative; 
         }
-        video { width: 100%; height: 100%; object-fit: cover; }
+        video { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.8s ease; }
 
         .overlay-title {
             position: absolute;
@@ -120,59 +96,41 @@
             text-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        /* STATEMENT */
         .statement-section {
             padding: 120px 5%;
             border-top: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            gap: 60px;
-        }
-
-        .statement-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
-        }
-
-        .statement-header h2 {
-            font-family: var(--font-serif);
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: 700;
         }
 
         .statement-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 0.6fr 1.4fr;
             gap: 60px;
+            align-items: center; 
+        }
+
+        .statement-header h2 {
+            font-family: var(--font-serif);
+            font-size: 3.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            line-height: 1;
         }
 
         .statement-text-main {
-            font-size: clamp(1.3rem, 2vw, 1.8rem);
-            line-height: 1.4;
+            font-family: var(--font-serif);
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            line-height: 1.2;
             font-weight: 400;
             color: var(--text-color);
+            letter-spacing: -0.5px;
         }
 
-        .statement-aside {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            border-left: 1px solid var(--border-color);
-            padding-left: 40px;
+        .highlight {
+            color: var(--klein-blue);
+            font-weight: 500;
         }
 
-        .statement-aside p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: var(--accent-color);
-        }
-
-        /* NICHE */
         .niche-section {
             background-color: var(--klein-blue) !important;
             color: white !important;
@@ -192,24 +150,27 @@
             color: white; 
         }
 
-        /* BRAND COLLABS */
         .content-grid { padding: 100px 5%; border-top: 1px solid var(--border-color); }
         .brand-strip { 
             display: flex; 
             gap: 25px; 
             overflow-x: auto; 
-            padding-bottom: 20px; 
+            padding-bottom: 40px; 
             scrollbar-width: none; 
-            -ms-overflow-style: none;
         }
         .brand-strip::-webkit-scrollbar { display: none; }
         
         .brand-item { 
             flex: 0 0 calc(33.33% - 17px); 
             min-width: 280px; 
-            overflow: hidden; 
             cursor: pointer;
+        }
+        .brand-video-box {
+            width: 100%;
+            overflow: hidden;
             border: 1px solid var(--border-color);
+            background: #f0f0f0;
+            margin-bottom: 15px;
         }
         .brand-item video { 
             width: 100%; 
@@ -218,129 +179,119 @@
             transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
             transform: scale(1.1); 
             display: block;
+            opacity: 0; 
         }
         .brand-item:hover video { transform: scale(1); }
-
-        /* MARQUEE UPDATES */
-        .brands-marquee-section {
-            width: 100vw;
-            overflow: hidden;
-            padding: 100px 0;
-            background: #fff;
-            border-top: 1px solid var(--border-color);
+        
+        .brand-name {
+            font-family: var(--font-serif);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-align: center;
+            display: block;
+            color: var(--text-color);
         }
 
-        .brands-marquee-container {
-            width: 100%;
-            background: #fff;
-            padding: 20px 0;
-            display: flex;
-            overflow: hidden;
+        /* CREATIVE MARQUEE - REPAIRED */
+        .creative-marquee { 
+            width: 100vw; 
+            overflow: hidden; 
+            padding: 40px 0 100px; 
+            background: #fff; 
+            position: relative; 
         }
-
-        .brands-inner {
-            display: flex;
-            width: max-content;
-            /* Adjusted speed for visibility and smooth looping */
-            animation: marquee-scroll 40s linear infinite; 
-        }
-
-        .brand-logo-item {
-            flex: 0 0 auto;
-            height: 85px; 
-            margin: 0 60px;
-            display: flex;
-            align-items: center;
-        }
-
-        .brand-logo-item img { height: 100%; width: auto; object-fit: contain; }
-
-        .creative-marquee {
-            width: 100vw;
-            overflow: hidden;
-            padding: 40px 0 100px;
-            background: #fff;
-            position: relative;
-        }
-
-        .marquee-inner {
-            display: flex;
-            width: max-content;
-            /* Drastically slowed down to allow all 60+ items to be seen */
-            animation: marquee-scroll 80s linear infinite; 
+        .marquee-inner { 
+            display: flex; 
+            width: max-content; 
+            animation: marquee-scroll 60s linear infinite; 
             will-change: transform;
         }
-
+        
         @keyframes marquee-scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } 
+            100% { transform: translateX(-50%); }
         }
 
-        .still-item {
-            flex: 0 0 350px;
-            height: 500px;
-            margin: 0 10px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
+        .still-item { 
+            flex: 0 0 350px; 
+            height: 500px; 
+            margin: 0 10px; 
+            overflow: hidden; 
+            border: 1px solid var(--border-color); 
+            background: #f7f7f7; 
         }
-        .still-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .still-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            display: block;
+            opacity: 1; /* Ensure they aren't hidden */
+        }
 
-        /* ANALYTICS */
         .analytics-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 40px; }
         .stat-card { padding: 60px 20px; text-align: center; border-right: 1px solid var(--border-color); }
         .stat-card h4 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; }
 
-        /* BIO */
-        .bio-section { padding: 140px 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; border-top: 1px solid var(--border-color); }
-        .bio-image img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+        .bio-section { 
+            padding: 140px 5%; 
+            display: grid; 
+            grid-template-columns: 1fr 1.2fr; 
+            gap: 80px; 
+            border-top: 1px solid var(--border-color);
+            align-items: center;
+        }
+        .bio-image { position: relative; padding-right: 20px; }
+        .bio-image::after { content: ''; position: absolute; top: 20px; right: 0; width: 100%; height: 100%; border: 1px solid var(--border-color); z-index: -1; }
+        .bio-image img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+        .bio-description { font-size: 1.1rem; line-height: 1.8; color: var(--text-color); margin-bottom: 40px; max-width: 500px; }
 
-        footer { padding: 80px 5%; text-align: center; opacity: 0.4; font-size: 0.7rem; letter-spacing: 3px; border-top: 1px solid var(--border-color); text-transform: uppercase; }
+        .bio-contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; border-top: 1px solid var(--border-color); padding-top: 40px; }
+        .contact-item span { display: block; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; color: var(--accent-color); }
+        .contact-item a, .contact-item p { font-family: var(--font-serif); font-size: 1.2rem; text-decoration: none; color: var(--text-color); }
 
         @media (max-width: 900px) {
             .statement-grid, .bio-section { grid-template-columns: 1fr; }
-            .statement-aside { border-left: none; padding-left: 0; border-top: 1px solid var(--border-color); padding-top: 20px; }
-            .brand-item { flex: 0 0 80%; }
             .analytics-grid { grid-template-columns: 1fr 1fr; }
-            .overlay-title { bottom: 60px; left: 5%; font-size: 3.5rem; }
+            .brand-item { flex: 0 0 80%; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
+    <header class="brand-header">
         <a href="#" class="logo">UGHROXX</a>
-        <div class="nav-links">
-            <a href="#hero-section">Home</a>
-            <a href="#work">Work</a>
-            <a href="#performance">Stats</a>
-            <a href="mailto:ughroxx@gmail.com">Contact</a>
-        </div>
-    </nav>
+    </header>
 
     <main>
         <section class="hero-video-container" id="hero-section">
             <div class="video-wrapper">
-                <video id="hero-video" autoplay muted loop playsinline>
-                    <source src="images/1.mp4" type="video/mp4">
+                <video id="hero-video" autoplay muted loop playsinline preload="auto">
+                    <source src="images/1.webm" type="video/webm">
                 </video>
             </div>
         </section>
 
         <section class="statement-section">
-            <div class="statement-header">
-                <h2>Why UGHROXX?</h2>
-                <span style="font-size: 0.7rem; letter-spacing: 2px;">AUTHENTICITY // 01</span>
-            </div>
-
             <div class="statement-grid">
-                <div class="statement-text-main">
-                    I don’t just create content, I create visual stories that people can actually feel. With my background in fashion design, I naturally pay attention to details, styling, and aesthetics, which shapes everything I do. I’m not interested in just following trends, I focus on creating content that feels intentional and has a real impact.
+                <div class="statement-header">
+                    <h2>Why me?</h2>
                 </div>
-                
-                <div class="statement-aside">
-                    <p>
-                        Everything I create has a purpose. Whether it’s an outfit, a shot, or an edit, there’s always a feeling behind it. I don’t see myself as just a content creator, but also as an artist and that’s what makes my work authentic.
-                    </p>
+                <div class="statement-text-main">
+                    I don’t just create content, I create 
+                    <span class="highlight">visual stories</span> that people can actually 
+                    <span class="highlight">feel</span>. With my background in 
+                    <span class="highlight">fashion design</span>, I naturally pay attention to details, styling, and 
+                    <span class="highlight">aesthetics</span>, which shapes everything I do. 
+                    <br><br>
+                    I’m not interested in just following trends, I focus on creating content that feels 
+                    <span class="highlight">intentional</span> and has a 
+                    <span class="highlight">real impact</span>.
+                    <br><br>
+                    I don’t see myself as just a content creator, but also as an 
+                    <span class="highlight">artist</span> and that’s what makes my work 
+                    <span class="highlight">authentic</span>.
                 </div>
             </div>
         </section>
@@ -350,15 +301,15 @@
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px;">
                 <div class="video-container">
                     <span class="video-tag">Fashion</span>
-                    <div style="width:100%; aspect-ratio:9/16; overflow:hidden;"><video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"><source src="images/3.mp4" type="video/mp4"></video></div>
+                    <video muted loop playsinline preload="none" style="width:100%; height:100%; object-fit:cover;"><source data-src="images/3.webm" type="video/webm"></video>
                 </div>
                 <div class="video-container">
                     <span class="video-tag">Styling</span>
-                    <div style="width:100%; aspect-ratio:9/16; overflow:hidden;"><video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"><source src="images/4.mp4" type="video/mp4"></video></div>
+                    <video muted loop playsinline preload="none" style="width:100%; height:100%; object-fit:cover;"><source data-src="images/4.webm" type="video/webm"></video>
                 </div>
                 <div class="video-container">
                     <span class="video-tag">Lifestyle</span>
-                    <div style="width:100%; aspect-ratio:9/16; overflow:hidden;"><video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;"><source src="images/2.mp4" type="video/mp4"></video></div>
+                    <video muted loop playsinline preload="none" style="width:100%; height:100%; object-fit:cover;"><source data-src="images/2.webm" type="video/webm"></video>
                 </div>
             </div>
         </section>
@@ -366,49 +317,61 @@
         <section class="content-grid">
             <span class="section-label">Brand Collaborations</span>
             <div class="brand-strip">
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/5.mp4" type="video/mp4"></video></div>
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/6.mp4" type="video/mp4"></video></div>
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/7.mp4" type="video/mp4"></video></div>
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/8.mp4" type="video/mp4"></video></div>
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/20.mp4" type="video/mp4"></video></div>
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/10.mp4" type="video/mp4"></video></div>
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/11.mp4" type="video/mp4"></video></div>
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/21.mp4" type="video/mp4"></video></div>
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/13.mov" type="video/mp4"></video></div>
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/14.mp4" type="video/mp4"></video></div>
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/15.mp4" type="video/mp4"></video></div>
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/16.mp4" type="video/mp4"></video></div>
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/22.mp4" type="video/mp4"></video></div>
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/18.mp4" type="video/mp4"></video></div>
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/19.mp4" type="video/mp4"></video></div> 
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/9.mp4" type="video/mp4"></video></div>
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/12.mp4" type="video/mp4"></video></div>
-                <div class="brand-item"><video loop playsinline muted autoplay><source src="images/17.mov" type="video/mp4"></video></div>
-            </div>
-        </section>
-
-        <section class="brands-marquee-section">
-            <span class="section-label">Partnerships</span>
-            <div class="brands-marquee-container">
-                <div class="brands-inner">
-                    <div class="brand-logo-item"><img src="images/23.png"></div>
-                    <div class="brand-logo-item"><img src="images/24.png"></div>
-                    <div class="brand-logo-item"><img src="images/25.png"></div>
-                    <div class="brand-logo-item"><img src="images/26.png"></div>
-                    <div class="brand-logo-item"><img src="images/27.png"></div>
-                    <div class="brand-logo-item"><img src="images/28.png"></div>
-                    <div class="brand-logo-item"><img src="images/29.jpg"></div>
-                    <div class="brand-logo-item"><img src="images/30.png"></div>
-                    <div class="brand-logo-item"><img src="images/31.png"></div>
-                    <div class="brand-logo-item"><img src="images/23.png"></div>
-                    <div class="brand-logo-item"><img src="images/24.png"></div>
-                    <div class="brand-logo-item"><img src="images/25.png"></div>
-                    <div class="brand-logo-item"><img src="images/26.png"></div>
-                    <div class="brand-logo-item"><img src="images/27.png"></div>
-                    <div class="brand-logo-item"><img src="images/28.png"></div>
-                    <div class="brand-logo-item"><img src="images/29.jpg"></div>
-                    <div class="brand-logo-item"><img src="images/30.png"></div>
-                    <div class="brand-logo-item"><img src="images/31.png"></div>
+                <div class="brand-item">
+                    <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/5.webm" type="video/webm"></video></div>
+                    <span class="brand-name">airup</span>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/6.webm" type="video/webm"></video></div>
+                    <span class="brand-name">Raboesy</span>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/7.webm" type="video/webm"></video></div>
+                    <span class="brand-name">VIVAIA</span>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/8.webm" type="video/webm"></video></div>
+                    <span class="brand-name">Ditsy Bits</span>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/20.mp4" type="video/mp4"></video></div>
+                    <span class="brand-name">JW PEI</span>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/10.webm" type="video/webm"></video></div>
+                    <span class="brand-name">Pierced</span>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/21.mp4" type="video/mp4"></video></div>
+                    <span class="brand-name">BYROKKO</span>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/13.webm" type="video/webm"></video></div>
+                    <span class="brand-name">natural vibes</span>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/15.webm" type="video/webm"></video></div>
+                    <span class="brand-name">Lar.Jewelry</span>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/16.mp4" type="video/mp4"></video></div>
+                    <span class="brand-name">Helen Steele</span>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/22.mp4" type="video/mp4"></video></div>
+                    <span class="brand-name">Maia Mina</span>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/18.webm" type="video/webm"></video></div>
+                    <span class="brand-name">Berlook</span>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/19.webm" type="video/webm"></video></div>
+                    <span class="brand-name">Samiol</span>
+                </div>
+                <div class="brand-item">
+                    <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/9.webm" type="video/webm"></video></div>
+                    <span class="brand-name">Teelab</span>
                 </div>
             </div>
         </section>
@@ -418,79 +381,45 @@
         </section>
         <section class="creative-marquee">
             <div class="marquee-inner">
-                <div class="still-item"><img src="images/42.jpeg"></div>
+                <div class="still-item"><img src="images/42.webp"></div>
                 <div class="still-item"><img src="images/43.jpeg"></div>
-                <div class="still-item"><img src="images/44.jpeg"></div>
+                <div class="still-item"><img src="images/44.webp"></div>
                 <div class="still-item"><img src="images/45.jpeg"></div>
                 <div class="still-item"><img src="images/46.jpeg"></div>
-                <div class="still-item"><img src="images/47.jpeg"></div>
-                <div class="still-item"><img src="images/48.jpeg"></div>
                 <div class="still-item"><img src="images/49.jpeg"></div>
                 <div class="still-item"><img src="images/50.jpeg"></div>
-                <div class="still-item"><img src="images/51.jpeg"></div>
                 <div class="still-item"><img src="images/52.jpeg"></div>
                 <div class="still-item"><img src="images/53.jpeg"></div>
-                <div class="still-item"><img src="images/54.jpeg"></div>
-                <div class="still-item"><img src="images/55.jpeg"></div>
-                <div class="still-item"><img src="images/56.jpeg"></div>
-                <div class="still-item"><img src="images/57.jpeg"></div>
-                <div class="still-item"><img src="images/58.jpeg"></div>
                 <div class="still-item"><img src="images/59.jpeg"></div>
-                <div class="still-item"><img src="images/60.jpeg"></div>
                 <div class="still-item"><img src="images/61.jpeg"></div>
                 <div class="still-item"><img src="images/62.jpeg"></div>
                 <div class="still-item"><img src="images/63.jpeg"></div>
                 <div class="still-item"><img src="images/64.jpeg"></div>
-                <div class="still-item"><img src="images/65.jpeg"></div>
-                <div class="still-item"><img src="images/66.jpeg"></div>
                 <div class="still-item"><img src="images/67.jpeg"></div>
-                <div class="still-item"><img src="images/68.jpeg"></div>
                 <div class="still-item"><img src="images/69.jpeg"></div>
-                <div class="still-item"><img src="images/70.jpeg"></div>
-                <div class="still-item"><img src="images/71.jpeg"></div>
-                <div class="still-item"><img src="images/72.jpeg"></div>
-                <div class="still-item"><img src="images/73.jpeg"></div>
-                <div class="still-item"><img src="images/74.jpeg"></div>
-                <div class="still-item"><img src="images/42.jpeg"></div>
+                <div class="still-item"><img src="images/42.webp"></div>
                 <div class="still-item"><img src="images/43.jpeg"></div>
-                <div class="still-item"><img src="images/44.jpeg"></div>
+                <div class="still-item"><img src="images/44.webp"></div>
                 <div class="still-item"><img src="images/45.jpeg"></div>
                 <div class="still-item"><img src="images/46.jpeg"></div>
-                <div class="still-item"><img src="images/47.jpeg"></div>
-                <div class="still-item"><img src="images/48.jpeg"></div>
                 <div class="still-item"><img src="images/49.jpeg"></div>
                 <div class="still-item"><img src="images/50.jpeg"></div>
-                <div class="still-item"><img src="images/51.jpeg"></div>
                 <div class="still-item"><img src="images/52.jpeg"></div>
                 <div class="still-item"><img src="images/53.jpeg"></div>
-                <div class="still-item"><img src="images/54.jpeg"></div>
-                <div class="still-item"><img src="images/55.jpeg"></div>
-                <div class="still-item"><img src="images/56.jpeg"></div>
-                <div class="still-item"><img src="images/57.jpeg"></div>
-                <div class="still-item"><img src="images/58.jpeg"></div>
                 <div class="still-item"><img src="images/59.jpeg"></div>
-                <div class="still-item"><img src="images/60.jpeg"></div>
                 <div class="still-item"><img src="images/61.jpeg"></div>
                 <div class="still-item"><img src="images/62.jpeg"></div>
                 <div class="still-item"><img src="images/63.jpeg"></div>
                 <div class="still-item"><img src="images/64.jpeg"></div>
-                <div class="still-item"><img src="images/65.jpeg"></div>
-                <div class="still-item"><img src="images/66.jpeg"></div>
                 <div class="still-item"><img src="images/67.jpeg"></div>
-                <div class="still-item"><img src="images/68.jpeg"></div>
                 <div class="still-item"><img src="images/69.jpeg"></div>
-                <div class="still-item"><img src="images/70.jpeg"></div>
-                <div class="still-item"><img src="images/71.jpeg"></div>
-                <div class="still-item"><img src="images/72.jpeg"></div>
-                <div class="still-item"><img src="images/73.jpeg"></div>
-                <div class="still-item"><img src="images/74.jpeg"></div>
             </div>
         </section>
 
         <section class="hero-video-container" id="who-is-section">
             <div class="video-wrapper">
-                <video id="ughroxx-video" autoplay muted loop playsinline>
-                    <source src="images/76.mov" type="video/mp4">
+                <video id="ughroxx-video" muted loop playsinline preload="none">
+                    <source data-src="images/70.webm" type="video/webm">
                 </video>
                 <div class="overlay-title">WHO IS <br>UGHROXX?</div>
             </div>
@@ -507,44 +436,75 @@
         </section>
 
         <section class="bio-section">
-            <div class="bio-image"><img src="images/75.jpeg"></div>
+            <div class="bio-image">
+                <img src="images/75.jpeg" alt="UGHROXX Profile">
+            </div>
             <div class="bio-info">
-                <h2 style="text-align: left; font-size: 2rem; font-family: var(--font-serif);">THE PROFILE</h2>
-                <p style="margin-top: 20px;">Location: Worldwide / Remote</p>
-                <p>Email: <a href="mailto:ughroxx@gmail.com" style="color:var(--text-color)">ughroxx@gmail.com</a></p>
+                <span class="label">The Creative</span>
+                <h2>The Profile</h2>
+                <p class="bio-description">Based globally and working remotely, I specialize in the intersection of high-end editorial styling and digital storytelling. My approach blends technical fashion design knowledge with a raw, authentic creative lens.</p>
+                <div class="bio-contact-grid">
+                    <div class="contact-item">
+                        <span>Direct Inquiries</span>
+                        <a href="mailto:ughroxx@gmail.com">ughroxx@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>Social</span>
+                        <a href="https://www.instagram.com/ughroxx" target="_blank">Ughroxx</a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>UGHROXX © 2026</footer>
-
     <script>
+        // Use IntersectionObserver specifically for lazy-loading and playing videos
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const video = entry.target;
+                const source = video.querySelector('source');
+                
+                if (entry.isIntersecting) {
+                    if (source && source.dataset.src) {
+                        source.src = source.dataset.src;
+                        source.removeAttribute('data-src');
+                        video.load(); 
+                        video.style.opacity = "1";
+                    }
+                    video.play().catch(() => {}); 
+                } else {
+                    video.pause();
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('video').forEach(v => videoObserver.observe(v));
+
         const heroVideo = document.getElementById('hero-video');
         const profileVideo = document.getElementById('ughroxx-video');
 
-        const handleStart = () => {
+        const handleStartInteraction = () => {
             heroVideo.muted = false;
             profileVideo.muted = false;
-            window.removeEventListener('scroll', handleStart);
-            window.removeEventListener('mousedown', handleStart);
+            window.removeEventListener('scroll', handleStartInteraction);
+            window.removeEventListener('mousedown', handleStartInteraction);
         };
-        window.addEventListener('scroll', handleStart);
-        window.addEventListener('mousedown', handleStart);
+        window.addEventListener('scroll', handleStartInteraction);
+        window.addEventListener('mousedown', handleStartInteraction);
 
         window.addEventListener('scroll', () => {
             const scrollPos = window.scrollY;
+            const heroHeight = document.getElementById('hero-section').offsetHeight;
             
-            const heroSection = document.getElementById('hero-section');
-            const heroHeight = heroSection.offsetHeight;
             if (scrollPos < heroHeight) {
                 heroVideo.volume = Math.max(0, 1 - (scrollPos / heroHeight));
-            } else { heroVideo.volume = 0; }
+            } else { 
+                heroVideo.volume = 0; 
+            }
 
             const whoIsSection = document.getElementById('who-is-section');
             const rect = whoIsSection.getBoundingClientRect();
-            const viewHeight = window.innerHeight;
-
-            if (rect.top < viewHeight && rect.bottom > 0) {
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
                 profileVideo.volume = 1;
             } else {
                 profileVideo.volume = 0;
@@ -553,7 +513,7 @@
 
         document.querySelectorAll('.brand-item').forEach(item => {
             const v = item.querySelector('video');
-            item.addEventListener('mouseenter', () => { v.muted = false; v.volume = 0.4; v.play(); });
+            item.addEventListener('mouseenter', () => { v.muted = false; v.volume = 0.4; });
             item.addEventListener('mouseleave', () => { v.muted = true; });
         });
     </script>
