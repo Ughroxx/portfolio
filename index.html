@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGHROXX | Editorial Stylist & Creator</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #fcfcfc; 
+            --text-color: #002fa7; /* Klein Blue */
+            --accent-color: #7d7d7d;
+            --border-color: #e8e6e1;
+            --body-black: #000000;
+            --klein-blue: #002fa7;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --standard-title-size: clamp(1.5rem, 4vw, 3.6rem);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+        }
+
+        /* All paragraphs strictly Black */
+        p {
+            color: var(--body-black) !important;
+        }
+
+        .brand-header {
+            position: absolute; 
+            top: 0;
+            left: 0;
+            padding: 40px 5%;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: clamp(2rem, 5vw, 3rem);
+            letter-spacing: -1px;
+            text-decoration: none;
+            color: var(--text-color);
+            text-transform: uppercase;
+        }
+
+        .section-label {
+            font-family: var(--font-serif);
+            font-size: var(--standard-title-size);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-color);
+            margin-bottom: 40px;
+            display: block;
+            font-weight: 700;
+            text-align: center;
+            width: 100%;
+            line-height: 1.1;
+        }
+
+        .hero-video-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            padding: 140px 5% 60px; 
+            position: relative;
+        }
+        
+        .video-wrapper { 
+            width: 100%; 
+            height: 100%; 
+            background: #eee; 
+            overflow: hidden; 
+            border: 1px solid var(--border-color); 
+            position: relative; 
+        }
+        
+        video { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.8s ease; }
+
+        /* Mobile Sound Hint */
+        .sound-hint {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 47, 167, 0.8);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+            font-weight: 600;
+        }
+
+        /* Show hint only on touch devices */
+        @media (hover: none) {
+            .sound-hint { opacity: 1; }
+        }
+
+        .overlay-title {
+            position: absolute;
+            bottom: 100px;
+            left: 10%;
+            z-index: 5;
+            color: #fff;
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            line-height: 0.85;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .statement-section {
+            padding: 120px 5%;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .statement-grid {
+            display: grid;
+            grid-template-columns: 0.6fr 1.4fr;
+            gap: 60px;
+            align-items: center; 
+        }
+
+        .statement-header h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--text-color);
+        }
+
+        .statement-text-main {
+            font-family: var(--font-serif);
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            line-height: 1.4;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        .highlight {
+            color: var(--klein-blue);
+            font-weight: bold; 
+        }
+
+        .niche-section {
+            background-color: var(--klein-blue);
+            color: white;
+            border-top: none;
+            padding: 100px 5% 140px;
+        }
+        
+        .niche-section .section-label { color: white; }
+
+        .niche-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .video-container { display: flex; flex-direction: column; align-items: center; position: relative; }
+        .video-tag {
+            font-family: var(--font-serif); 
+            font-size: 1.2rem; 
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white; 
+        }
+
+        .content-grid { padding: 100px 5%; border-top: 1px solid var(--border-color); position: relative; }
+        
+        .brand-collaboration-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .brand-strip { 
+            display: flex; 
+            gap: 25px; 
+            overflow-x: auto; 
+            padding-bottom: 40px; 
+            scrollbar-width: none; 
+            scroll-behavior: smooth;
+        }
+        .brand-strip::-webkit-scrollbar { display: none; }
+        
+        .brand-item { 
+            flex: 0 0 calc(33.33% - 17px); 
+            min-width: 280px; 
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .brand-video-box {
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .brand-item video { 
+            width: 100%; 
+            aspect-ratio: 9/16; 
+            object-fit: cover; 
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform: scale(1.1); 
+            display: block;
+            opacity: 0; 
+        }
+        .brand-item:hover video { transform: scale(1); }
+        
+        .brand-name {
+            font-family: var(--font-serif);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-align: center;
+            display: block;
+            color: var(--text-color);
+        }
+
+        .scroll-arrow {
+            position: absolute;
+            top: 45%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            font-size: 1.2rem;
+            color: var(--klein-blue);
+        }
+        .scroll-arrow:hover { background: var(--klein-blue); color: white; border-color: var(--klein-blue); }
+        .arrow-left { left: -30px; }
+        .arrow-right { right: -30px; }
+
+        .styling-img {
+            width: 100%;
+            aspect-ratio: 9/16; 
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .brand-item:hover .styling-img { transform: scale(1.05); }
+
+        .performance-section {
+            padding: 140px 5%; 
+            background-color: #fff; 
+            border-top: 1px solid var(--border-color); 
+            color: var(--text-color); 
+            position: relative;
+            overflow: hidden;
+        }
+
+        .performance-grid {
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: 0.8fr 1.2fr; 
+            gap: 80px; 
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .perf-stats {
+            display: flex; 
+            flex-direction: column; 
+            gap: 20px; 
+        }
+
+        .perf-stat-item {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: baseline;
+            border-bottom: 1px solid var(--border-color); 
+            padding: 25px 0;
+            transition: all 0.4s ease;
+        }
+
+        .stat-number {
+            font-family: var(--font-serif); 
+            font-size: clamp(2.5rem, 5vw, 4rem); 
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: var(--klein-blue);
+        }
+
+        .stat-label {
+            letter-spacing: 3px; 
+            font-size: 0.7rem; 
+            text-transform: uppercase; 
+            color: var(--klein-blue);
+            font-weight: 600;
+        }
+
+        .bio-section {
+            padding: 140px 0; 
+            border-top: 1px solid var(--border-color); 
+            background: #f9f9f9; 
+            overflow: hidden; 
+        }
+        
+        .bio-layout {
+            max-width: 1600px; 
+            margin: 0 auto; 
+            display: flex; 
+            align-items: center; 
+            position: relative; 
+            min-height: 90vh;
+        }
+
+        .profile-image-block {
+            width: 60%; 
+            padding-left: 5%; 
+            position: relative; 
+            z-index: 2;
+        }
+
+        .profile-content-block {
+            width: 45%; 
+            padding: 100px 80px; 
+            background: white; 
+            margin-left: -150px; 
+            z-index: 3; 
+            box-shadow: 40px 40px 80px rgba(0,0,0,0.08); 
+            border-left: 1px solid var(--border-color);
+        }
+
+        .contact-links {
+            display: flex; 
+            gap: 60px;
+        }
+
+        .site-footer {
+            padding: 80px 5%; 
+            background: #fff; 
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            max-width: 1600px; 
+            margin: 0 auto;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero-video-container { padding: 90px 0 0; }
+            .statement-grid { grid-template-columns: 1fr; }
+            .scroll-arrow { width: 40px; height: 40px; top: 40%; }
+            .arrow-left { left: 5px; }
+            .arrow-right { right: 5px; }
+            .brand-item { flex: 0 0 85%; }
+            .performance-grid { grid-template-columns: 1fr; }
+            .profile-content-block { width: 90%; margin: -40px auto 0; padding: 40px 30px; }
+            .footer-content { flex-direction: column; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="brand-header">
+        <a href="#" class="logo">UGHROXX</a>
+    </header>
+
+    <main>
+        <section class="hero-video-container" id="hero-section">
+            <div class="video-wrapper">
+                <video id="hero-video" autoplay muted loop playsinline preload="auto">
+                    <source src="images/1.webm" type="video/webm">
+                </video>
+                <div class="sound-hint">Tap for Sound</div>
+            </div>
+        </section>
+
+        <section class="statement-section">
+            <div class="statement-grid">
+                <div class="statement-header">
+                    <h2>Why me?</h2>
+                </div>
+                <div class="statement-text-main">
+                    <p>I don’t just create content, I create 
+                    <span class="highlight">visual stories</span> that people can actually 
+                    <span class="highlight">feel</span>. With my background in 
+                    <span class="highlight">fashion design</span>, I naturally pay attention to details, styling, and 
+                    <span class="highlight">aesthetics</span>, which shapes everything I do.</p>
+                    <br>
+                    <p>I’m not interested in just following trends, I focus on creating content that feels 
+                    <span class="highlight">intentional</span> and has a 
+                    <span class="highlight">real impact</span>.</p>
+                    <br>
+                    <p>I don’t see myself as just a content creator, but also as an 
+                    <span class="highlight">artist</span> and that’s what makes my work 
+                    <span class="highlight">authentic</span>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-grid niche-section" id="work">
+            <span class="section-label">My Niche</span>
+            <div class="niche-grid">
+                <div class="video-container">
+                    <span class="video-tag">Fashion</span>
+                    <video muted loop playsinline preload="none" style="width:100%; height:100%; object-fit:cover;"><source data-src="images/3.webm" type="video/webm"></video>
+                    <div class="sound-hint">Tap for Sound</div>
+                </div>
+                <div class="video-container">
+                    <span class="video-tag">Styling</span>
+                    <video muted loop playsinline preload="none" style="width:100%; height:100%; object-fit:cover;"><source data-src="images/4.webm" type="video/webm"></video>
+                    <div class="sound-hint">Tap for Sound</div>
+                </div>
+                <div class="video-container">
+                    <span class="video-tag">Lifestyle</span>
+                    <video muted loop playsinline preload="none" style="width:100%; height:100%; object-fit:cover;"><source data-src="images/2.webm" type="video/webm"></video>
+                    <div class="sound-hint">Tap for Sound</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-grid">
+            <span class="section-label">Brand Collaborations</span>
+            <div class="brand-collaboration-wrapper">
+                <div class="scroll-arrow arrow-left" onclick="scrollSection(-1, 'brandStrip')">←</div>
+                <div class="scroll-arrow arrow-right" onclick="scrollSection(1, 'brandStrip')">→</div>
+                
+                <div class="brand-strip" id="brandStrip">
+                    <div class="brand-item">
+                        <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/5.webm" type="video/webm"></video><div class="sound-hint">Tap for Sound</div></div>
+                        <span class="brand-name">airup</span>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/6.webm" type="video/webm"></video><div class="sound-hint">Tap for Sound</div></div>
+                        <span class="brand-name">Raboesy</span>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/7.webm" type="video/webm"></video><div class="sound-hint">Tap for Sound</div></div>
+                        <span class="brand-name">VIVAIA</span>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/8.webm" type="video/webm"></video><div class="sound-hint">Tap for Sound</div></div>
+                        <span class="brand-name">Ditsy Bits</span>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/20.mp4" type="video/mp4"></video><div class="sound-hint">Tap for Sound</div></div>
+                        <span class="brand-name">JW PEI</span>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/10.webm" type="video/webm"></video><div class="sound-hint">Tap for Sound</div></div>
+                        <span class="brand-name">Pierced</span>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/21.mp4" type="video/mp4"></video><div class="sound-hint">Tap for Sound</div></div>
+                        <span class="brand-name">BYROKKO</span>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/13.webm" type="video/webm"></video><div class="sound-hint">Tap for Sound</div></div>
+                        <span class="brand-name">natural vibes</span>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/15.webm" type="video/webm"></video><div class="sound-hint">Tap for Sound</div></div>
+                        <span class="brand-name">Lar.Jewelry</span>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/16.mp4" type="video/mp4"></video><div class="sound-hint">Tap for Sound</div></div>
+                        <span class="brand-name">Helen Steele</span>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/22.mp4" type="video/mp4"></video><div class="sound-hint">Tap for Sound</div></div>
+                        <span class="brand-name">Maia Mina</span>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/18.webm" type="video/webm"></video><div class="sound-hint">Tap for Sound</div></div>
+                        <span class="brand-name">Berlook</span>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/19.webm" type="video/webm"></video><div class="sound-hint">Tap for Sound</div></div>
+                        <span class="brand-name">Samiol</span>
+                    </div>
+                    <div class="brand-item">
+                        <div class="brand-video-box"><video loop playsinline muted preload="none"><source data-src="images/9.webm" type="video/webm"></video><div class="sound-hint">Tap for Sound</div></div>
+                        <span class="brand-name">Teelab</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-grid" style="padding-top: 0;">
+            <span class="section-label">Creative Styling</span>
+            <div class="brand-collaboration-wrapper">
+                <div class="scroll-arrow arrow-left" onclick="scrollSection(-1, 'stylingStrip')">←</div>
+                <div class="scroll-arrow arrow-right" onclick="scrollSection(1, 'stylingStrip')">→</div>
+                
+                <div class="brand-strip" id="stylingStrip">
+                    <div class="brand-item"><img src="images/42.webp" class="styling-img" loading="lazy"></div>
+                    <div class="brand-item"><img src="images/43.jpeg" class="styling-img" loading="lazy"></div>
+                    <div class="brand-item"><img src="images/44.webp" class="styling-img" loading="lazy"></div>
+                    <div class="brand-item"><img src="images/45.jpeg" class="styling-img" loading="lazy"></div>
+                    <div class="brand-item"><img src="images/46.jpeg" class="styling-img" loading="lazy"></div>
+                    <div class="brand-item"><img src="images/49.jpeg" class="styling-img" loading="lazy"></div>
+                    <div class="brand-item"><img src="images/50.jpeg" class="styling-img" loading="lazy"></div>
+                    <div class="brand-item"><img src="images/52.jpeg" class="styling-img" loading="lazy"></div>
+                    <div class="brand-item"><img src="images/53.jpeg" class="styling-img" loading="lazy"></div>
+                    <div class="brand-item"><img src="images/59.jpeg" class="styling-img" loading="lazy"></div>
+                    <div class="brand-item"><img src="images/61.jpeg" class="styling-img" loading="lazy"></div>
+                    <div class="brand-item"><img src="images/62.jpeg" class="styling-img" loading="lazy"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero-video-container" id="who-is-section">
+            <div class="video-wrapper">
+                <video id="ughroxx-video" muted loop playsinline preload="none">
+                    <source data-src="images/70.webm" type="video/webm">
+                </video>
+                <div class="overlay-title">WHO IS <br>UGHROXX?</div>
+                <div class="sound-hint">Tap for Sound</div>
+            </div>
+        </section>
+
+        <section class="performance-section" id="performance">
+            <div class="performance-grid">
+                <div><span class="section-label" style="text-align: left; margin-bottom: 20px;">Insights</span></div>
+                <div class="perf-stats">
+                    <div class="perf-stat-item"><span class="stat-number">25K+</span><span class="stat-label">Total Followers</span></div>
+                    <div class="perf-stat-item"><span class="stat-number">5.3M</span><span class="stat-label">Impressions</span></div>
+                    <div class="perf-stat-item"><span class="stat-number">91%</span><span class="stat-label">Female Audience</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bio-section">
+            <div class="bio-layout">
+                <div style="position: absolute; top: 5%; right: 2%; font-family: var(--font-serif); font-size: 18vw; color: rgba(0, 47, 167, 0.05); font-weight: 900; pointer-events: none; white-space: nowrap; line-height: 1;">DESIGNER</div>
+                <div class="profile-image-block">
+                    <div style="position: relative; display: inline-block; width: 100%;">
+                        <div style="position: absolute; top: 20px; left: -20px; width: 100%; height: 100%; background: var(--klein-blue); z-index: -1;"></div>
+                        <img src="images/75.jpeg" alt="UGHROXX Profile" style="width: 100%; height: 85vh; object-fit: contain; display: block; filter: contrast(1.02); background: #eee;">
+                    </div>
+                </div>
+                <div class="profile-content-block">
+                    <span style="text-transform: uppercase; letter-spacing: 5px; font-size: 0.7rem; color: var(--accent-color); display: block; margin-bottom: 25px; font-weight: 600;">— The Creative Lead</span>
+                    <h2 style="font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 0.9; margin-bottom: 35px; text-transform: uppercase; letter-spacing: -2px;">Overview</h2>
+                    <div style="width: 60px; height: 2px; background: var(--klein-blue); margin-bottom: 35px;"></div>
+                    <p style="font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.8; margin-bottom: 50px; font-weight: 300;">Based globally, I specialise in high-end styling and digital storytelling. With a background in fashion design, I create visually strong, engaging content that feels authentic.</p>
+                    <div class="contact-links">
+                        <div class="contact-item">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-color);">Contact</span></div>
+                            <a href="mailto:ughroxx@gmail.com" style="font-family: var(--font-serif); font-size: clamp(1rem, 2.5vw, 1.4rem); color: var(--text-color); text-decoration: none; border-bottom: 1px solid var(--klein-blue);">ughroxx@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg><span style="font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-color);">Social</span></div>
+                            <a href="https://www.instagram.com/ughroxx" target="_blank" style="font-family: var(--font-serif); font-size: clamp(1rem, 2.5vw, 1.4rem); color: var(--text-color); text-decoration: none; border-bottom: 1px solid var(--klein-blue);">@ughroxx</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <span style="font-family: var(--font-serif); font-weight: 700; font-size: 1.5rem; letter-spacing: -1px;">UGHROXX</span>
+                <p style="font-size: 0.7rem; letter-spacing: 3px; color: var(--accent-color); text-transform: uppercase;">&copy; 2026 Studio Portfolio</p>
+                <a href="#hero-section" style="text-decoration: none; color: var(--text-color); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Back to top ↑</a>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const video = entry.target;
+                const source = video.querySelector('source');
+                if (entry.isIntersecting) {
+                    if (source && source.dataset.src) {
+                        source.src = source.dataset.src;
+                        source.removeAttribute('data-src');
+                        video.load(); 
+                    }
+                    video.play().catch(() => {});
+                    video.style.opacity = "1";
+                } else {
+                    video.pause();
+                    video.muted = true; 
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('video').forEach(v => videoObserver.observe(v));
+
+        const setupInteractions = () => {
+            const containers = document.querySelectorAll('.video-container, .brand-item, .video-wrapper');
+
+            containers.forEach(container => {
+                const video = container.querySelector('video');
+                const hint = container.querySelector('.sound-hint');
+                if (!video) return;
+
+                // Desktop Hover
+                container.addEventListener('mouseenter', () => {
+                    if (window.matchMedia("(hover: hover)").matches) {
+                        video.muted = false;
+                    }
+                });
+                container.addEventListener('mouseleave', () => {
+                    if (window.matchMedia("(hover: hover)").matches) {
+                        video.muted = true;
+                    }
+                });
+
+                // Mobile Tap Toggle
+                container.addEventListener('click', () => {
+                    if (window.matchMedia("(hover: none)").matches) {
+                        video.muted = !video.muted;
+                        if (hint) {
+                            hint.innerText = video.muted ? "Tap for Sound" : "Audio On";
+                            hint.style.background = video.muted ? "rgba(0, 47, 167, 0.8)" : "rgba(0, 0, 0, 0.8)";
+                        }
+                    }
+                });
+            });
+        };
+
+        function scrollSection(direction, id) {
+            const strip = document.getElementById(id);
+            strip.scrollBy({ left: direction * (strip.clientWidth * 0.8), behavior: 'smooth' });
+        }
+
+        setupInteractions();
+    </script>
+</body>
+</html>
