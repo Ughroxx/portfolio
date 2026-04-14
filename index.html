@@ -341,6 +341,7 @@
             align-items: center; 
             position: relative; 
             min-height: 90vh;
+            padding: 60px 0;
         }
 
         .profile-image-block {
@@ -350,9 +351,45 @@
             z-index: 2;
         }
 
+        .profile-img-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .profile-img-accent {
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            background: var(--klein-blue);
+            z-index: -1;
+        }
+
+        .profile-image-block img {
+            width: 100%;
+            height: auto; 
+            display: block;
+            /* This ensures the image covers the area instead of sitting inside it */
+            object-fit: cover; 
+            background: #eee;
+            filter: contrast(1.02);
+        }
+
+        .profile-img-accent {
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            background: var(--klein-blue);
+            z-index: -1;
+        }
+
         .profile-content-block {
             width: 45%; 
-            padding: 100px 80px; 
+            padding: 80px; 
             background: white; 
             margin-left: -150px; 
             z-index: 3; 
@@ -380,6 +417,13 @@
             color: var(--text-color);
         }
 
+        @media (max-width: 1024px) {
+            .profile-content-block {
+                padding: 40px;
+                margin-left: -100px; /* Reduced overlap for tablets */
+            }
+        }
+
         @media (max-width: 768px) {
             .hero-video-container { padding: 90px 0 0; }
             .statement-grid { grid-template-columns: 1fr; }
@@ -391,6 +435,52 @@
             .profile-content-block { width: 90%; margin: -40px auto 0; padding: 40px 30px; }
             .footer-content { flex-direction: column; gap: 20px; }
         }
+
+        /* Laptop-style overlap for mobile */
+        .bio-layout {
+        flex-direction: column;
+        padding-top: 50px;
+        min-height: auto;
+    }
+
+    .profile-image-block {
+        width: 80%; /* Shrink width slightly so blue bar is visible */
+        margin: 0 auto;
+        padding-left: 0;
+    }
+
+    /* Remove the grey box and the height constraint */
+    .profile-image-block img {
+        height: auto !important; /* Allow image to be its natural height */
+        max-height: none !important;
+        background: transparent !important; /* Deletes the grey background */
+        filter: contrast(1.02);
+        width: 100%;
+        display: block;
+    }
+
+    /* Force the blue bar to stick to the image height */
+    .profile-image-block div[style*="background: var(--klein-blue)"] {
+        height: 100% !important;
+        top: 15px !important;
+        left: -15px !important;
+    }
+
+    .profile-content-block {
+        width: 90% !important;
+        margin: -60px auto 0 !important; /* Pulls text box UP over the image */
+        padding: 40px 25px !important;
+        position: relative;
+        z-index: 10;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+        .contact-links {
+            flex-direction: column; /* Stack links for better touch targets on small screens */
+            gap: 30px;
+        }
+        
+        .footer-content { flex-direction: column; gap: 20px; }
     </style>
 </head>
 <body>
