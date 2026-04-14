@@ -327,8 +327,9 @@
             font-weight: 600;
         }
 
+        /* --- UPDATED BIO LAYOUT FOR LAPTOP --- */
         .bio-section {
-            padding: 140px 0; 
+            padding: 140px 5%; 
             border-top: 1px solid var(--border-color); 
             background: #f9f9f9; 
             overflow: hidden; 
@@ -340,13 +341,11 @@
             display: flex; 
             align-items: center; 
             position: relative; 
-            min-height: 90vh;
-            padding: 60px 0;
+            min-height: 80vh;
         }
 
         .profile-image-block {
-            width: 60%; 
-            padding-left: 5%; 
+            width: 45%; 
             position: relative; 
             z-index: 2;
         }
@@ -371,30 +370,19 @@
             width: 100%;
             height: auto; 
             display: block;
-            /* This ensures the image covers the area instead of sitting inside it */
             object-fit: cover; 
             background: #eee;
             filter: contrast(1.02);
         }
 
-        .profile-img-accent {
-            position: absolute;
-            top: 20px;
-            left: -20px;
-            width: 100%;
-            height: 100%;
-            background: var(--klein-blue);
-            z-index: -1;
-        }
-
         .profile-content-block {
-            width: 45%; 
+            width: 50%; 
             padding: 80px; 
             background: white; 
-            margin-left: -150px; 
+            margin-left: -50px; /* Slight overlap on laptop for style */
             z-index: 3; 
-            box-shadow: 40px 40px 80px rgba(0,0,0,0.08); 
-            border-left: 1px solid var(--border-color);
+            box-shadow: 40px 40px 80px rgba(0,0,0,0.05); 
+            border: 1px solid var(--border-color);
         }
 
         .contact-links {
@@ -402,8 +390,9 @@
             gap: 60px;
         }
 
+        /* --- UPDATED LINEAR FOOTER --- */
         .site-footer {
-            padding: 80px 5%; 
+            padding: 60px 5%; 
             background: #fff; 
             border-top: 1px solid var(--border-color);
         }
@@ -417,70 +406,44 @@
             color: var(--text-color);
         }
 
-        @media (max-width: 1024px) {
-            .profile-content-block {
-                padding: 40px;
-                margin-left: -100px; /* Reduced overlap for tablets */
-            }
-        }
-
+        /* --- MOBILE OVERRIDES: LEAVING YOUR ORIGINAL MOBILE STYLE --- */
         @media (max-width: 768px) {
             .hero-video-container { padding: 90px 0 0; }
             .statement-grid { grid-template-columns: 1fr; }
-            .scroll-arrow { width: 40px; height: 40px; top: 40%; }
-            .arrow-left { left: 5px; }
-            .arrow-right { right: 5px; }
-            .brand-item { flex: 0 0 85%; }
+            .niche-grid { grid-template-columns: 1fr; }
             .performance-grid { grid-template-columns: 1fr; }
-            .profile-content-block { width: 90%; margin: -40px auto 0; padding: 40px 30px; }
-            .footer-content { flex-direction: column; gap: 20px; }
+            
+            .bio-layout {
+                flex-direction: column;
+                padding-top: 50px;
+                min-height: auto;
+            }
+
+            .profile-image-block {
+                width: 80%; 
+                margin: 0 auto;
+            }
+
+            .profile-content-block {
+                width: 90% !important;
+                margin: -60px auto 0 !important; /* Stacked overlap for mobile */
+                padding: 40px 25px !important;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            }
+
+            .contact-links {
+                flex-direction: column; 
+                gap: 30px;
+            }
+            
+            /* Keeping footer linear even on mobile but adjusting for space */
+            .footer-content { 
+                flex-wrap: wrap; 
+                gap: 15px; 
+                justify-content: center; 
+                text-align: center;
+            }
         }
-
-        /* Laptop-style overlap for mobile */
-        .bio-layout {
-        flex-direction: column;
-        padding-top: 50px;
-        min-height: auto;
-    }
-
-    .profile-image-block {
-        width: 80%; /* Shrink width slightly so blue bar is visible */
-        margin: 0 auto;
-        padding-left: 0;
-    }
-
-    /* Remove the grey box and the height constraint */
-    .profile-image-block img {
-        height: auto !important; /* Allow image to be its natural height */
-        max-height: none !important;
-        background: transparent !important; /* Deletes the grey background */
-        filter: contrast(1.02);
-        width: 100%;
-        display: block;
-    }
-
-    /* Force the blue bar to stick to the image height */
-    .profile-image-block div[style*="background: var(--klein-blue)"] {
-        height: 100% !important;
-        top: 15px !important;
-        left: -15px !important;
-    }
-
-    .profile-content-block {
-        width: 90% !important;
-        margin: -60px auto 0 !important; /* Pulls text box UP over the image */
-        padding: 40px 25px !important;
-        position: relative;
-        z-index: 10;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
-
-        .contact-links {
-            flex-direction: column; /* Stack links for better touch targets on small screens */
-            gap: 30px;
-        }
-        
-        .footer-content { flex-direction: column; gap: 20px; }
     </style>
 </head>
 <body>
@@ -656,11 +619,11 @@
 
         <section class="bio-section">
             <div class="bio-layout">
-                <div style="position: absolute; top: 5%; right: 2%; font-family: var(--font-serif); font-size: 18vw; color: rgba(0, 47, 167, 0.05); font-weight: 900; pointer-events: none; white-space: nowrap; line-height: 1;">DESIGNER</div>
+                <div style="position: absolute; top: 5%; right: 2%; font-family: var(--font-serif); font-size: 12vw; color: rgba(0, 47, 167, 0.05); font-weight: 900; pointer-events: none; white-space: nowrap; line-height: 1;">DESIGNER</div>
                 <div class="profile-image-block">
-                    <div style="position: relative; display: inline-block; width: 100%;">
-                        <div style="position: absolute; top: 20px; left: -20px; width: 100%; height: 100%; background: var(--klein-blue); z-index: -1;"></div>
-                        <img src="images/75.jpeg" alt="UGHROXX Profile" style="width: 100%; height: 85vh; object-fit: contain; display: block; filter: contrast(1.02); background: #eee;">
+                    <div class="profile-img-container">
+                        <div class="profile-img-accent"></div>
+                        <img src="images/75.jpeg" alt="UGHROXX Profile">
                     </div>
                 </div>
                 <div class="profile-content-block">
@@ -685,13 +648,21 @@
         <footer class="site-footer">
             <div class="footer-content">
                 <span style="font-family: var(--font-serif); font-weight: 700; font-size: 1.5rem; letter-spacing: -1px;">UGHROXX</span>
-                <p style="font-size: 0.7rem; letter-spacing: 3px; color: var(--accent-color); text-transform: uppercase;">&copy; 2026 Studio Portfolio</p>
+                <p style="font-size: 0.7rem; letter-spacing: 3px; color: var(--accent-color); text-transform: uppercase; margin: 0 !important;">&copy; 2026 Studio Portfolio</p>
                 <a href="#hero-section" style="text-decoration: none; color: var(--text-color); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Back to top ↑</a>
             </div>
         </footer>
     </main>
 
     <script>
+        // Horizontal scroll logic
+        function scrollSection(direction, id) {
+            const container = document.getElementById(id);
+            const scrollAmount = container.clientWidth * 0.8;
+            container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+
+        // Video Intersection Observer
         const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 const video = entry.target;
@@ -713,45 +684,21 @@
 
         document.querySelectorAll('video').forEach(v => videoObserver.observe(v));
 
-        const setupInteractions = () => {
-            const containers = document.querySelectorAll('.video-container, .brand-item, .video-wrapper');
+        // Video Sound Interaction logic
+        document.querySelectorAll('.video-container, .brand-item, .video-wrapper').forEach(container => {
+            const video = container.querySelector('video');
+            if (!video) return;
 
-            containers.forEach(container => {
-                const video = container.querySelector('video');
-                const hint = container.querySelector('.sound-hint');
-                if (!video) return;
-
-                // Desktop Hover
-                container.addEventListener('mouseenter', () => {
-                    if (window.matchMedia("(hover: hover)").matches) {
-                        video.muted = false;
-                    }
-                });
-                container.addEventListener('mouseleave', () => {
-                    if (window.matchMedia("(hover: hover)").matches) {
-                        video.muted = true;
-                    }
-                });
-
-                // Mobile Tap Toggle
-                container.addEventListener('click', () => {
-                    if (window.matchMedia("(hover: none)").matches) {
-                        video.muted = !video.muted;
-                        if (hint) {
-                            hint.innerText = video.muted ? "Tap for Sound" : "Audio On";
-                            hint.style.background = video.muted ? "rgba(0, 47, 167, 0.8)" : "rgba(0, 0, 0, 0.8)";
-                        }
-                    }
-                });
+            container.addEventListener('mouseenter', () => {
+                if (window.matchMedia("(hover: hover)").matches) { video.muted = false; }
             });
-        };
-
-        function scrollSection(direction, id) {
-            const strip = document.getElementById(id);
-            strip.scrollBy({ left: direction * (strip.clientWidth * 0.8), behavior: 'smooth' });
-        }
-
-        setupInteractions();
+            container.addEventListener('mouseleave', () => {
+                if (window.matchMedia("(hover: hover)").matches) { video.muted = true; }
+            });
+            container.addEventListener('click', () => {
+                video.muted = !video.muted;
+            });
+        });
     </script>
 </body>
 </html>
