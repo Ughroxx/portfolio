@@ -718,21 +718,22 @@
                 gap: 15px;
             }
 
-            /* Larger E-commerce slider on mobile */
+            /* Larger E-commerce slider on mobile with full image visible (contain) */
             .slider-container {
-                height: 85vh;
-                min-height: 520px;
+                height: 78vh;
+                min-height: 480px;
             }
 
             .slider-image-wrapper {
                 width: 100%;
                 height: 100%;
+                padding: 10px;
             }
 
             .slider-image-wrapper img {
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
+                object-fit: contain;
             }
 
             .slider-nav-btn {
@@ -915,7 +916,7 @@
                 >
                     <div class="portfolio-image">
                         <img
-                            src="images/commercial/1-comm.avif"
+                            src="images/1-comm.avif"
                             alt="Commercial fashion campaign"
                             loading="lazy"
                         >
@@ -1101,6 +1102,7 @@
                 title: 'E-Commerce',
                 type: 'slider',
                 images: [
+                    'images/e-commerce/1-ecom.jpg',
                     'images/e-commerce/2-ecom.jpg',
                     'images/e-commerce/3-ecom.jpg',
                     'images/e-commerce/4-ecom.jpg',
@@ -1117,6 +1119,7 @@
                 title: 'Commercial',
                 type: 'grid',
                 images: [
+                    'images/1-comm.avif',
                     'images/commercial/2-comm.jpg',
                     'images/commercial/3-comm.jpg',
                     'images/commercial/4-comm.jpg',
